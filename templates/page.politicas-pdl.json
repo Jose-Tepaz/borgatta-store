@@ -1,0 +1,64 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "rich_text_wMiXdy": {
+      "type": "rich-text",
+      "settings": {
+        "text_width": "narrow",
+        "title": "Términos y condiciones Suscripciones y Programa de Lealtad Borgatta",
+        "content": "",
+        "button_text": "",
+        "button_link": "shopify://collections/all"
+      }
+    },
+    "politicas_faqs_borgatta_wW7eiV": {
+      "type": "politicas-faqs-borgatta",
+      "blocks": {
+        "policy_y3KTrJ": {
+          "type": "policy",
+          "settings": {
+            "policy_content": "{{ page.content }}"
+          }
+        },
+        "faq_GbBHE6": {
+          "type": "faq",
+          "settings": {
+            "question": "¿Cuantos puntos puedo redimir?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at mi arcu. Nam mollis efficitur nisi, id hendrerit felis auctor in. Morbi tincidunt mauris eu urna accumsan, sed euismod tellus auctor.</p>"
+          }
+        },
+        "faq_FT8pMe": {
+          "type": "faq",
+          "settings": {
+            "question": "¿Cuantos puntos puedo redimir?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at mi arcu. Nam mollis efficitur nisi, id hendrerit felis auctor in. Morbi tincidunt mauris eu urna accumsan, sed euismod tellus auctor.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "policy_y3KTrJ",
+        "faq_GbBHE6",
+        "faq_FT8pMe"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_wMiXdy",
+    "politicas_faqs_borgatta_wW7eiV"
+  ]
+}

@@ -1,0 +1,22 @@
+{% form 'create_customer' %}<br>
+<div id="cf-app-customer-fields">
+  <!-- Fields will be dynamically included here. -->
+</div>
+
+<script src="https://cdn.apps.bonify.io/customer_fields/public/live/CustomerFieldsApp-min.js"></script>
+<br><script>
+  if (typeof CustomerFieldsApp !== 'undefined') {
+    CustomerFieldsApp.initFields("#cf-app-customer-fields", {
+      base_url: "https://apps.bonify.io/",
+      styles_url: "https://cdn.apps.bonify.io/customer_fields/public/live/cf-app-form.css",
+      site_id: "{{ shop.metafields.cf_app.internal_site_id }}",
+      shop_domain: "{{ shop.permanent_domain }}",
+      {% if customer %}
+      customer_id: "{{ customer.id }}",
+      customer_token: "{{ customer.metafields.cf_app.api_token }}",
+      {% endif %}
+    });
+  }
+</script>
+
+{% endform %}

@@ -1,0 +1,98 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "card_list_wr7cDD": {
+      "type": "card-list",
+      "blocks": {
+        "kit_card_NNYtiT": {
+          "type": "kit_card",
+          "settings": {
+            "image": "shopify://shop_images/BIO_20SPLINT_20R2400_72DPIS.jpg",
+            "video": "",
+            "tag_text": "",
+            "card_title": "Introducción al flujo digital",
+            "card_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
+            "button_label": "Quiero este curso",
+            "card_url": "https://share.hsforms.com/19SJ5x3QvTAONnTyxSiiMcwcvb4l",
+            "full_card_link": true
+          }
+        },
+        "kit_card_8q48VF": {
+          "type": "kit_card",
+          "disabled": true,
+          "settings": {
+            "video": "",
+            "tag_text": "",
+            "card_title": "Kit Ideal Odontología Digital 3D",
+            "card_description": "Incluye: Escáner intraoral, Impresora 3D, Equipo Wash & Cure y Resina de modelos.",
+            "button_label": "Quiero este kit",
+            "card_url": "",
+            "full_card_link": true
+          }
+        },
+        "kit_card_BJ3bY3": {
+          "type": "kit_card",
+          "disabled": true,
+          "settings": {
+            "video": "",
+            "tag_text": "",
+            "card_title": "Kit Premium Wireless",
+            "card_description": "Incluye: Escáner intraoral wireless, Impresora 3D y accesorios.",
+            "button_label": "Quiero este kit",
+            "card_url": "",
+            "full_card_link": true
+          }
+        },
+        "kit_card_xyjgmB": {
+          "type": "kit_card",
+          "disabled": true,
+          "settings": {
+            "video": "",
+            "tag_text": "Fresado en seco",
+            "card_title": "Kit B500 - Fresadora Semi-industrial",
+            "card_description": "Incluye: Fresadora B500, Horno de sinterización, Horno de Porcelana y 3 Discos.",
+            "button_label": "Quiero este kit",
+            "card_url": "",
+            "full_card_link": true
+          }
+        }
+      },
+      "block_order": [
+        "kit_card_NNYtiT",
+        "kit_card_8q48VF",
+        "kit_card_BJ3bY3",
+        "kit_card_xyjgmB"
+      ],
+      "name": "Kits Grid",
+      "settings": {
+        "section_title": "Cursos",
+        "title_color": "#111111",
+        "columns_desktop": "2",
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "card_background": "#ffffff",
+        "card_border_radius": 16,
+        "heading_color": "#111111",
+        "description_color": "#555555",
+        "button_color": "#111111"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "card_list_wr7cDD"
+  ]
+}

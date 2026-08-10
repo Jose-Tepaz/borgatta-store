@@ -1,0 +1,95 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "page_section_bundles_8K4Epn": {
+      "type": "page-section-bundles",
+      "settings": {
+        "custom_image": "{{ page.metafields.custom.imagen_principal.value }}",
+        "custom_video": "{{ page.metafields.custom.video.value }}",
+        "video_cover": "{{ page.metafields.custom.video_cover.value }}",
+        "custom_text": "<p>{{ page.metafields.custom.descripcion | metafield_tag }}</p>"
+      }
+    },
+    "rich_text_NcDx9a": {
+      "type": "rich-text",
+      "disabled": true,
+      "custom_css": [
+        "{max-width: 750px; margin: auto;}"
+      ],
+      "settings": {
+        "text_width": "wide",
+        "title": "{{ page.title }}",
+        "content": "<p>Este Back to School, queremos asegurarnos de que tengas todo lo necesario mientras ahorras. Nuestros bundles especialmente diseñados incluyen una selección de instrumentos, materiales y equipos de alta calidad.</p>",
+        "button_text": "",
+        "button_link": "shopify://collections/all"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "custom_css": [
+        ".container--narrow {max-width: 1200px;}",
+        "h1,header {display: none;}",
+        ".bndlr-container {padding-top: 0px;}"
+      ],
+      "settings": {}
+    },
+    "custom_liquid_UqJTHB": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "title": "",
+        "include_margins": true,
+        "liquid": "<style>\n\n\n\n\n</style>"
+      }
+    },
+    "17180429447e185ca8": {
+      "type": "apps",
+      "blocks": {
+        "bundler_custom_bundle_zwYTKB": {
+          "type": "shopify://apps/bundler/blocks/custom-bundle/7a6ae1b8-3b16-449b-8429-8bb89a62c664",
+          "settings": {
+            "shortcode": "aanq"
+          }
+        }
+      },
+      "block_order": [
+        "bundler_custom_bundle_zwYTKB"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".bndlr-product {}"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "custom_liquid_hPQwEd": {
+      "type": "custom-liquid",
+      "custom_css": [
+        "{width: 100%; max-width: 1200px; margin:auto;}"
+      ],
+      "settings": {
+        "title": "",
+        "include_margins": true,
+        "liquid": "<div>\n<p class=\"terminos-text\">Términos y condiciones:\n<br>\nPromoción válida del 26 de agosto al 6 de septiembre de 2024. La compra de los paquetes Odontostudent, Odontoarranque, Odontopediatría, Alineadores, Ortoprácticas, Ortocuidado, Ortoavanzado y Ortocomienzo tienen un 10% de descuento en cada uno de sus artículos. Si los artículos se compran de manera individual, tendrán el precio público sin descuento. Borgatta se reserva el derecho de escoger el color de acuerdo al inventario y demanda en los siguientes artículos: campos, cubrebocas, vasos, eyectores, barreras plásticas, set de protección y cajas de elásticos croma. El Kit Alineadores puede incluir un Kit de Stripping con Maneral en lugar de Manual, de acuerdo a inventario. Promoción válida hasta agotar existencias. No se aceptan cambios o devoluciones.\n</p>\n</div>\n<style>\n.terminos-text {\nfont-size: 20px;\ncolor: #111314;\nopacity: 50%;\nline-height: 27px;\n\n\n}\n\n</style>"
+      }
+    }
+  },
+  "order": [
+    "page_section_bundles_8K4Epn",
+    "rich_text_NcDx9a",
+    "main",
+    "custom_liquid_UqJTHB",
+    "17180429447e185ca8",
+    "custom_liquid_hPQwEd"
+  ]
+}

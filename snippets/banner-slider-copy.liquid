@@ -1,0 +1,29 @@
+{% comment %}
+  Banner Slider Copy — JT Studio
+  Snippet: snippets/banner-slider-copy.liquid
+  Renders the text overlay (tag, title, button) for a slide.
+{% endcomment %}
+
+{% if slide.settings.tag != blank or slide.settings.title != blank or slide.settings.button_label != blank %}
+  <div class="jts-bs__copy">
+    {% if slide.settings.tag != blank %}
+      <p class="jts-bs__tag">{{ slide.settings.tag }}</p>
+    {% endif %}
+
+    {% if slide.settings.title != blank %}
+      <{{ slide.settings.heading_tag | default: 'h2' }} class="jts-bs__title">
+        {{ slide.settings.title }}
+      </{{ slide.settings.heading_tag | default: 'h2' }}>
+    {% endif %}
+
+    {% if slide.settings.button_label != blank %}
+      <a
+        class="jts-bs__btn{% if slide.settings.button_style == 'filled' %} jts-bs__btn--filled{% endif %}"
+        href="{{ slide.settings.button_url | default: '#' }}"
+        {% if slide.settings.button_new_tab %}target="_blank" rel="noopener"{% endif %}
+      >
+        {{ slide.settings.button_label }}
+      </a>
+    {% endif %}
+  </div>
+{% endif %}

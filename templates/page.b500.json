@@ -1,0 +1,134 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "section_discounts_description_8LFUnx": {
+      "type": "section-discounts-description",
+      "blocks": {
+        "feature_PLiRfq": {
+          "type": "feature",
+          "disabled": true,
+          "settings": {
+            "feature_text": "1 Taller de protocolo escaneo e impresión 3D."
+          }
+        },
+        "feature_UkrF6D": {
+          "type": "feature",
+          "disabled": true,
+          "settings": {
+            "feature_text": "Protocolo 3D inicial."
+          }
+        },
+        "feature_tVChfA": {
+          "type": "feature",
+          "disabled": true,
+          "settings": {
+            "feature_text": "Incluye instalación."
+          }
+        }
+      },
+      "block_order": [
+        "feature_PLiRfq",
+        "feature_UkrF6D",
+        "feature_tVChfA"
+      ],
+      "name": "Tarjeta de Descuentos",
+      "settings": {
+        "heading": "KIT B500 – FRESADORA SEMI-INDUSTRIAL (FRESADO EN SECO)",
+        "description": "Aprovecha nuestras promociones exclusivas en la línea Odontología Digital y lleva tu consulta al siguiente nivel.",
+        "price_text": "<p>Desde <strong> $993,083.13 MXN</strong> (IVA incluido) con 7<strong>% de descuento</strong> en pago de contado.</p>",
+        "features_title": "Te incluye",
+        "background_color": "#fbfbfd",
+        "heading_color": "#161c1f",
+        "text_color": "#626262",
+        "card_background": "#ffffff",
+        "highlight_color": "#0066cc",
+        "icon_background": "#e6f4ea",
+        "icon_color": "#34a853",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "17599654407c4b179a": {
+      "type": "apps",
+      "blocks": {
+        "bundler_custom_bundle_pnWhMx": {
+          "type": "shopify://apps/bundler/blocks/custom-bundle/7a6ae1b8-3b16-449b-8429-8bb89a62c664",
+          "settings": {
+            "shortcode": "gelj"
+          }
+        }
+      },
+      "block_order": [
+        "bundler_custom_bundle_pnWhMx"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "restriccion_promociones_Wgbyaq": {
+      "type": "restriccion-promociones",
+      "blocks": {
+        "restriction_fxM4CM": {
+          "type": "restriction",
+          "settings": {
+            "restriction_text": "Promoción no retroactiva"
+          }
+        },
+        "restriction_3RgtCh": {
+          "type": "restriction",
+          "settings": {
+            "restriction_text": "Hasta agotar existencias"
+          }
+        },
+        "restriction_bfmryi": {
+          "type": "restriction",
+          "settings": {
+            "restriction_text": "No aplica descuentos adicionales"
+          }
+        },
+        "restriction_pC4iCb": {
+          "type": "restriction",
+          "settings": {
+            "restriction_text": "No aplica paquetería"
+          }
+        }
+      },
+      "block_order": [
+        "restriction_fxM4CM",
+        "restriction_3RgtCh",
+        "restriction_bfmryi",
+        "restriction_pC4iCb"
+      ],
+      "name": "Restricciones",
+      "settings": {
+        "title": "Restricciones",
+        "title_size": 32,
+        "title_alignment": "left",
+        "text_size": 18,
+        "text_alignment": "left",
+        "background_color": "#fbfbfd",
+        "title_color": "#161c1f",
+        "text_color": "#626262"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "section_discounts_description_8LFUnx",
+    "17599654407c4b179a",
+    "restriccion_promociones_Wgbyaq"
+  ]
+}

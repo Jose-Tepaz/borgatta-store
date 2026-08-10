@@ -1,0 +1,148 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "section_discounts_description_gXpVWV": {
+      "type": "section-discounts-description",
+      "blocks": {
+        "feature_WHkDLA": {
+          "type": "feature",
+          "disabled": true,
+          "settings": {
+            "feature_text": "1 Taller de protocolo escaneo e impresión 3D."
+          }
+        },
+        "feature_PKh369": {
+          "type": "feature",
+          "disabled": true,
+          "settings": {
+            "feature_text": "Protocolo 3D inicial."
+          }
+        },
+        "feature_8VNYLA": {
+          "type": "feature",
+          "disabled": true,
+          "settings": {
+            "feature_text": "Incluye instalación."
+          }
+        }
+      },
+      "block_order": [
+        "feature_WHkDLA",
+        "feature_PKh369",
+        "feature_8VNYLA"
+      ],
+      "name": "Tarjeta de Descuentos",
+      "settings": {
+        "heading": "Descuentos en Kit desktop + scaner L6",
+        "description": "Aprovecha nuestras promociones exclusivas en la línea Odontología Digital y lleva tu consulta al siguiente nivel.",
+        "price_text": "<p>Desde <strong>$170,062 MXN</strong> (IVA incluido) con <strong>5% de descuento</strong> en pago de contado.</p>",
+        "features_title": "",
+        "background_color": "#ffffff",
+        "heading_color": "#1a1a1a",
+        "text_color": "#666666",
+        "card_background": "#ffffff",
+        "highlight_color": "#0066cc",
+        "icon_background": "#e6f4ea",
+        "icon_color": "#34a853",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "175998002390caeea9": {
+      "type": "apps",
+      "blocks": {
+        "bundler_custom_bundle_tFpB7V": {
+          "type": "shopify://apps/bundler/blocks/custom-bundle/7a6ae1b8-3b16-449b-8429-8bb89a62c664",
+          "settings": {
+            "shortcode": "f0wo"
+          }
+        }
+      },
+      "block_order": [
+        "bundler_custom_bundle_tFpB7V"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "restriccion_promociones_mmaGzt": {
+      "type": "restriccion-promociones",
+      "blocks": {
+        "restriction_7RhH46": {
+          "type": "restriction",
+          "settings": {
+            "restriction_text": "Promoción no retroactiva"
+          }
+        },
+        "restriction_CLknmC": {
+          "type": "restriction",
+          "settings": {
+            "restriction_text": "Hasta agotar existencias"
+          }
+        },
+        "restriction_qqGWDX": {
+          "type": "restriction",
+          "settings": {
+            "restriction_text": "No se aceptan devoluciones."
+          }
+        },
+        "restriction_6Qpnhc": {
+          "type": "restriction",
+          "settings": {
+            "restriction_text": "No aplica descuentos adicionales"
+          }
+        },
+        "restriction_a7KFCq": {
+          "type": "restriction",
+          "settings": {
+            "restriction_text": "No aplica paquetería"
+          }
+        },
+        "restriction_hrzNnA": {
+          "type": "restriction",
+          "settings": {
+            "restriction_text": "No aplica meses diferidos."
+          }
+        }
+      },
+      "block_order": [
+        "restriction_7RhH46",
+        "restriction_CLknmC",
+        "restriction_qqGWDX",
+        "restriction_6Qpnhc",
+        "restriction_a7KFCq",
+        "restriction_hrzNnA"
+      ],
+      "name": "Restricciones",
+      "settings": {
+        "title": "Restricciones",
+        "title_size": 32,
+        "title_alignment": "left",
+        "text_size": 16,
+        "text_alignment": "left",
+        "background_color": "#ffffff",
+        "title_color": "#000000",
+        "text_color": "#666666"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "section_discounts_description_gXpVWV",
+    "175998002390caeea9",
+    "restriccion_promociones_mmaGzt"
+  ]
+}

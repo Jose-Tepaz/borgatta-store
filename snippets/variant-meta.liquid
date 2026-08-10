@@ -1,0 +1,34 @@
+{% style %}
+  .custome-tags{
+        margin-bottom: 16px;
+  }
+{% endstyle %}
+
+
+{% comment %}
+  Formato de cada item: namespace,key,label
+  Separador entre items: ;
+{% endcomment %}
+{% assign meta_fields = 'Arcada,Arcada,Arcada;Calibre,Calibre,Calibre;Cantidad,Cantidad,Cantidad;conGancho,ConGancho,Con gancho;Convertibilidad,Convertibilidad,Convertibilidad;Modelo,Modelo,Modelo;Posicion,Posicion,Posicion;Refaccion,Refaccion,Refacción;Size,Size,Tamaño;piezas,piezas,Piezas;tipo,Tipo,Tipo' | split: ';' %}
+
+<div class="custome-tags">
+
+  {% unless v.metafields.VariantName.variantname == blank %}
+    <strong class="text-variant">{{ v.metafields.VariantName.variantname }}</strong>
+  {% endunless %}
+
+  <div class="wrapper-btn-meta">
+  
+    {% for field in meta_fields %}
+      {% assign parts = field | split: ',' %}
+      {% assign namespace = parts[0] %}
+      {% assign key = parts[1] %}
+      {% assign label = parts[2] %}
+      {% assign value = v.metafields[namespace][key] %}
+
+      {% unless value == blank %}
+        <div class="meta-variant">{{ label }}: <strong>{{ value }}</strong></div>
+      {% endunless %}
+    {% endfor %}
+  </div>
+</div>

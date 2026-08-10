@@ -1,0 +1,155 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "7ac5e313-8a78-4ec9-8af9-0ecb42987088": {
+      "type": "slideshow",
+      "blocks": {
+        "image_JbGxnw": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Portada_-_Productos_Nuevos_1.webp",
+            "show_overlay": false,
+            "overlay_opacity": 30,
+            "text_color": "#ffffff",
+            "title": "",
+            "content": "",
+            "content_position": "middle_center",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "button_text": "",
+            "link": "shopify://collections/productos-nuevos"
+          }
+        },
+        "image_8LfygL": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Portada_-_Outlet_1400x_8c5ae0fd-07b1-4f7d-a406-9dbf7e9cb08a.webp",
+            "show_overlay": false,
+            "overlay_opacity": 30,
+            "text_color": "#ffffff",
+            "title": "",
+            "content": "",
+            "content_position": "middle_center",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "button_text": "",
+            "link": "/collections/outlet"
+          }
+        }
+      },
+      "block_order": [
+        "image_JbGxnw",
+        "image_8LfygL"
+      ],
+      "custom_css": [
+        "@media only screen and (max-width: 600px) {section {margin-top: 16px; width: 95%; margin-left: auto; margin-right: auto; }}"
+      ],
+      "settings": {
+        "edge_to_edge": false,
+        "section_size": "preserve_ratio",
+        "carousel_effect": "fade",
+        "autoplay": true,
+        "cycle_speed": 5
+      }
+    },
+    "1632499467448c53e5": {
+      "type": "promotion-list",
+      "blocks": {
+        "1632499467448c53e5-2": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/90-016-06_20C2400px72DPIS.jpg",
+            "show_overlay": true,
+            "overlay_opacity": 73,
+            "stretch_image": true,
+            "background": "#101618",
+            "text_color": "#ffffff",
+            "title": "Nueva línea Borgatta Black",
+            "content": "Conoce nuestros productos premium",
+            "content_position": "top_left",
+            "button_background": "#426fcd",
+            "button_text_color": "#fbfbfd",
+            "button_text": "Ver productos",
+            "button_link": "shopify://collections/black"
+          }
+        }
+      },
+      "block_order": [
+        "1632499467448c53e5-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "expand_items": true,
+        "section_size": "small",
+        "stack_mobile": true
+      }
+    },
+    "0eab875c-abd7-4470-bd5f-fd329ed7237e": {
+      "type": "custom-liquid",
+      "custom_css": [],
+      "settings": {
+        "title": "",
+        "include_margins": true,
+        "liquid": "{% if customer and customer.tags contains 'VIP' %}\n\n{%else%}\n<div class=\"pop-up-notvip\">Para ver esta colección tienes que ser un miebro VIP</div>\n{%endif%}\n\n<style>\n.pop-up-notvip{\nposition:fixed;\ntop:0px;\nleft:0;\nwidth:100%;\nheight:100vh;\nbackground:#00000066;\nbackdrop-filter: blur(35px);\nz-index:4;\ncolor:#fff;\ndisplay:flex;\nalign-items:center;\njustify-content:center;\n}\n</style>"
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "show_collection_image": false,
+        "collapse_collection_description": false,
+        "collection_image_size": "small",
+        "products_per_row": "4",
+        "default_products_per_page": 24,
+        "default_view_layout": "grid",
+        "show_quick_buy": "list",
+        "show_quick_view": "list",
+        "quick_links": "",
+        "quick_links_show_products_count": false,
+        "show_filters": true,
+        "show_filter_color_swatch": true,
+        "open_group_filters_mode": "all_closed"
+      }
+    },
+    "recently-viewed-products": {
+      "type": "recently-viewed-products",
+      "disabled": true,
+      "settings": {
+        "title": "Visto recientemente",
+        "show_quick_buy": false
+      }
+    },
+    "3160d225-8992-41ab-8406-77a34d1d1ccd": {
+      "type": "custom-liquid",
+      "settings": {
+        "title": "",
+        "include_margins": false,
+        "liquid": "{%- render 'btn-wathsapp'-%}"
+      }
+    },
+    "027dfe0c-33e4-45fd-b626-4c9148d502e8": {
+      "type": "recently-viewed-products",
+      "settings": {
+        "title": "Visto recientemente",
+        "show_quick_buy": true
+      }
+    }
+  },
+  "order": [
+    "7ac5e313-8a78-4ec9-8af9-0ecb42987088",
+    "1632499467448c53e5",
+    "0eab875c-abd7-4470-bd5f-fd329ed7237e",
+    "main",
+    "recently-viewed-products",
+    "3160d225-8992-41ab-8406-77a34d1d1ccd",
+    "027dfe0c-33e4-45fd-b626-4c9148d502e8"
+  ]
+}

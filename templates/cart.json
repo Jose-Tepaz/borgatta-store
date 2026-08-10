@@ -1,0 +1,83 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-cart",
+      "settings": {
+        "enable_order_notes": true,
+        "show_payment_icons": true,
+        "gift_wrap_product": "",
+        "gift_wrap_text": "Do you want a gift wrap?",
+        "gift_wrap_button": "Add a gift wrap",
+        "show_shipping_estimator": true,
+        "shipping_estimator_default_country": "United States",
+        "trust_heading": "Our guarantees",
+        "upsell_heading": "Complete your cart",
+        "upsell_collection": "",
+        "upsell_products_count": 4
+      }
+    },
+    "1741967034ec46a810": {
+      "type": "apps",
+      "blocks": {
+        "joy_loyalty_program_customer_account_J4mfzV": {
+          "type": "shopify://apps/joy-loyalty-program/blocks/customer-account/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
+          "settings": {
+            "joy-customer-account-available-point": "Available points:",
+            "joy-customer-account-expiration-point": "Expired on:",
+            "joy-customer-account-pending-point": "Pending points:",
+            "joy-customer-account-coupon-list": "My coupons",
+            "joy-customer-account-earn-point-list": "Points history",
+            "joy-customer-account-coupon-code": "Coupon code",
+            "joy-customer-account-discount-value": "Discount value",
+            "joy-customer-account-discount-program": "Discount program",
+            "joy-customer-account-action": "Action",
+            "joy-customer-account-view-reward": "Apply",
+            "joy-customer-account-empty-message": "No data found",
+            "joy-customer-account-bg-color": "#ffffff",
+            "joy-customer-account-primary-text-color": "#000000",
+            "joy-customer-account-secondary-text-color": "#707070",
+            "joy-customer-account-button-text-color": "#000000",
+            "joy-customer-account-divider-color": "#dedede"
+          }
+        }
+      },
+      "block_order": [
+        "joy_loyalty_program_customer_account_J4mfzV"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "recently-viewed-products": {
+      "type": "recently-viewed-products",
+      "settings": {
+        "title": "Visto recientemente",
+        "show_quick_buy": false
+      }
+    },
+    "a6cd93b7-2430-47a1-8529-e6b29bc82798": {
+      "type": "custom-liquid",
+      "settings": {
+        "title": "",
+        "include_margins": true,
+        "liquid": "{%- render 'btn-wathsapp'-%}"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1741967034ec46a810",
+    "recently-viewed-products",
+    "a6cd93b7-2430-47a1-8529-e6b29bc82798"
+  ]
+}

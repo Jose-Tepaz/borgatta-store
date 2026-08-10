@@ -1,0 +1,363 @@
+{%- comment -%}
+  ODONTOGRAMA — SELECTOR DE PIEZA
+  ─────────────────────────────────────────────────────────────────────────────
+  Requiere: `option`, `option_name`, `product`.
+
+  ⚠️⚠️ DOS CONTRATOS CON theme.js QUE NO SE PUEDEN ROMPER ⚠️⚠️
+
+  ProductVariants._updateSelectors() hace, por cada valor de opción:
+
+      selector.querySelector('.block-swatch:nth-child(' + (valueIndex+1) + ')')
+              .classList.toggle('block-swatch--disabled', !available)
+
+  De ahí salen dos reglas inviolables:
+
+  (A) LOS 28 .block-swatch DEBEN SER HERMANOS DIRECTOS, sin contenedores
+      intermedios. `:nth-child` cuenta respecto al padre del elemento: si los
+      agrupas en divs de 5, `:nth-child(6)` devuelve null y revienta.
+
+  (B) SU ORDEN EN EL DOM DEBE SER EL DE option.values (el orden de Admin),
+      porque valueIndex indexa ese array. NO el orden anatómico.
+
+  Si cualquiera de las dos falla, _updateSelectors lanza excepción, el
+  constructor muere antes de llegar a _attachListeners(), y se cae de golpe el
+  cambio de variante Y el AJAX del carrito (el form se envía nativo y el
+  navegador aterriza en /cart).
+
+  → El layout anatómico se logra con CSS Grid: cada celda lleva --r y --c y se
+    coloca sola. El DOM va en orden de variantes, la vista en orden de boca.
+
+  ── ESTADOS ──────────────────────────────────────────────────────────────────
+    ok   → hay variante con stock            → .block-swatch normal
+    out  → hay variante sin stock            → .block-swatch, SELECCIONABLE
+    na   → no hay variante para esa posición → placeholder SIN clase
+                                               block-swatch, renderizado
+                                               DESPUÉS de los 28 (no debe
+                                               alterar el conteo nth-child)
+
+  Nunca `disabled` en un input, y el `checked` se respeta aunque esté agotada:
+  si ningún input queda marcado, el picker también revienta.
+{%- endcomment -%}
+
+{%- capture option_key -%}option{{ option.position }}{%- endcapture -%}
+
+{%- comment -%}
+  ── MAPA CANÓNICO ────────────────────────────────────────────────────────────
+  Unión de todas las posiciones del catálogo. Filas ";" · grupos "|" · piezas ","
+{%- endcomment -%}
+{%- assign ODO_MAP = '17,16|15,14,13,12,11|21,22,23,24,25|26,27;47,46|45,44,43,42,41|31,32,33,34,35|36,37' -%}
+
+{%- comment -%}
+  odo_compact = true → omite los placeholders "na". Las columnas se recorren
+  según el producto. false → el cuadro completo siempre, huecos punteados.
+{%- endcomment -%}
+{%- assign odo_compact = false -%}
+
+{%- if odo_compact -%}
+  {%- comment -%}
+    Filtra el mapa dejando solo las piezas que este producto vende, conservando
+    el orden y descartando grupos que queden vacíos. Se hace ANTES de construir
+    LOOKUP y la plantilla de pistas, para que las columnas se recorran de verdad
+    en lugar de dejar huecos en blanco.
+
+    Nota: si un producto cubre posiciones asimétricas entre arcadas (p. ej. 5
+    piezas arriba y 3 abajo), los grupos de las dos filas tendrán tamaños
+    distintos y las columnas no van a alinearse verticalmente. Es inherente al
+    modo compacto.
+  {%- endcomment -%}
+  {%- assign src_rows = ODO_MAP | split: ';' -%}
+  {%- assign filtered_map = '' -%}
+  {%- for src_row in src_rows -%}
+    {%- assign row_out = '' -%}
+    {%- assign src_groups = src_row | strip | split: '|' -%}
+    {%- for src_group in src_groups -%}
+      {%- assign group_out = '' -%}
+      {%- assign src_teeth = src_group | split: ',' -%}
+      {%- for raw_t in src_teeth -%}
+        {%- assign t = raw_t | strip -%}
+        {%- if option.values contains t -%}
+          {%- if group_out != '' -%}{%- assign group_out = group_out | append: ',' -%}{%- endif -%}
+          {%- assign group_out = group_out | append: t -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- if group_out != '' -%}
+        {%- if row_out != '' -%}{%- assign row_out = row_out | append: '|' -%}{%- endif -%}
+        {%- assign row_out = row_out | append: group_out -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- if forloop.first -%}
+      {%- assign filtered_map = row_out -%}
+    {%- else -%}
+      {%- assign filtered_map = filtered_map | append: ';' | append: row_out -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- assign ODO_MAP = filtered_map -%}
+{%- endif -%}
+
+{%- assign map_rows = ODO_MAP | split: ';' -%}
+
+{%- comment -%}
+  ── TABLA DE POSICIONES ──────────────────────────────────────────────────────
+  Se construye una vez: #pieza=fila:columna:tono:borde#
+  La columna cuenta una pista extra entre grupos (el gutter del grid).
+{%- endcomment -%}
+{%- assign LOOKUP = '' -%}
+{%- for row in map_rows -%}
+  {%- assign r = forloop.index -%}
+  {%- assign groups = row | strip | split: '|' -%}
+  {%- assign c = 0 -%}
+  {%- for group in groups -%}
+    {%- if forloop.first or forloop.last -%}
+      {%- assign tone = 'molar' -%}
+    {%- else -%}
+      {%- assign tone = 'plain' -%}
+    {%- endif -%}
+    {%- unless forloop.first -%}
+      {%- assign c = c | plus: 1 -%}{%- comment -%} pista de separación {%- endcomment -%}
+    {%- endunless -%}
+    {%- assign gteeth = group | split: ',' -%}
+    {%- for gt in gteeth -%}
+      {%- assign t = gt | strip -%}
+      {%- assign c = c | plus: 1 -%}
+      {%- if gteeth.size == 1 -%}
+        {%- assign edge = 'both' -%}
+      {%- elsif forloop.first -%}
+        {%- assign edge = 'start' -%}
+      {%- elsif forloop.last -%}
+        {%- assign edge = 'end' -%}
+      {%- else -%}
+        {%- assign edge = 'mid' -%}
+      {%- endif -%}
+      {%- assign LOOKUP = LOOKUP | append: '#' | append: t | append: '=' | append: r | append: ':' | append: c | append: ':' | append: tone | append: ':' | append: edge -%}
+    {%- endfor -%}
+  {%- endfor -%}
+{%- endfor -%}
+{%- assign LOOKUP = LOOKUP | append: '#' -%}
+
+{%- comment -%}
+  ── PLANTILLA DE PISTAS ──────────────────────────────────────────────────────
+  repeat(2,cell) gap repeat(5,cell) gap … tomada de la primera fila.
+  Ambas arcadas comparten plantilla, así las columnas quedan alineadas.
+{%- endcomment -%}
+{%- comment -%} Se toma la fila más ancha: en compacto las arcadas pueden diferir {%- endcomment -%}
+{%- assign widest_row = '' -%}
+{%- assign total_cols = 0 -%}
+{%- for row in map_rows -%}
+  {%- assign row_cols = row | strip | replace: '|', ',' | split: ',' | size -%}
+  {%- if row_cols > total_cols -%}
+    {%- assign total_cols = row_cols -%}
+    {%- assign widest_row = row | strip -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- assign track_template = '' -%}
+{%- assign widest_groups = widest_row | split: '|' -%}
+{%- for g in widest_groups -%}
+  {%- assign gn = g | split: ',' | size -%}
+  {%- unless forloop.first -%}
+    {%- assign track_template = track_template | append: ' var(--gap-group) ' -%}
+  {%- endunless -%}
+  {%- assign track_template = track_template | append: 'repeat(' | append: gn | append: ', var(--cell))' -%}
+{%- endfor -%}
+
+{%- comment -%} ── Aviso de variantes fuera del mapa (solo editor) ── {%- endcomment -%}
+{%- if request.design_mode -%}
+  {%- assign orphan_values = '' -%}
+  {%- for value in option.values -%}
+    {%- assign clean_value = value | strip -%}
+    {%- assign probe = '#' | append: clean_value | append: '=' -%}
+    {%- unless LOOKUP contains probe -%}
+      {%- assign orphan_values = orphan_values | append: clean_value | append: ' ' -%}
+    {%- endunless -%}
+  {%- endfor -%}
+  {%- if orphan_values != blank -%}
+    <p class="odo__warning">
+      Estas variantes no están en el mapa y no se renderizan —
+      <strong>{{ orphan_values | strip }}</strong>. Agrégalas a ODO_MAP o elimina
+      las variantes. Mientras existan, theme.js va a fallar al indexarlas.
+    </p>
+  {%- endif -%}
+{%- endif -%}
+
+<div class="odo" style="--cols: {{ total_cols }}">
+  <div class="odo__scroll">
+
+    {%- comment -%}
+      block-swatch-list + data-option-position: ganchos de theme.js y custom.js.
+      Es también el grid: los hijos se colocan por --r / --c.
+    {%- endcomment -%}
+    <div class="block-swatch-list odo__grid"
+         data-option-position="{{ option.position }}"
+         role="radiogroup"
+         aria-label="{{ option.name | escape }}"
+         style="grid-template-columns: {{ track_template }};">
+
+      {%- comment -%}
+        ══ BLOQUE 1: los .block-swatch, EN ORDEN DE option.values ══
+        No reordenar. El orden lo exige _updateSelectors (regla B arriba).
+      {%- endcomment -%}
+      {%- for value in option.values -%}
+        {%- assign tooth = value | strip -%}
+        {%- assign v = product.variants | where: option_key, tooth | first -%}
+
+        {%- assign seek = '#' | append: tooth | append: '=' -%}
+        {%- assign chunk = LOOKUP | split: seek -%}
+        {%- if chunk.size > 1 -%}
+          {%- assign coords = chunk[1] | split: '#' | first | split: ':' -%}
+          {%- assign t_row  = coords[0] -%}
+          {%- assign t_col  = coords[1] -%}
+          {%- assign t_tone = coords[2] -%}
+          {%- assign t_edge = coords[3] -%}
+        {%- else -%}
+          {%- comment -%} Fuera del mapa: se coloca al final para no romper nada {%- endcomment -%}
+          {%- assign t_row = 1 -%}{%- assign t_col = 99 -%}
+          {%- assign t_tone = 'plain' -%}{%- assign t_edge = 'both' -%}
+        {%- endif -%}
+
+        {%- if v and v.available -%}
+          {%- assign state = 'ok' -%}
+        {%- else -%}
+          {%- assign state = 'out' -%}
+        {%- endif -%}
+
+        {%- comment -%} Silueta desde el número FDI: q=cuadrante, p=posición {%- endcomment -%}
+        {%- assign q = tooth | slice: 0, 1 | plus: 0 -%}
+        {%- assign p = tooth | slice: 1, 1 | plus: 0 -%}
+        {%- if p <= 2 -%}
+          {%- assign shape = 't-incisor' -%}
+        {%- elsif p == 3 -%}
+          {%- assign shape = 't-canine' -%}
+        {%- elsif p <= 5 and q <= 4 -%}
+          {%- assign shape = 't-premolar' -%}
+        {%- else -%}
+          {%- assign shape = 't-molar' -%}
+        {%- endif -%}
+
+        {%- assign icon_url = v.metafields.custom.icono_de_variante.value -%}
+        {%- capture swatch_id -%}{{ option_name }}-{{ tooth }}{%- endcapture -%}
+
+        <div class="block-swatch tooth"
+             data-state="{{ state }}"
+             data-tone="{{ t_tone }}"
+             data-edge="{{ t_edge }}"
+             data-row="{{ t_row }}"
+             style="--r: {{ t_row }}; --c: {{ t_col }};">
+          <input class="block-swatch__radio product-form__single-selector"
+                 type="radio"
+                 id="{{ swatch_id }}"
+                 name="{{ option_name }}"
+                 value="{{ tooth | escape }}"
+                 data-option-position="{{ option.position }}"
+                 data-variant-id="{{ v.id }}"
+                 {% if option.selected_value == tooth %}checked{% endif %}>
+          <label class="block-swatch__item tooth__label"
+                 for="{{ swatch_id }}"
+                 title="Pieza {{ tooth }}{% if state == 'out' %} · agotada{% endif %}">
+            <span class="block-swatch__item-text tooth__num">{{ tooth }}</span>
+            {%- if icon_url != blank -%}
+              <img class="tooth__icon" src="{{ icon_url }}" alt="" loading="lazy">
+            {%- else -%}
+              <svg class="tooth__icon" viewBox="0 0 100 110" aria-hidden="true"><use href="#{{ shape }}"/></svg>
+            {%- endif -%}
+            {%- if state == 'out' -%}<span class="odo__sr">Agotada</span>{%- endif -%}
+          </label>
+        </div>
+      {%- endfor -%}
+
+      {%- comment -%}
+        ══ BLOQUE 2: placeholders "na", SIEMPRE DESPUÉS ══
+        Van al final para no desplazar el conteo :nth-child de los anteriores,
+        y sin clases block-swatch* para que custom.js no los recorra (lee
+        input.value de cada .block-swatch y aquí no hay input).
+      {%- endcomment -%}
+      {%- unless odo_compact -%}
+        {%- for row in map_rows -%}
+          {%- assign groups = row | strip | split: '|' -%}
+          {%- for group in groups -%}
+            {%- assign gteeth = group | split: ',' -%}
+            {%- for gt in gteeth -%}
+              {%- assign t = gt | strip -%}
+              {%- unless option.values contains t -%}
+                {%- assign seek = '#' | append: t | append: '=' -%}
+                {%- assign coords = LOOKUP | split: seek | last | split: '#' | first | split: ':' -%}
+                {%- assign q = t | slice: 0, 1 | plus: 0 -%}
+                {%- assign p = t | slice: 1, 1 | plus: 0 -%}
+                {%- if p <= 2 -%}
+                  {%- assign shape = 't-incisor' -%}
+                {%- elsif p == 3 -%}
+                  {%- assign shape = 't-canine' -%}
+                {%- elsif p <= 5 and q <= 4 -%}
+                  {%- assign shape = 't-premolar' -%}
+                {%- else -%}
+                  {%- assign shape = 't-molar' -%}
+                {%- endif -%}
+                <div class="tooth tooth--empty"
+                     data-state="na"
+                     data-tone="{{ coords[2] }}"
+                     data-edge="{{ coords[3] }}"
+                     data-row="{{ coords[0] }}"
+                     style="--r: {{ coords[0] }}; --c: {{ coords[1] }};">
+                  <span class="tooth__label" title="Pieza {{ t }} · no disponible para este producto">
+                    <span class="tooth__num">{{ t }}</span>
+                    <svg class="tooth__icon" viewBox="0 0 100 110" aria-hidden="true"><use href="#{{ shape }}"/></svg>
+                  </span>
+                </div>
+              {%- endunless -%}
+            {%- endfor -%}
+          {%- endfor -%}
+        {%- endfor -%}
+      {%- endunless -%}
+
+    </div>
+  </div>
+
+  <p class="odo__legend">
+    <span class="odo__key" data-state="out"></span> Agotada
+    <span class="odo__key" data-state="na"></span> No disponible para este producto
+  </p>
+</div>
+
+{%- comment -%}
+  ─────────────────────────────────────────────────────────────────────────────
+  SPRITE — una sola vez por página. Si el picker se renderiza dos veces
+  (quick-view, barra sticky), muévelo a un snippet aparte y llámalo desde la
+  sección, fuera del loop de opciones.
+{%- endcomment -%}
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="t-molar" viewBox="0 0 100 110">
+    <path d="M50 24c0-9 11-14 19-9 7 5 12 3 17 12 7 13 6 45-4 62-9 15-55 15-64 0C8 72 7 40 14 27c5-9 10-7 17-12 8-5 19 0 19 9Z"/>
+    <path d="M50 30v32M32 52h36" fill="none" stroke-linecap="round" stroke-width="5"/>
+  </symbol>
+  <symbol id="t-premolar" viewBox="0 0 100 110">
+    <path d="M50 16c17 0 31 16 31 39 0 26-14 42-31 42S19 81 19 55c0-23 14-39 31-39Z"/>
+  </symbol>
+  <symbol id="t-canine" viewBox="0 0 100 110">
+    <path d="M50 12c15 17 27 41 25 60-2 19-13 30-25 30s-23-11-25-30C23 53 35 29 50 12Z"/>
+  </symbol>
+  <symbol id="t-incisor" viewBox="0 0 100 110">
+    <path d="M34 16h32c5 27 4 60-4 78-6 13-18 13-24 0-8-18-9-51-4-78Z"/>
+  
+
+  </symbol>
+</svg>
+
+
+ 
+{%- comment -%}
+  ─────────────────────────────────────────────────────────────────────────────
+  PUENTE — YA NO DEBERÍA SER NECESARIO.
+  Con (A) y (B) respetadas, _attachListeners() corre y el tema sincroniza el
+  <select name="id"> por su cuenta. Quítalo del snippet.
+  Si por algo vuelve a hacer falta, está aquí como referencia:
+
+  <script>
+    document.addEventListener('change', (event) => {
+      const input = event.target.closest('.odo .product-form__single-selector');
+      if (!input?.dataset.variantId) return;
+      const select = input.closest('form[action^="/cart/add"]')?.querySelector('select[name="id"]');
+      if (!select || select.value === input.dataset.variantId) return;
+      select.value = input.dataset.variantId;
+      select.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+  </script>
+{%- endcomment -%}

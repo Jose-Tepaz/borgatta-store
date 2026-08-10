@@ -1,0 +1,291 @@
+/* ============================================================================
+   ODONTOGRAMA — selector de pieza
+   Cárgalo en la sección de producto:
+     {{ 'odontograma.css' | asset_url | stylesheet_tag }}
+
+   ARQUITECTURA: un solo grid. Los .block-swatch son hermanos directos en orden
+   de variantes (lo exige theme.js) y cada uno se coloca con --r / --c. El orden
+   visual lo decide el CSS, no el DOM.
+   ============================================================================ */
+
+.odo{
+  --cols: 14;                    /* lo escribe Liquid contando el mapa */
+  --cell-min: 50px;
+  --cell-max: 82px;
+  --cell: clamp(var(--cell-min), calc(88cqi / var(--cols)), var(--cell-max));
+
+  --gap-tooth: 3px;              /* entre piezas del mismo grupo */
+  --gap-group: 10px;             /* pista de separación entre grupos */
+  --gap-arch: 10px;              /* entre arcada superior e inferior */
+
+  --c-surface:   #EDF7FF;
+  --c-group-a:   #E3F1FC;
+  --c-group-b:   #95C5E5;
+  --c-outline:   #16324f;
+  --c-accent:    #0f62d6;
+  --c-accent-cyan: #1796EB;
+  --c-accent-so: #cadfff;
+  --c-text:      #16324f;
+  --c-text-mut:  #5b7089;
+  --c-muted:     #8496ab;
+  --c-ghost:     #a9b8c9;
+
+  --r-tile: 5px;
+  --r-group: 13px;
+
+  container-type: inline-size;
+  color: var(--c-text);
+}
+
+/* ── Scroll horizontal: solo cuando ya no cabe ── */
+.odo__scroll{
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  padding-bottom: 6px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ── El grid. grid-template-columns lo inyecta Liquid con las pistas de
+      separación entre grupos: repeat(2,cell) gap repeat(5,cell) gap … ── */
+.odo__grid{
+  display: grid;
+  column-gap: var(--gap-tooth);
+  row-gap: var(--gap-arch);
+  /*width: max-content;*/
+  margin-inline: auto;           /* centrado cuando cabe; scroll cuando no */
+  padding-top:16px;
+}
+
+/* ── Celda ── */
+.odo .tooth{
+  grid-row: var(--r);
+  grid-column: var(--c);
+  position: relative;
+  display: flex;
+  margin: 0;
+  border: 2.5px solid transparent;
+  border-radius: var(--r-tile);
+  transition: background-color .12s ease, border-color .12s ease;
+}
+
+/* Fondo de grupo: el color va en la celda, no en un contenedor.
+   Los bordes redondeados de los extremos dibujan el recuadro. */
+.odo .tooth[data-tone="plain"]{ background: var(--c-group-a); }
+.odo .tooth[data-tone="molar"]{ background: var(--c-group-b); }
+
+.odo .tooth[data-edge="start"],
+.odo .tooth[data-edge="both"]{
+  border-top-left-radius: var(--r-group);
+  border-bottom-left-radius: var(--r-group);
+}
+.odo .tooth[data-edge="end"],
+.odo .tooth[data-edge="both"]{
+  border-top-right-radius: var(--r-group);
+  border-bottom-right-radius: var(--r-group);
+}
+
+/* El label es el contenido y el ÚNICO objetivo de clic */
+.odo .tooth__label{
+  display: flex;
+  flex-direction: column;        /* número arriba: arcada superior */
+  align-items: center;
+  justify-content: space-between;
+  gap: 2px;
+  width: 100%;
+  margin: 0;
+  padding: 5px 2px;
+  cursor: pointer;
+}
+.odo .tooth[data-row="2"] .tooth__label{ flex-direction: column-reverse; }
+
+/* CRÍTICO: el contenido no captura clics. El handler delegado del tema revienta
+   si event.target es un SVGUseElement — los SVG no recorren el árbol como HTML. */
+.odo .tooth__label > *{ pointer-events: none; }
+
+/* CRÍTICO: el input no debe cubrir la celda. Si lo hace, intercepta el clic y
+   el handler del tema nunca lo ve: el radio se marca pero el <select name="id">
+   se queda con la variante vieja. */
+.odo .tooth .block-swatch__radio{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  margin: 0;
+  pointer-events: none;
+  clip-path: inset(50%);
+}
+
+.tooth__num{
+  font-size: clamp(9px, 1.6cqi, 12px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: .02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--c-text);
+  user-select: none;
+}
+.tooth__icon{
+  width: 80%;
+  height: auto;
+  aspect-ratio: 100 / 110;
+  display: block;
+  fill: var(--c-surface);
+  stroke: var(--c-outline);
+  stroke-width: 6;
+  stroke-linejoin: round;
+  transition: fill .12s ease, stroke .12s ease;
+}
+/* Si algún día usas siluetas anatómicas reales por pieza, QUITA esta regla */
+.odo .tooth[data-row="2"] .tooth__icon{ 
+ /* transform: rotate(180deg); */
+}
+
+/* El tema estiliza .block-swatch__item con borde, fondo y tamaños mínimos.
+   Se anulan para que mande el diseño del odontograma. */
+.odo .block-swatch__item{
+  border: 0;
+  background: none;
+  min-width: 0;
+  min-height: 0;
+  font: inherit;
+  text-align: center;
+}
+
+/* ── Disponible ── */
+.odo .tooth[data-state="ok"]:hover{ background: var(--c-surface); }
+.odo .tooth:has(.block-swatch__radio:focus-visible){
+  outline: 2px solid var(--c-accent);
+  outline-offset: 2px;
+}
+.odo .tooth:has(.block-swatch__radio:checked){
+  background: var(--c-surface);
+  border-color: var(--c-accent-cyan);
+  overflow: hidden;
+}
+
+.odo .tooth:has(.block-swatch__radio:checked) .tooth__num{ color: var(--c-accent); }
+.odo .tooth:has(.block-swatch__radio:checked) .tooth__icon{
+  fill: var(--c-accent-so);
+  stroke: var(--c-accent);
+}
+
+/* ── "out": hay variante sin stock. SÍ es seleccionable: el botón de agregar
+      informa que está agotada, igual que en cualquier producto.
+      .block-swatch--disabled la pone theme.js; se estiliza igual. ── */
+.odo .tooth[data-state="out"] .tooth__num,
+.odo .block-swatch--disabled .tooth__num{
+  color: var(--c-muted);
+  text-decoration: line-through;
+}
+.odo .tooth[data-state="out"] .tooth__icon,
+.odo .block-swatch--disabled .tooth__icon{
+  fill: #eef2f7;
+  stroke: var(--c-muted);
+}
+.odo .tooth[data-state="out"] .tooth__label::after{
+  content: "";
+  position: absolute;
+  inset: 22% 20%;
+  background: linear-gradient(to top right, transparent calc(50% - .8px),
+              var(--c-muted) calc(50% - .8px), var(--c-muted) calc(50% + .8px),
+              transparent calc(50% + .8px));
+}
+/* Agotada Y seleccionada: manda el acento, se conserva el tachado */
+.odo .tooth[data-state="out"]:has(.block-swatch__radio:checked) .tooth__num{ color: var(--c-accent); }
+.odo .tooth[data-state="out"]:has(.block-swatch__radio:checked) .tooth__icon{
+  fill: var(--c-accent-so);
+  stroke: var(--c-accent);
+}
+
+/* ── "na": no existe variante. Sin input, no interactivo. ── */
+.odo .tooth--empty .tooth__label{ cursor: default; }
+.odo .tooth--empty .tooth__num{ color: var(--c-ghost); }
+.odo .tooth--empty .tooth__icon{
+  fill: none;
+  stroke: var(--c-ghost);
+  stroke-dasharray: 7 7;
+  stroke-width: 5;
+}
+
+/* ── Leyenda y utilidades ── */
+.odo__legend{
+  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+  margin: 10px 0 0; font-size: 12px; color: var(--c-text-mut);
+}
+.odo__legend .odo__key:not(:first-child){ margin-left: 10px; }
+.odo__key{
+  width: 13px; height: 15px; border-radius: 3px; flex: none;
+  display: inline-block; vertical-align: -2px;
+}
+.odo__key[data-state="out"]{ background: #eef2f7; border: 1.5px solid var(--c-muted); }
+.odo__key[data-state="na"]{ border: 1.5px dashed var(--c-ghost); }
+
+.odo__sr{
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap;
+}
+
+/* Solo visible en el editor de temas */
+.odo__warning{
+  margin: 0 0 12px; padding: 8px 10px; border-radius: 8px;
+  background: #fef3c7; border: 1px solid #fcd34d;
+  font-size: 12px; line-height: 1.5; color: #78350f;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .odo .tooth, .tooth__icon{ transition: none; }
+
+
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+   .odo .tooth{
+  border-width: 2px;
+}
+}
+
+/* ============================================================================
+   DESCRIPCIÓN + FICHA TÉCNICA — layout de dos columnas
+   Descripción a la izquierda, ficha técnica a la derecha en desktop;
+   apiladas (descripción arriba) en mobile.
+   ============================================================================ */
+.product-desc-ficha{
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+@media (min-width: 750px){
+  .product-desc-ficha{
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .product-desc-ficha__col{
+    flex: 1 1 50%;
+    min-width: 0;
+  }
+}
+
+/* ============================================================================
+   TÍTULO DE PRODUCTO + REDES SOCIALES — misma fila en desktop
+   Título a la izquierda, íconos empujados a la derecha desde tablet en
+   adelante. En mobile los íconos ya se ocultan vía .hidden-phone.
+   ============================================================================ */
+.product-meta__title-row{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.product-meta__title-row .product-meta__title{
+  margin-bottom: 0;
+  flex: 1 1 auto;
+}
+
+.product-meta__share-buttons--title-row{
+  flex: 0 0 auto;
+  margin-left: auto;
+}

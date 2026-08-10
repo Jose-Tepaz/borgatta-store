@@ -1,0 +1,544 @@
+{% comment %}
+  Section: Banner Cuadrícula
+  Descripción: Grid de medios (imagen/video/gif) con texto y link opcionales
+  Archivo: sections/banner-cuadricula.liquid
+{% endcomment %}
+
+<style>
+  /* ─── Layout Global ─────────────────────────────────────── */
+  .banner-cuadricula {
+    width: 100%;
+  }
+
+  .banner-cuadricula .padding-global {
+    padding: 0 32px;
+  }
+
+  .banner-cuadricula .container-large {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ─── Grid Principal ────────────────────────────────────── */
+  .banner-cuadricula__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: {{ section.settings.gap }}px;
+    background: #C8C8C8;
+  }
+
+  /* ─── Celda: tamaño desktop ─────────────────────────────── */
+  /*
+    Modo aspect-ratio: la celda crece según proporción definida.
+    Modo fixed:        altura fija en px, aspect-ratio se anula.
+  */
+  {% if section.settings.size_mode_desktop == 'fixed' %}
+    .banner-cuadricula__cell {
+      position: relative;
+      overflow: hidden;
+      background-color: #111;
+      height: {{ section.settings.height_desktop }}px;
+      aspect-ratio: unset;
+    }
+  {% else %}
+    .banner-cuadricula__cell {
+      position: relative;
+      overflow: hidden;
+      background-color: #111;
+      aspect-ratio: {{ section.settings.aspect_ratio_desktop }};
+    }
+  {% endif %}
+
+  /* ─── Medios (img / video) ──────────────────────────────── */
+  .banner-cuadricula__media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .banner-cuadricula__cell:hover .banner-cuadricula__media {
+    transform: scale(1.04);
+  }
+
+  /* ─── Overlay oscuro (solo cuando hay texto) ────────────── */
+  .banner-cuadricula__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.65) 0%,
+      rgba(0, 0, 0, 0.15) 50%,
+      transparent 100%
+    );
+    pointer-events: none;
+  }
+
+  /* ─── Contenido del texto ───────────────────────────────── */
+  .banner-cuadricula__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 22px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .banner-cuadricula__label {
+    color: #ffffff;
+    font-family: var(--font-heading-family, inherit);
+    font-size: clamp(18px, 2vw, 26px);
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  /* ─── Botón flecha ──────────────────────────────────────── */
+  .banner-cuadricula__arrow {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #161C1F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.25s ease, transform 0.25s ease;
+  }
+
+  .banner-cuadricula__arrow svg {
+    width: 18px;
+    height: 18px;
+    color: #ffffff;
+    transition: color 0.25s ease, transform 0.25s ease;
+  }
+
+  .banner-cuadricula__cell:hover .banner-cuadricula__arrow {
+    background: #ffffff;
+  }
+
+  .banner-cuadricula__cell:hover .banner-cuadricula__arrow svg {
+    color: #000000;
+   
+  }
+
+  /* ─── Link wrapper ──────────────────────────────────────── */
+  .banner-cuadricula__link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    text-decoration: none;
+  }
+
+  /* ─── Responsive: tablet ────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .banner-cuadricula__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .banner-cuadricula .padding-global {
+      padding: 0 20px;
+    }
+  }
+
+  /* ─── Responsive: mobile — tamaño de celda ──────────────── */
+  @media (max-width: 640px) {
+    .banner-cuadricula__grid {
+      grid-template-columns: repeat({{ section.settings.mobile_columns }}, 1fr);
+      gap: {{ section.settings.gap_mobile }}px;
+    }
+
+    .banner-cuadricula .padding-global {
+      padding: 0 16px;
+    }
+
+    {% if section.settings.size_mode_mobile == 'fixed' %}
+      .banner-cuadricula__cell {
+        height: {{ section.settings.height_mobile }}px;
+        aspect-ratio: unset;
+      }
+    {% else %}
+      .banner-cuadricula__cell {
+        height: auto;
+        aspect-ratio: {{ section.settings.aspect_ratio_mobile }};
+      }
+    {% endif %}
+
+    .banner-cuadricula__label {
+      font-size: 16px;
+    }
+
+    .banner-cuadricula__content {
+      padding: 14px 14px;
+    }
+
+    .banner-cuadricula__arrow {
+      width: 34px;
+      height: 34px;
+    }
+
+    .banner-cuadricula__arrow svg {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  /* ─── Ancho completo (sin padding) ─────────────────────── */
+  .banner-cuadricula--full-width .padding-global {
+    padding: 0;
+  }
+
+  .banner-cuadricula--full-width .container-large {
+    max-width: 100%;
+  }
+</style>
+
+<div
+  class="banner-cuadricula{% if section.settings.full_width %} banner-cuadricula--full-width{% endif %}"
+  style="
+    {% if section.settings.padding_top > 0 %}padding-top: {{ section.settings.padding_top }}px;{% endif %}
+    {% if section.settings.padding_bottom > 0 %}padding-bottom: {{ section.settings.padding_bottom }}px;{% endif %}
+  "
+>
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="banner-cuadricula__component">
+        <div class="banner-cuadricula__grid">
+
+          {%- for block in section.blocks -%}
+            {%- assign has_text = false -%}
+            {%- assign has_link = false -%}
+            {%- if block.settings.label != blank -%}
+              {%- assign has_text = true -%}
+            {%- endif -%}
+            {%- if block.settings.link != blank -%}
+              {%- assign has_link = true -%}
+            {%- endif -%}
+
+            <div
+              class="banner-cuadricula__cell"
+              {{ block.shopify_attributes }}
+            >
+
+              {%- comment -%} ── Medio: imagen, video o gif ── {%- endcomment -%}
+              {%- if block.settings.media_type == 'video' -%}
+                {%- if block.settings.video != blank -%}
+                  {{
+                    block.settings.video
+                    | video_tag:
+                      class: 'banner-cuadricula__media',
+                      autoplay: true,
+                      loop: true,
+                      muted: true,
+                      playsinline: true,
+                      preload: 'metadata'
+                  }}
+                {%- elsif block.settings.video_url != blank -%}
+                  <video
+                    class="banner-cuadricula__media"
+                    autoplay
+                    loop
+                    muted
+                    playsinline
+                    preload="metadata"
+                    src="{{ block.settings.video_url }}"
+                  ></video>
+                {%- endif -%}
+              {%- else -%}
+                {%- comment -%} Imagen o gif {%- endcomment -%}
+                {%- if block.settings.image != blank -%}
+                  {{
+                    block.settings.image
+                    | image_url: width: 800
+                    | image_tag:
+                      class: 'banner-cuadricula__media',
+                      loading: 'lazy',
+                      widths: '400, 600, 800',
+                      sizes: '(max-width: 640px) 50vw, 25vw',
+                      alt: block.settings.label
+                  }}
+                {%- else -%}
+                  <div class="banner-cuadricula__media" style="background:#1a1a1a;"></div>
+                {%- endif -%}
+              {%- endif -%}
+
+              {%- comment -%} ── Overlay y texto (solo si hay label) ── {%- endcomment -%}
+              {%- if has_text -%}
+                <div class="banner-cuadricula__overlay" aria-hidden="true"></div>
+                <div class="banner-cuadricula__content">
+                  <p class="banner-cuadricula__label">{{ block.settings.label }}</p>
+                  {%- if has_link -%}
+                    <div class="banner-cuadricula__arrow" aria-hidden="true">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                      </svg>
+                    </div>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+
+              {%- comment -%} ── Link (cubre toda la celda) ── {%- endcomment -%}
+              {%- if has_link -%}
+                <a
+                  href="{{ block.settings.link }}"
+                  class="banner-cuadricula__link"
+                  {% if block.settings.open_new_tab %}target="_blank" rel="noopener"{% endif %}
+                  {% if has_text %}aria-label="{{ block.settings.label }}"{% endif %}
+                ></a>
+              {%- endif -%}
+
+            </div>
+          {%- endfor -%}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Banner Cuadrícula",
+  "tag": "section",
+  "class": "section-banner-cuadricula",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Ancho completo (sin padding)",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Tamaño de celdas — Desktop"
+    },
+    {
+      "type": "select",
+      "id": "size_mode_desktop",
+      "label": "Modo de tamaño (desktop)",
+      "options": [
+        { "value": "ratio", "label": "Proporción (aspect-ratio)" },
+        { "value": "fixed", "label": "Altura fija (px)" }
+      ],
+      "default": "ratio",
+      "info": "Elige si las celdas se definen por proporción o por una altura fija en píxeles"
+    },
+    {
+      "type": "select",
+      "id": "aspect_ratio_desktop",
+      "label": "Proporción desktop",
+      "options": [
+        { "value": "1 / 1",   "label": "Cuadrada (1:1)" },
+        { "value": "4 / 3",   "label": "Paisaje (4:3)" },
+        { "value": "3 / 4",   "label": "Retrato (3:4)" },
+        { "value": "16 / 9",  "label": "Widescreen (16:9)" },
+        { "value": "3 / 2",   "label": "Foto (3:2)" },
+        { "value": "2 / 3",   "label": "Foto vertical (2:3)" }
+      ],
+      "default": "1 / 1",
+      "info": "Solo aplica cuando el modo es 'Proporción'"
+    },
+    {
+      "type": "range",
+      "id": "height_desktop",
+      "label": "Altura fija desktop",
+      "min": 100,
+      "max": 800,
+      "step": 10,
+      "unit": "px",
+      "default": 400,
+      "info": "Solo aplica cuando el modo es 'Altura fija'"
+    },
+    {
+      "type": "header",
+      "content": "Tamaño de celdas — Mobile"
+    },
+    {
+      "type": "select",
+      "id": "size_mode_mobile",
+      "label": "Modo de tamaño (mobile)",
+      "options": [
+        { "value": "ratio", "label": "Proporción (aspect-ratio)" },
+        { "value": "fixed", "label": "Altura fija (px)" }
+      ],
+      "default": "ratio",
+      "info": "Puede ser distinto al desktop"
+    },
+    {
+      "type": "select",
+      "id": "aspect_ratio_mobile",
+      "label": "Proporción mobile",
+      "options": [
+        { "value": "1 / 1",   "label": "Cuadrada (1:1)" },
+        { "value": "4 / 3",   "label": "Paisaje (4:3)" },
+        { "value": "3 / 4",   "label": "Retrato (3:4)" },
+        { "value": "16 / 9",  "label": "Widescreen (16:9)" },
+        { "value": "3 / 2",   "label": "Foto (3:2)" },
+        { "value": "2 / 3",   "label": "Foto vertical (2:3)" }
+      ],
+      "default": "1 / 1",
+      "info": "Solo aplica cuando el modo mobile es 'Proporción'"
+    },
+    {
+      "type": "range",
+      "id": "height_mobile",
+      "label": "Altura fija mobile",
+      "min": 80,
+      "max": 600,
+      "step": 10,
+      "unit": "px",
+      "default": 240,
+      "info": "Solo aplica cuando el modo mobile es 'Altura fija'"
+    },
+    {
+      "type": "header",
+      "content": "Columnas y separación"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Separación entre celdas (desktop)",
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "gap_mobile",
+      "label": "Separación entre celdas (mobile)",
+      "min": 0,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 2
+    },
+    {
+      "type": "select",
+      "id": "mobile_columns",
+      "label": "Columnas en móvil",
+      "options": [
+        { "value": "1", "label": "1 columna" },
+        { "value": "2", "label": "2 columnas" }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "header",
+      "content": "Espaciado de sección"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding superior",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding inferior",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "celda",
+      "name": "Celda",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Tipo de medio"
+        },
+        {
+          "type": "select",
+          "id": "media_type",
+          "label": "Tipo",
+          "options": [
+            { "value": "image", "label": "Imagen / GIF" },
+            { "value": "video", "label": "Video" }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Imagen o GIF",
+          "info": "Recomendado: mínimo 800×800px"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video (desde Files de Shopify)"
+        },
+        {
+          "type": "url",
+          "id": "video_url",
+          "label": "URL de video externo",
+          "info": "URL directa a un archivo .mp4 o .webm. Opcional si usas 'Video' arriba."
+        },
+        {
+          "type": "header",
+          "content": "Texto y enlace"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Etiqueta / Texto",
+          "info": "Deja vacío para no mostrar texto ni overlay"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Enlace",
+          "info": "Deja vacío para deshabilitar el clic"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_new_tab",
+          "label": "Abrir en nueva pestaña",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner Cuadrícula",
+      "blocks": [
+        { "type": "celda" },
+        { "type": "celda", "settings": { "label": "Ofertas -13%" } },
+        { "type": "celda" },
+        { "type": "celda" },
+        { "type": "celda" },
+        { "type": "celda" },
+        { "type": "celda", "settings": { "label": "Kits OD" } },
+        { "type": "celda" }
+      ]
+    }
+  ],
+  "max_blocks": 20
+}
+{% endschema %}

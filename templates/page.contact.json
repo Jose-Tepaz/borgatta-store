@@ -1,0 +1,44 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "contact-form": {
+      "type": "contact-form",
+      "blocks": {
+        "a0b8be80-01a9-4c1f-82a2-e9d5c021e8e4": {
+          "type": "text",
+          "settings": {
+            "title": "Custom fieldasdf",
+            "use_long_text": false,
+            "is_required": false
+          }
+        }
+      },
+      "block_order": [
+        "a0b8be80-01a9-4c1f-82a2-e9d5c021e8e4"
+      ],
+      "settings": {
+        "form_heading": "asdfsd",
+        "show_store_info": false,
+        "store_heading": "Find us",
+        "store_info": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "contact-form"
+  ]
+}

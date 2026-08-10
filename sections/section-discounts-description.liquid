@@ -1,0 +1,394 @@
+{% comment %}
+  Sección: Tarjeta de Descuentos con Características
+  Ubicación: sections/discount-card-section.liquid
+{% endcomment %}
+
+<style>
+  /* Estructura global siguiendo las convenciones */
+  .padding-global {
+    padding: 0 32px;
+  }
+
+  .container-large {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .discount-section {
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.background_color }};
+  }
+
+  .discount-component {
+    margin: auto;
+    display: flex;
+    justify-content:center;
+    flex-direction:row;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .discount-content{
+max-width: 520px;
+width:100%;
+display:flex;
+flex-direction:column;
+gap:16;
+}
+
+
+
+  @media (max-width: 749px) {
+    .padding-global {
+      padding: 0 16px;
+    }
+
+    .discount-section {
+      padding: {{ section.settings.padding_top | divided_by: 1.5 }}px 0 {{ section.settings.padding_bottom | divided_by: 1.5 }}px;
+    }
+
+    .discount-content h2 {
+      font-size: 32px;
+    }
+
+    .discount-component {
+        flex-direction:column;
+      gap: 40px;
+    }
+  }
+
+  /* Estilos del contenido */
+  .discount-content h2 {
+    font-size: 40px;
+    line-height: 1.2;
+    margin: 0 0 20px;
+    color: {{ section.settings.heading_color }};
+    font-weight: 600;
+  }
+
+  .discount-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: {{ section.settings.text_color }};
+    margin: 0;
+  }
+
+  /* Tarjeta de precio */
+  .price-card {
+    display:flex;
+    flex-direction:column;
+    background: {{ section.settings.card_background }};
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 12px 16px -4px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+    border: 1px solid #C8C8C8;
+    width:100%;
+    max-width:312px;
+    gap:24px;
+  }
+
+ 
+
+  .price-card hr{
+        background: #C8C8C8;
+    height: 1px;
+    width: 100%;
+        padding: 0px;
+    margin: 0px;
+}
+
+  .price-content {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #1a1a1a;
+  }
+
+  .price-content p {
+    margin: 0 0 8px;
+  }
+
+  .price-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  .price-content strong {
+    color: {{ section.settings.highlight_color }};
+  }
+
+  /* Características */
+  .features-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #161C1F;
+    margin-bottom: 16px;
+  }
+
+  .features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding-bottom:12px;
+    font-size: 15px;
+    color: #626262;
+    line-height: 1.5;
+  }
+
+  .feature-icon {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin-top:1px;
+  
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+
+
+
+  /* Media queries */
+  @media (max-width: 989px) {
+    .discount-content h2 {
+      font-size: 36px;
+    }
+
+    .discount-content p {
+      font-size: 16px;
+    }
+
+    .price-card {
+      padding:24px;
+      width:100%;
+      max-width:100%;
+    }
+  }
+
+  @media (max-width: 749px) {
+    .padding-global {
+      padding: 0 16px;
+    }
+
+    .discount-section {
+      padding: {{ section.settings.padding_top | divided_by: 1.5 }}px 0 {{ section.settings.padding_bottom | divided_by: 1.5 }}px;
+    }
+
+    .discount-content h2 {
+      font-size: 32px;
+    }
+
+    .discount-component {
+      gap: 40px;
+    }
+  }
+</style>
+
+<section class="discount-section">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="discount-component">
+        
+        <!-- Columna de Contenido -->
+        <div class="discount-content">
+          {% if section.settings.heading != blank %}
+            <h2>{{ section.settings.heading }}</h2>
+          {% endif %}
+          
+          {% if section.settings.description != blank %}
+            <p>{{ section.settings.description }}</p>
+          {% endif %}
+        </div>
+
+        <!-- Columna de Tarjeta de Precio -->
+        <div class="price-card">
+          <div class="price-header">
+            {% if section.settings.price_text != blank %}
+              <div class="price-content">
+                {{ section.settings.price_text }}
+              </div>
+            {% endif %}
+          </div>
+          <hr>
+        
+
+          {% if section.blocks.size > 0 %}
+            <div class="features-section">
+              <p class="features-title">{{ section.settings.features_title }}</p>
+              <ul class="features-list">
+                {% for block in section.blocks %}
+                  <li class="feature-item" {{ block.shopify_attributes }}>
+                    <span class="feature-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+  <path d="M7.5 11.401L9.75 13.651L13.5 8.401M19.5 10.651C19.5 11.9193 18.8704 13.0405 17.9067 13.7192C18.1081 14.8804 17.7604 16.1182 16.8637 17.0149C15.967 17.9116 14.7292 18.2593 13.568 18.0579C12.8893 19.0215 11.7682 19.651 10.5 19.651C9.23185 19.651 8.11072 19.0215 7.43204 18.058C6.27066 18.2596 5.03256 17.912 4.1357 17.0151C3.23886 16.1183 2.89125 14.8802 3.09286 13.7188C2.12941 13.0401 1.5 11.9191 1.5 10.651C1.5 9.38288 2.12946 8.26177 3.09298 7.58309C2.89147 6.42179 3.2391 5.18384 4.13587 4.28707C5.03265 3.39029 6.27063 3.04266 7.43194 3.24419C8.11061 2.28055 9.23179 1.651 10.5 1.651C11.7682 1.651 12.8893 2.2805 13.568 3.24407C14.7294 3.04245 15.9674 3.39006 16.8643 4.2869C17.7611 5.18374 18.1087 6.42181 17.9071 7.58318C18.8706 8.26187 19.5 9.38293 19.5 10.651Z" stroke="#027A48" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+                    </span>
+                    <span>{{ block.settings.feature_text }}</span>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Tarjeta de Descuentos",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Contenido Principal"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Título",
+      "default": "Descuentos en la línea de Odontología Digital"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Descripción",
+      "default": "Aprovecha nuestras promociones exclusivas en la línea Odontología Digital y lleva tu consulta al siguiente nivel."
+    },
+    {
+      "type": "header",
+      "content": "Precio y Descuento"
+    },
+    {
+      "type": "richtext",
+      "id": "price_text",
+      "label": "Texto de precio y descuento",
+      "info": "Usa negritas para resaltar el precio y descuento",
+      "default": "<p>Desde <strong>$141,016.77 MXN</strong> (IVA incluido) con <strong>3% de descuento</strong> en pago de contado.</p>"
+    },
+    {
+      "type": "text",
+      "id": "features_title",
+      "label": "Título de características",
+      "default": "Te incluye"
+    },
+    {
+      "type": "header",
+      "content": "Estilos y Colores"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Color de fondo",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Color del título",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Color del texto",
+      "default": "#666666"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Fondo de tarjeta",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Color de texto en negritas (precio/descuento)",
+      "default": "#0066cc"
+    },
+    {
+      "type": "color",
+      "id": "icon_background",
+      "label": "Fondo del ícono",
+      "default": "#e6f4ea"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Color del ícono",
+      "default": "#34a853"
+    },
+    {
+      "type": "header",
+      "content": "Espaciado"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding superior",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding inferior",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Característica",
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature_text",
+          "label": "Texto de característica",
+          "default": "Característica incluida"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tarjeta de Descuentos",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "1 Taller de protocolo escaneo e impresión 3D."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "Protocolo 3D inicial."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "Incluye instalación."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

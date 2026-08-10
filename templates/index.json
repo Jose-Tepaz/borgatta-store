@@ -1,0 +1,664 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "a2c88842-8e45-4511-ab7e-ba1746b6a8dc": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "include_margins": true,
+        "liquid": "<script>\nvar url = \"https://borgattastore.myshopify.com/?contact_posted=true#contact_form\";\nvar LocationActual=window.location;\nconsole.log(LocationActual);\n\n\nif  (LocationActual == url) {\n//alert(\"correcto\");\n\nSwal.fire({\nicon: 'success',\nhtml: '<h4 class=\"title-2\">Factura solicitada correctamente<br><br> Te enviaremos tu factura en 3 días hábiless <br><br> Cualquier duda contacta a <a href=\"mailto:facturacion@borgatta.com.mx\"style=\"color: #426FCD;\">facturacion@borgatta.com.mx</a> </h4>',\nconfirmButtonColor:'#3792E6',               buttonsStyling: false,\ncustomClass: {\nconfirmButton: 'shopify-payment-button__button--unbranded',\npopup: 'popAlert',\n}\n})\n}else {\n\n\n}\n\n\n</script>"
+      }
+    },
+    "banner_grid_axpdqw": {
+      "type": "banner-grid",
+      "blocks": {
+        "celda_EzAPMt": {
+          "type": "celda",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/NOVA.jpg",
+            "video_url": "",
+            "label": "",
+            "link": "",
+            "open_new_tab": false
+          }
+        },
+        "celda_EAQTHr": {
+          "type": "celda",
+          "settings": {
+            "media_type": "video",
+            "video": "shopify://files/videos/Splash 01-1 (1).mp4",
+            "video_url": "",
+            "label": "Ofertas -13%",
+            "link": "shopify://collections/amic",
+            "open_new_tab": false
+          }
+        },
+        "celda_MqQqgk": {
+          "type": "celda",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/afb54a82c67f012a16f9b269b4376ccb97f3594e.jpg",
+            "video_url": "",
+            "label": "",
+            "link": "",
+            "open_new_tab": false
+          }
+        },
+        "celda_xRidek": {
+          "type": "celda",
+          "settings": {
+            "media_type": "video",
+            "image": "shopify://shop_images/e6422381b2fb7fe7f499c1328aa97ff2ef7f3246.png",
+            "video": "shopify://files/videos/loop Master Zirconia seg46 al 48.mp4",
+            "video_url": "",
+            "label": "",
+            "link": "",
+            "open_new_tab": false
+          }
+        },
+        "celda_kqwmLe": {
+          "type": "celda",
+          "settings": {
+            "media_type": "video",
+            "image": "shopify://shop_images/b0d5e530c9ca31f28705895a8882d4f4fe20d7c4.png",
+            "video": "shopify://files/videos/Pinzas 02-1.mp4",
+            "video_url": "",
+            "label": "",
+            "link": "",
+            "open_new_tab": false
+          }
+        },
+        "celda_y4QQgt": {
+          "type": "celda",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/0e9d3d9446698763090f17716e9f7ebfd22e033c.jpg",
+            "video_url": "",
+            "label": "",
+            "link": "",
+            "open_new_tab": false
+          }
+        },
+        "celda_FKiy7C": {
+          "type": "celda",
+          "settings": {
+            "media_type": "video",
+            "image": "shopify://shop_images/17f1fd530355abcbab305ede113bc51549f64b1f.png",
+            "video": "shopify://files/videos/Impresora 04-1.mp4",
+            "video_url": "",
+            "label": "Kits OD",
+            "link": "shopify://pages/bundles-amic",
+            "open_new_tab": false
+          }
+        },
+        "celda_zL6N7h": {
+          "type": "celda",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/d203a578138839a63e5fa5eb07609efa3cc38a3f.jpg",
+            "video_url": "",
+            "label": "",
+            "link": "",
+            "open_new_tab": false
+          }
+        }
+      },
+      "block_order": [
+        "celda_EzAPMt",
+        "celda_EAQTHr",
+        "celda_MqQqgk",
+        "celda_xRidek",
+        "celda_kqwmLe",
+        "celda_y4QQgt",
+        "celda_FKiy7C",
+        "celda_zL6N7h"
+      ],
+      "disabled": true,
+      "name": "Banner Cuadrícula",
+      "settings": {
+        "full_width": true,
+        "size_mode_desktop": "fixed",
+        "aspect_ratio_desktop": "1 / 1",
+        "height_desktop": 420,
+        "size_mode_mobile": "ratio",
+        "aspect_ratio_mobile": "1 / 1",
+        "height_mobile": 240,
+        "gap": 4,
+        "gap_mobile": 2,
+        "mobile_columns": "2",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "banner_slider_section_ntADpD": {
+      "type": "banner-slider-section",
+      "blocks": {
+        "slide_jLiUt9": {
+          "type": "slide",
+          "settings": {
+            "layout": "grid",
+            "grid_columns": 4,
+            "grid_rows": 2,
+            "tag": "",
+            "title": "",
+            "heading_tag": "h2",
+            "button_label": "",
+            "button_url": "",
+            "button_new_tab": false,
+            "button_style": "outline",
+            "overlay_position": "bottom-left",
+            "cell0_col_span": 2,
+            "cell0_row_span": 1,
+            "cell0_media_type": "image",
+            "cell0_image": "shopify://shop_images/F1IM12.png",
+            "cell0_video_url": "",
+            "cell0_url": "shopify://collections/productos-nuevos",
+            "cell1_col_span": 1,
+            "cell1_row_span": 1,
+            "cell1_media_type": "image",
+            "cell1_image": "shopify://shop_images/B_SILK_4.jpg",
+            "cell1_video_url": "",
+            "cell1_show_cta": false,
+            "cell2_col_span": 1,
+            "cell2_row_span": 1,
+            "cell2_media_type": "video",
+            "cell2_video_url": "https://cdn.shopify.com/videos/c/o/v/6c09d70956fc44ba999a3974a72c55e6.mp4",
+            "cell2_show_cta": false,
+            "cell3_col_span": 1,
+            "cell3_row_span": 1,
+            "cell3_media_type": "image",
+            "cell3_image": "shopify://shop_images/Platina_M.jpg",
+            "cell3_video_url": "",
+            "cell3_show_cta": false,
+            "cell4_col_span": 1,
+            "cell4_row_span": 1,
+            "cell4_media_type": "video",
+            "cell4_image": "shopify://shop_images/B_SILK_4.jpg",
+            "cell4_video_url": "https://cdn.shopify.com/videos/c/o/v/19b3fee5c3eb489d97acf0ef62ad49e1.mp4",
+            "cell4_show_cta": false,
+            "cell5_col_span": 1,
+            "cell5_row_span": 1,
+            "cell5_media_type": "image",
+            "cell5_image": "shopify://shop_images/EDGARDO-BAHENA.webp",
+            "cell5_video_url": "",
+            "cell5_show_cta": false,
+            "cell6_col_span": 1,
+            "cell6_row_span": 1,
+            "cell6_media_type": "image",
+            "cell6_image": "shopify://shop_images/ddb6c1cd07cb864d5fa5dbfa30207dda5d2719c7.webp",
+            "cell6_video_url": "",
+            "cell6_show_cta": false,
+            "media_type": "image",
+            "image": "shopify://shop_images/ddb6c1cd07cb864d5fa5dbfa30207dda5d2719c7.jpg",
+            "video_url": "",
+            "banner_url": ""
+          }
+        },
+        "slide_BV6EDn": {
+          "type": "slide",
+          "settings": {
+            "layout": "single",
+            "grid_columns": 4,
+            "grid_rows": 2,
+            "tag": "",
+            "title": "",
+            "heading_tag": "h2",
+            "button_label": "",
+            "button_url": "shopify://pages/terminos-y-condiciones-programa-de-lealtad-borgatta",
+            "button_new_tab": false,
+            "button_style": "outline",
+            "overlay_position": "bottom-left",
+            "cell0_col_span": 2,
+            "cell0_row_span": 2,
+            "cell0_media_type": "image",
+            "cell0_image": "shopify://shop_images/Banner_AMIC_2031_2x_7617c614-9741-4c59-b1e7-e95c2c8e1755.png",
+            "cell0_video_url": "",
+            "cell0_url": "",
+            "cell1_col_span": 1,
+            "cell1_row_span": 1,
+            "cell1_media_type": "image",
+            "cell1_video_url": "",
+            "cell1_show_cta": false,
+            "cell2_col_span": 1,
+            "cell2_row_span": 1,
+            "cell2_media_type": "image",
+            "cell2_video_url": "",
+            "cell2_show_cta": false,
+            "cell3_col_span": 1,
+            "cell3_row_span": 1,
+            "cell3_media_type": "image",
+            "cell3_video_url": "",
+            "cell3_show_cta": false,
+            "cell4_col_span": 1,
+            "cell4_row_span": 1,
+            "cell4_media_type": "image",
+            "cell4_video_url": "",
+            "cell4_show_cta": false,
+            "cell5_col_span": 1,
+            "cell5_row_span": 1,
+            "cell5_media_type": "image",
+            "cell5_video_url": "",
+            "cell5_show_cta": false,
+            "cell6_col_span": 1,
+            "cell6_row_span": 1,
+            "cell6_media_type": "image",
+            "cell6_video_url": "",
+            "cell6_show_cta": false,
+            "media_type": "image",
+            "image": "shopify://shop_images/Programa_de_lealtadv2.png",
+            "video_url": "",
+            "banner_url": "https://borgatta.com.mx/programa-de-lealtad"
+          }
+        },
+        "slide_tcCm8w": {
+          "type": "slide",
+          "settings": {
+            "layout": "single",
+            "grid_columns": 4,
+            "grid_rows": 2,
+            "tag": "",
+            "title": "",
+            "heading_tag": "h2",
+            "button_label": "",
+            "button_url": "",
+            "button_new_tab": false,
+            "button_style": "outline",
+            "overlay_position": "bottom-left",
+            "cell0_col_span": 2,
+            "cell0_row_span": 2,
+            "cell0_media_type": "image",
+            "cell0_video_url": "",
+            "cell0_url": "",
+            "cell1_col_span": 1,
+            "cell1_row_span": 1,
+            "cell1_media_type": "image",
+            "cell1_video_url": "",
+            "cell1_show_cta": false,
+            "cell2_col_span": 1,
+            "cell2_row_span": 1,
+            "cell2_media_type": "image",
+            "cell2_video_url": "",
+            "cell2_show_cta": false,
+            "cell3_col_span": 1,
+            "cell3_row_span": 1,
+            "cell3_media_type": "image",
+            "cell3_video_url": "",
+            "cell3_show_cta": false,
+            "cell4_col_span": 1,
+            "cell4_row_span": 1,
+            "cell4_media_type": "image",
+            "cell4_video_url": "",
+            "cell4_show_cta": false,
+            "cell5_col_span": 1,
+            "cell5_row_span": 1,
+            "cell5_media_type": "image",
+            "cell5_video_url": "",
+            "cell5_show_cta": false,
+            "cell6_col_span": 1,
+            "cell6_row_span": 1,
+            "cell6_media_type": "image",
+            "cell6_video_url": "",
+            "cell6_show_cta": false,
+            "media_type": "image",
+            "image": "shopify://shop_images/Suscripciones_99119c43-4c33-4318-8cc1-2d4c15ba28df.png",
+            "video_url": "",
+            "banner_url": "https://borgatta.com.mx/suscripciones"
+          }
+        }
+      },
+      "block_order": [
+        "slide_jLiUt9",
+        "slide_BV6EDn",
+        "slide_tcCm8w"
+      ],
+      "name": "Banner Slider",
+      "settings": {
+        "autoplay": true,
+        "autoplay_speed": 4500,
+        "transition": "fade",
+        "height": "medium"
+      }
+    },
+    "slideshow_c3iYUP": {
+      "type": "slideshow",
+      "blocks": {
+        "image_BqANX6": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Banner_Fin_de_Ano_2025_2x_a933144c-edcc-41d4-b24f-8ca4e50a6754.png",
+            "show_overlay": false,
+            "overlay_opacity": 30,
+            "text_color": "#ffffff",
+            "title": "",
+            "content": "",
+            "content_position": "middle_center",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "button_text": "",
+            "link": "https://tienda.borgatta.com.mx/collections/all"
+          }
+        },
+        "image_Xggd93": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/banner-promos-relampago.png",
+            "show_overlay": false,
+            "overlay_opacity": 30,
+            "text_color": "#ffffff",
+            "title": "",
+            "content": "",
+            "content_position": "middle_center",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "button_text": "",
+            "link": "shopify://collections/descuentos-relampago"
+          }
+        },
+        "image_nxnAaU": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Coleccion_BGT_Latapi_2x_5cb82837-73b1-49f4-84d7-b2efaae5bbf2.png",
+            "show_overlay": false,
+            "overlay_opacity": 30,
+            "text_color": "#ffffff",
+            "title": "",
+            "content": "",
+            "content_position": "middle_center",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "button_text": "",
+            "link": "shopify://collections/borgatta-x-latapi-rootmate"
+          }
+        },
+        "image_yCRKgF": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Programa_de_Lealtad_2x_e81e4896-6bf9-4c02-8f9d-ff178454eec4.png",
+            "show_overlay": false,
+            "overlay_opacity": 30,
+            "text_color": "#ffffff",
+            "title": "",
+            "content": "",
+            "content_position": "middle_center",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "button_text": "",
+            "link": "shopify://pages/terminos-y-condiciones-programa-de-lealtad-borgatta"
+          }
+        },
+        "image_gAAEj7": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Banner_suscripciones_f5bf5317-d3a3-4c9c-a5fe-88d08a61dc29.png",
+            "show_overlay": false,
+            "overlay_opacity": 30,
+            "text_color": "#ffffff",
+            "title": "",
+            "content": "",
+            "content_position": "middle_center",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "button_text": "",
+            "link": "shopify://pages/terminos-y-condiciones-suscripciones-borgatta"
+          }
+        },
+        "image_xA47t8": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_2.webp",
+            "show_overlay": false,
+            "overlay_opacity": 30,
+            "text_color": "#ffffff",
+            "title": "",
+            "content": "",
+            "content_position": "middle_center",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "button_text": "",
+            "link": "shopify://collections/pinzas-e-instrumentos"
+          }
+        }
+      },
+      "block_order": [
+        "image_BqANX6",
+        "image_Xggd93",
+        "image_nxnAaU",
+        "image_yCRKgF",
+        "image_gAAEj7",
+        "image_xA47t8"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "@media (min-width: 320px) and (max-width: 480px) {.slideshow__image {border-radius: 0px; }}"
+      ],
+      "settings": {
+        "edge_to_edge": false,
+        "section_size": "preserve_ratio",
+        "carousel_effect": "slide",
+        "autoplay": true,
+        "cycle_speed": 5
+      }
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "collection": "black",
+        "title": "Conoce nuestra línea Borgatta Black",
+        "products_count": 6,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": false,
+        "link_title": "Ver todos",
+        "link_url": ""
+      }
+    },
+    "0357e0ce-909a-4520-9dfe-9df7dbab125e": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "title": "Busca productos por familia",
+        "include_margins": true,
+        "liquid": "{%- render 'collections-home'-%}"
+      }
+    },
+    "16c354b7-ab55-4fc5-9049-175b55e8d775": {
+      "type": "custom-liquid",
+      "settings": {
+        "title": "",
+        "include_margins": false,
+        "liquid": "{%- render 'btn-wathsapp'-%}"
+      }
+    },
+    "custom_liquid_JPAYAr": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "include_margins": true,
+        "liquid": "{%- render 'collection-home-custome'-%}"
+      }
+    },
+    "collection_list_jt_9Jfkma": {
+      "type": "collection-list-jt",
+      "blocks": {
+        "collection_iLAWkY": {
+          "type": "collection",
+          "settings": {
+            "collection": "seleccion-borgatta",
+            "custom_url": ""
+          }
+        },
+        "collection_dxN8mJ": {
+          "type": "collection",
+          "settings": {
+            "collection": "resinas-3d",
+            "custom_image": "shopify://shop_images/resinas-3d-cover.webp",
+            "custom_url": ""
+          }
+        },
+        "collection_k3diWk": {
+          "type": "collection",
+          "settings": {
+            "collection": "fresado",
+            "custom_url": ""
+          }
+        },
+        "collection_UVaTfE": {
+          "type": "collection",
+          "settings": {
+            "collection": "equipos-3d",
+            "custom_image": "shopify://shop_images/equipos_3d.png",
+            "custom_url": ""
+          }
+        },
+        "collection_DhND9n": {
+          "type": "collection",
+          "settings": {
+            "collection": "piezas-de-mano",
+            "custom_url": ""
+          }
+        },
+        "collection_RgQk9C": {
+          "type": "collection",
+          "settings": {
+            "collection": "pinzas-e-instrumentos",
+            "custom_url": ""
+          }
+        },
+        "collection_g4hVaP": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "custom_image": "shopify://shop_images/DELTA_Articulador.png",
+            "custom_url": "shopify://pages/delta-articulador"
+          }
+        },
+        "collection_emHUJY": {
+          "type": "collection",
+          "settings": {
+            "collection": "brackets-y-tubos",
+            "custom_url": ""
+          }
+        },
+        "collection_aC4YD8": {
+          "type": "collection",
+          "settings": {
+            "collection": "alambres",
+            "custom_url": ""
+          }
+        },
+        "collection_t3LeLh": {
+          "type": "collection",
+          "settings": {
+            "collection": "elasticos",
+            "custom_url": ""
+          }
+        },
+        "collection_D8qgbB": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "collection": "ipr",
+            "custom_url": ""
+          }
+        },
+        "collection_whgBq4": {
+          "type": "collection",
+          "settings": {
+            "collection": "bandas-y-accesorios",
+            "custom_url": ""
+          }
+        },
+        "collection_c3BazW": {
+          "type": "collection",
+          "settings": {
+            "collection": "adhesivos",
+            "custom_url": ""
+          }
+        },
+        "collection_rT4T9L": {
+          "type": "collection",
+          "settings": {
+            "collection": "proteccion",
+            "custom_url": ""
+          }
+        },
+        "collection_W6cGDj": {
+          "type": "collection",
+          "settings": {
+            "collection": "higiene",
+            "custom_url": ""
+          }
+        },
+        "collection_NF94Ne": {
+          "type": "collection",
+          "settings": {
+            "collection": "orthoimplantes",
+            "custom_url": ""
+          }
+        },
+        "collection_8adzAx": {
+          "type": "collection",
+          "settings": {
+            "collection": "ortopedia",
+            "custom_url": ""
+          }
+        },
+        "collection_A6wiTj": {
+          "type": "collection",
+          "settings": {
+            "collection": "accesorios-para-brackets",
+            "custom_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_iLAWkY",
+        "collection_dxN8mJ",
+        "collection_k3diWk",
+        "collection_UVaTfE",
+        "collection_DhND9n",
+        "collection_RgQk9C",
+        "collection_g4hVaP",
+        "collection_emHUJY",
+        "collection_aC4YD8",
+        "collection_t3LeLh",
+        "collection_D8qgbB",
+        "collection_whgBq4",
+        "collection_c3BazW",
+        "collection_rT4T9L",
+        "collection_W6cGDj",
+        "collection_NF94Ne",
+        "collection_8adzAx",
+        "collection_A6wiTj"
+      ],
+      "settings": {
+        "section_title": ""
+      }
+    }
+  },
+  "order": [
+    "a2c88842-8e45-4511-ab7e-ba1746b6a8dc",
+    "banner_grid_axpdqw",
+    "banner_slider_section_ntADpD",
+    "slideshow_c3iYUP",
+    "featured-collection",
+    "0357e0ce-909a-4520-9dfe-9df7dbab125e",
+    "16c354b7-ab55-4fc5-9049-175b55e8d775",
+    "custom_liquid_JPAYAr",
+    "collection_list_jt_9Jfkma"
+  ]
+}

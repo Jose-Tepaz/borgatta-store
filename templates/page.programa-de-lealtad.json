@@ -1,0 +1,230 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "17407838975fccbeb5": {
+      "type": "apps",
+      "blocks": {
+        "joy_loyalty_program_joy_in_line_Etnf8e": {
+          "type": "shopify://apps/joy-loyalty-program/blocks/joy-in-line/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
+          "settings": {
+            "joy-in-line-background-color": "#fff",
+            "joy-inline-banner-height": "fit-content",
+            "joy-in-line-content-alignment": "center",
+            "joy-in-line-title-before": "Registrate",
+            "joy-in-line-title-after": "Hola {customer_name}, tienes {balance_points} {loyalty_points}.",
+            "joy-inline-heading-tag": "h2",
+            "joy-in-line-font-size-heading": "2.4rem",
+            "joy-in-line-subheading": "Recibe recompensas exclusivas cada vez que compras.",
+            "joy-inline-subheading-tag": "p",
+            "joy-in-line-heading-color": "#000000",
+            "joy-in-line-subheading-color": "#000000",
+            "joy-in-line-primary-button-label": "Inicia sesión ahora",
+            "joy-in-line-primary-button-label-loggedIn": "Gana más puntos",
+            "joy-in-line-primary-button-link": "/account/login",
+            "joy-in-line-primary-button-link-loggedIn": "/collections/all",
+            "joy-in-line-secondary-button-label": "Regístrate",
+            "joy-in-line-secondary-button-link": "/account/login",
+            "joy-in-line-corner-radius": 50,
+            "joy-in-line-primary-button-backgroundcolor": "#416fcd",
+            "joy-in-line-primary-button-color": "#ffffff",
+            "joy-in-line-secondary-button-backgroundcolor": "#ffffff",
+            "joy-in-line-secondary-button-color": "#000000",
+            "joy-in-line-button-backgroundcolor-hover": "#305bb4",
+            "joy-in-line-button-color-hover": "#ffffff",
+            "joy-inline-max-width": 120
+          }
+        },
+        "joy_loyalty_program_customer_account_hKw7x8": {
+          "type": "shopify://apps/joy-loyalty-program/blocks/customer-account/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
+          "settings": {
+            "joy-customer-account-available-point": "Puntos disponibles:",
+            "joy-customer-account-expiration-point": "Vigencia:",
+            "joy-customer-account-pending-point": "Puntos pendientes:",
+            "joy-customer-account-coupon-list": "Mis cupones",
+            "joy-customer-account-earn-point-list": "Historial de puntos",
+            "joy-customer-account-coupon-code": "Cupón",
+            "joy-customer-account-discount-value": "Valor del descuento",
+            "joy-customer-account-discount-program": "Tipo de descuento",
+            "joy-customer-account-expiration-date": "Expiration date",
+            "joy-customer-account-action": "Acción",
+            "joy-customer-account-hide-coupon": true,
+            "joy-customer-account-hide-history": false,
+            "joy-customer-account-scroll-view-history": true,
+            "joy-customer-account-view-reward": "Aplicar",
+            "joy-customer-account-empty-message": "No se encontraron datos",
+            "joy-customer-account-bg-color": "#ffffff",
+            "joy-customer-account-primary-text-color": "#000000",
+            "joy-customer-account-secondary-text-color": "#4f4f4f",
+            "joy-customer-account-button-text-color": "#161c1f",
+            "joy-customer-account-divider-color": "#dedede",
+            "joy-customer-account-wallet-modal-title": "Scan QR Code",
+            "joy-customer-account-wallet-modal-subtitle": "Scan this QR code with your phone to add the pass to your wallet"
+          }
+        },
+        "joy_loyalty_program_joy_referral_QH7ziG": {
+          "type": "shopify://apps/joy-loyalty-program/blocks/joy-referral/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
+          "disabled": true,
+          "settings": {
+            "joy-referral-image-position": "left",
+            "joy-referral-image-height": "450",
+            "joy-referral-image-layout": "6/6",
+            "joy-referral-background-position": "center",
+            "joy-referral-heading": "<p>Recomiéndanos y obtén recompensas</p>",
+            "joy-referral-heading-after-get-link": "<h2>Recomienda a un amigo</h2>",
+            "joy-referral-heading-size": 34,
+            "joy-referral-description": "<p>Comparte el siguiente link para ganar recompensas.</p>",
+            "joy-referral-placeholder": "Enter your email address",
+            "joy-referral-desktop-content-position": "center",
+            "joy-referral-btn-get-content": "Get link",
+            "joy-referral-btn-border-radius": 8,
+            "joy-referral-heading-color": "#303030",
+            "joy-referral-description-color": "#303030",
+            "joy-referral-bg-color": "#F6F6F6",
+            "joy-referral-btn-get-bg-color": "#000000",
+            "joy-referral-btn-get-text-color": "#ffffff",
+            "joy-referral-icon-share-social-color": "#222222",
+            "joy-referral-text-share-social-color": "#000000",
+            "joy-referral-max-width-option": "custom",
+            "joy-referral-max-width": 120,
+            "joy-referral-spacing": 0,
+            "joy-referral-spacing-content": 8,
+            "joy-referral-litmit_message": "<p>You have reached the referral limit (&lcub;limit_referral&rcub;/&lcub;limit_referral&rcub;)</p>"
+          }
+        },
+        "joy_loyalty_program_customer_referrals_account_if3Jkg": {
+          "type": "shopify://apps/joy-loyalty-program/blocks/customer-referrals-account/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
+          "settings": {
+            "joy-referral-heading": "Refiere y gana puntos",
+            "joy-referral-subtitle": "Invita a tus amigos para obtener más descuentos, recuerda que puedes referir hasta 2 amigos.",
+            "joy-referral-heading-activities": "Actividades de referidos",
+            "joy-referral-nodata-activities": "Aún no hemos registrado ninguna referencia tuya. ¡Invita a tus amigos ahora y gana recompensas!",
+            "joy-referral-bg-color": "#ffffff",
+            "joy-referral-icon-color": "#416fcd",
+            "joy-referral-primary-text-color": "#000000",
+            "joy-referral-secondary-text-color": "#707070",
+            "joy-referral-divider-color": "#e2e8f0"
+          }
+        },
+        "joy_loyalty_program_joy_vip_tier_block_FKyjmx": {
+          "type": "shopify://apps/joy-loyalty-program/blocks/joy-vip-tier-block/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
+          "settings": {
+            "joy-tier-block-heading": "Niveles VIP",
+            "joy-vip-tier-heading-tag": "h3",
+            "joy-tier-block-heading-size": "small",
+            "joy-tier-block-subheading": "Mejora tu experiencia de compra al unirte a nuestro programa VIP y accede a recompensas y beneficios exclusivos para ti.",
+            "joy-vip-tier-subheading-tag": "p",
+            "joy-tier-block-current-tier-display": "Nivel actual",
+            "joy-vip-tier-card-header-layout": "vertical",
+            "joy-tier-block-conner-radius": 16,
+            "joy-tier-block-fontsize-tier-name": 24,
+            "joy-tier-block-icon-size": 70,
+            "joy-tier-block-bg-color": "#f6f6f6",
+            "joy-tier-block-card-color": "#ffffff",
+            "joy-tier-block-heading-color": "#000000",
+            "joy-tier-block-subheading-color": "#000000",
+            "joy-tier-block-icon-color": "#426fcd",
+            "joy-tier-block-current-tier-color": "#416fcd",
+            "joy-tier-block-text-current-tier-color": "#ffffff"
+          }
+        },
+        "joy_loyalty_program_joy_way_to_earn_block_X8WLn4": {
+          "type": "shopify://apps/joy-loyalty-program/blocks/joy-way-to-earn-block/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
+          "settings": {
+            "joy-way-to-earn-title": "Formas de ganar",
+            "joy-way-to-earn-heading-tag": "h2",
+            "joy-way-to-earn-font-size-heading": "2.4rem",
+            "joy-way-to-earn-subtitle": "Gana más puntos por diferentes acciones y canjéalos por increíbles recompensas.",
+            "joy-way-to-earn-subheading-tag": "p",
+            "joy-way-to-earn-text-summary": "Obtén más puntos completando estas misiones.",
+            "joy-way-to-earn-desktop-number-columns": 3,
+            "joy-way-to-earn-mobile-number-columns": "1",
+            "joy-way-to-earn-max-width": 120,
+            "joy-way-to-earn-corner-radius": 12,
+            "joy-way-to-earn-card-outline": "0",
+            "joy-way-to-earn-card-outline-color": "#e0e0e0",
+            "joy-way-to-earn-card-style": "subtle-lift",
+            "joy-way-to-earn-heading-color": "#000000",
+            "joy-way-to-earn-subheading-color": "#000000",
+            "joy-way-to-earn-summary-color": "#303030",
+            "joy-way-to-earn-card-color": "#ffffff",
+            "joy-way-to-earn-background-color": "#F6F6F6",
+            "joy-way-to-earn-program-name-color": "#000000",
+            "joy-way-to-earn-points-color": "#4a4a4a",
+            "joy-way-to-earn-icon-color": "#e1e3e4",
+            "joy-way-to-earn-icon-size": 80
+          }
+        },
+        "joy_loyalty_program_joy_hero_banner_n6w3y8": {
+          "type": "shopify://apps/joy-loyalty-program/blocks/joy-hero-banner/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
+          "disabled": true,
+          "settings": {
+            "joy-hero-banner-height": "450px",
+            "joy-hero-banner-overlay-opacity": 0,
+            "joy-hero-banner-background-color": "#f6f6f6",
+            "joy-hero-banner-content-alignment": "center",
+            "joy-hero-banner-heading-content": "<p>Exclusive Perks for Our Valued Members</p>",
+            "joy-hero-banner-heading-content-after-signIn": "<p>Hi {customer_name}, you have {balance_points} {loyalty_points}</p>",
+            "joy-hero-banner-heading-font-size": "2.4rem",
+            "joy-hero-banner-subheading-content": "Become a member and earn points & exclusive rewards every time you shop.",
+            "joy-hero-banner-subheading-content-after-signIn": "Welcome back! Continue earning points and unlocking exclusive rewards with every purchase.",
+            "joy-hero-subheading-tag": "p",
+            "joy-hero-banner-heading-color": "#000000",
+            "joy-hero-banner-secondary-color": "#000000",
+            "joy-hero-banner-first-button-label": "Sign in now",
+            "joy-hero-banner-first-button-link": "/account/login",
+            "joy-hero-banner-second-button-label": "Sign up",
+            "joy-hero-banner-second-button-link": "/account/register",
+            "joy-hero-banner-after-login-button-label": "Shop product",
+            "joy-hero-banner-after-login-button-link": "/collections/all",
+            "joy-hero-banner-button-corner-radius": 8,
+            "joy-hero-banner-button-singin-backgroundcolor": "#000000",
+            "joy-hero-banner-button-singin-color": "#ffffff",
+            "joy-hero-banner-button-signup-backgroundcolor": "#ffffff",
+            "joy-hero-banner-button-signup-color": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "joy_loyalty_program_joy_in_line_Etnf8e",
+        "joy_loyalty_program_customer_account_hKw7x8",
+        "joy_loyalty_program_joy_referral_QH7ziG",
+        "joy_loyalty_program_customer_referrals_account_if3Jkg",
+        "joy_loyalty_program_joy_vip_tier_block_FKyjmx",
+        "joy_loyalty_program_joy_way_to_earn_block_X8WLn4",
+        "joy_loyalty_program_joy_hero_banner_n6w3y8"
+      ],
+      "custom_css": [],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "rich_text_aDRGya": {
+      "type": "rich-text",
+      "settings": {
+        "text_width": "narrow",
+        "title": "Términos y condiciones y FAQs",
+        "content": "<p>Nuestro Programa de lealtad cuenta con algunas reglas importantes, consúltalas junto con nuestro FAQ para informarte.</p>",
+        "button_text": "Ver detalle",
+        "button_link": "/pages/terminos-y-condiciones-programa-de-lealtad-borgatta"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "17407838975fccbeb5",
+    "rich_text_aDRGya"
+  ]
+}

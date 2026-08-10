@@ -1,0 +1,82 @@
+{%- assign current_url = request.path -%}
+
+<div class="layout__section layout__section--secondary">
+  
+  <!-- ====== MENÚ MÓVIL (Oculto en Desktop) ====== -->
+  <div class="value-picker-wrapper hidden-tablet-and-up">
+    <button class="value-picker-button value-picker-button--pill" aria-haspopup="true" aria-expanded="false" aria-controls="account-selector" data-action="open-value-picker">
+      {%- if current_url contains '/apps/mis-cursos' -%}
+        Mis cursos
+      {%- elsif current_url == routes.account_addresses_url -%}
+        {{- 'customer.general.addresses' | t -}}
+      {%- else -%}
+        {{- 'customer.general.orders' | t -}} 
+      {%- endif -%}
+      {%- render 'icon', icon: 'arrow-bottom' -%}
+    </button>
+
+    <div id="account-selector" class="value-picker" aria-hidden="true">
+      <div class="value-picker__inner">
+        <header class="value-picker__header">
+          <span class="value-picker__title text--strong">{{ 'customer.general.my_account' | t }}</span>
+          <button class="value-picker__close" data-action="close-value-picker" aria-controls="account-selector" aria-label="{{ 'general.accessibility.close' | t }}">{% render 'icon', icon: 'close' %}</button>
+        </header>
+
+        <div class="value-picker__choice-list">
+          <!-- Mis Pedidos -->
+          <a href="{{ routes.account_url }}" class="value-picker__choice-item {% if current_url == routes.account_url %}is-selected{% endif %}">
+            {{ 'customer.general.orders' | t }} {% if current_url == routes.account_url %}{% render 'icon', icon: 'check-2' %}{% endif %}
+          </a>
+          
+          <!-- Mis Direcciones -->
+          <a href="{{ routes.account_addresses_url }}" class="value-picker__choice-item {% if current_url == routes.account_addresses_url %}is-selected{% endif %}">
+            {{ 'customer.general.addresses' | t }} {% if current_url == routes.account_addresses_url %}{% render 'icon', icon: 'check-2' %}{% endif %}
+          </a>
+          
+          <!-- Datos Fiscales -->
+          <a href="/account?view=edit" class="value-picker__choice-item">
+            Datos fiscales{{ shop.metafields.cf_app.account_edit_link_title }}
+          </a>
+          
+          <!-- Suscripciones -->
+          <a href="/apps/subscriptions#/subscriptions/list" class="value-picker__choice-item">
+            Suscripciones
+          </a>
+          
+          <!-- Programa de Lealtad -->
+          <a href="/pages/programa-de-lealtad" class="value-picker__choice-item">
+            Programa de lealtad
+          </a>
+
+          <!-- Mis Cursos -->
+          {% if customer and customer.tags contains 'academy-member' %}
+          <a href="/apps/mis-cursos" class="value-picker__choice-item {% if current_url contains '/apps/mis-cursos' %}is-selected{% endif %}">
+            Mis cursos {% if current_url contains '/apps/mis-cursos' %}{% render 'icon', icon: 'check-2' %}{% endif %}
+          </a>
+          {% endif %}
+
+          <!-- Cerrar Sesión -->
+          <a href="{{ routes.account_logout_url }}" class="value-picker__choice-item" data-no-instant>
+            {{ 'customer.general.logout' | t }} 
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== MENÚ DESKTOP (Oculto en Móvil) ====== -->
+  <div class="card card--sticky hidden-pocket">
+    <div class="card__section card__section--tight">
+      <div class="card__linklist">
+        <a href="{{ routes.account_url }}" class="card__linklist-item link {% if current_url == routes.account_url %}text--strong{% endif %}">Mis pedidos</a>
+        <a href="{{ routes.account_addresses_url }}" class="card__linklist-item link {% if current_url == routes.account_addresses_url %}text--strong{% endif %}">Mis direcciones</a>
+        <a href="/account?view=datos-fiscales" class="card__linklist-item link">Datos fiscales</a>
+        <a href="/apps/subscriptions#/subscriptions/list" class="card__linklist-item link">Suscripciones</a>
+        <a href="/pages/programa-de-lealtad" class="card__linklist-item link">Programa de lealtad</a>
+        <a href="/apps/mis-cursos" class="card__linklist-item link {% if current_url contains '/apps/mis-cursos' %}text--strong{% endif %}">Mis cursos</a>
+        <a href="{{ routes.account_logout_url }}" class="card__linklist-item link" data-no-instant>Cerrar sesión</a>
+      </div>
+    </div>
+  </div>
+
+</div>

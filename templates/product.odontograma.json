@@ -1,0 +1,107 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "product_meta": {
+          "type": "product_meta",
+          "settings": {
+            "show_vendor": true,
+            "show_sku": false,
+            "show_reviews_badge": false,
+            "show_share_buttons": true
+          }
+        },
+        "variant_selector": {
+          "type": "variant_selector",
+          "settings": {
+            "selector_mode": "block",
+            "color_mode": "dropdown",
+            "show_quantity_selector": true,
+            "show_taxes_included": false,
+            "show_inventory_quantity": false,
+            "low_inventory_threshold": 0
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "display_mode": "show_all"
+          }
+        }
+      },
+      "block_order": [
+        "product_meta",
+        "variant_selector",
+        "buy_buttons",
+        "description"
+      ],
+      "custom_css": [
+        ".shopify-payment-button__button{height:52px;border-style:solid;border-width:1px;border-color:#2e56a9!important}",
+        ".product-block-list__item--gallery{display:none}",
+        "@media(min-width:1000px){.product-block-list__item--info{position:static;width:100%}.product-block-list__wrapper{width:100%}}",
+        ".card--sticky{position:static}",
+        ".product-form__payment-container{max-width:600px}",
+        ".product-block-list__item--description{margin-top:32px}",
+        "@media(max-width:999px){.card--collapsed{margin-top:24px!important}}"
+      ],
+      "settings": {
+        "image_size": "small",
+        "enable_video_looping": true,
+        "enable_image_zoom": true,
+        "zoom_effect": "outside",
+        "carousel_effect": "fade"
+      }
+    },
+    "17392311026bee9131": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "También te puede interesar",
+        "show_quick_buy": false
+      }
+    },
+    "recently-viewed-products": {
+      "type": "recently-viewed-products",
+      "settings": {
+        "title": "Visto recientemente",
+        "show_quick_buy": false
+      }
+    },
+    "a5ac4229-2946-4437-8132-e1c410ece887": {
+      "type": "custom-liquid",
+      "settings": {
+        "title": "",
+        "include_margins": false,
+        "liquid": "{%- render 'btn-wathsapp'-%}"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "17392311026bee9131",
+    "product-recommendations",
+    "recently-viewed-products",
+    "a5ac4229-2946-4437-8132-e1c410ece887"
+  ]
+}

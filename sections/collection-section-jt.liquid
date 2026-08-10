@@ -1,0 +1,230 @@
+{{ 'style-general-jt.css' | asset_url | stylesheet_tag }}
+
+<section>
+    <div class="global-padding">
+      <div class="general-container">
+        <div class="component-collections">
+          {% for block in section.blocks %}
+            <div id="w-node-b900d55e-19d9-760e-42b5-aff484c32ed9-b2ab201f" class="wrapp-collection {{ block.settings.type_card }}">
+            <div class="wrapp-text-car-colelctions">
+              <div>
+                <h2  class="heading-style-h1 text-color-white">{{ block.settings.title }}</h2></div>
+              <a href="{{ block.settings.button_link }}" class="button-jt is-secondary is-alternate">Shop now</a>
+            </div><img src="{{ block.settings.image_banner | image_url  }}" class="image">
+          </div>
+            
+          {% endfor%}
+          
+      
+        </div>
+      </div>
+    </div>
+</section>
+
+<style>
+ .global-padding {
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  padding-left: 32px;
+  padding-right: 32px;
+  display: flex;
+}
+
+.general-container {
+  width: 100%;
+  max-width: 1400px;
+}
+
+.component-collections {
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-columns: 1fr;
+  width: 100%;
+  min-width: 100%;
+  padding-top: 16px;
+  padding-bottom: 96px;
+  display: grid;
+}
+
+.wrapp-collection {
+  justify-content: flex-start;
+  align-items: flex-end;
+  height: 550px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  position: relative;
+}
+
+.frame-76 {
+  grid-row-gap: 16px;
+  background-color: rgba(226, 128, 0, .1);
+  background-image: url('../images/Frame-76.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  width: 100%;
+  height: 550px;
+  min-height: 550px;
+  padding: 32px;
+  text-decoration: none;
+  display: flex;
+}
+
+.wrapp-text-car-colelctions {
+  z-index: 1;
+  grid-row-gap: 10px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 378px;
+  text-decoration: none;
+  display: flex;
+  position: relative;
+}
+
+.head-2 {
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: Oswald, sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1.2em;
+  text-decoration: none;
+}
+
+.frame-105 {
+  grid-column-gap: 16px;
+  flex: 0 auto;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 16px;
+  text-decoration: none;
+  display: flex;
+}
+
+.button {
+  grid-column-gap: 10px;
+  border: 1px solid #fff;
+  flex: 0 auto;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 24px;
+  text-decoration: none;
+  display: flex;
+}
+
+.text-2 {
+  color: #fff;
+  letter-spacing: .04em;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 110%;
+  text-decoration: none;
+}
+
+.btn-outline-with {
+  background-color: rgba(56, 152, 236, 0);
+  border: 2px solid #fff;
+  padding-bottom: 12px;
+  padding-left: 25px;
+  padding-right: 25px;
+  font-family: Open Sans, sans-serif;
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 24px;
+}
+
+.image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+}
+
+.section {
+  width: 100%;
+}
+
+.all-width {
+  grid-area: span 1 / span 2 / span 1 / span 2;
+}
+
+
+@media only screen and (max-width: 600px) {
+ .wrapp-collection {
+   grid-area: span 1 / span 2 / span 1 / span 2;
+       height: 400px!important;
+ }
+  
+}
+  
+
+</style>
+
+{% schema %}
+  {
+    "name": "Banner collection section",
+    "settings": [],
+    "blocks": [
+      { 
+      "type": "Banner",
+      "name": "baner",
+      "settings": [  
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_banner",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        },     
+        {
+          "type": "radio",
+          "id": "type_card",
+          "label": "Card type",
+          "options": [
+            {
+              "value": "1column",
+              "label": "1 column"
+            },
+            {
+              "value": "all-width",
+              "label": "2 column"
+            }
+          ],
+          "default": "1column"
+        }
+      ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Banner collection section"
+      }
+    ]
+  }
+  {% endschema %}

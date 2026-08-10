@@ -1,0 +1,74 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "e187bee0-6f31-471a-809b-c00216c04b1f": {
+      "type": "blog-posts",
+      "custom_css": [
+        ".article-item {background: #f5f5f5; border-radius: 20px; overflow: hidden;}",
+        ".article-item__meta {margin: 16px;}",
+        ".article-item__title {margin: 16px;}"
+      ],
+      "settings": {
+        "blog": "otros",
+        "blog_posts_count": 9,
+        "title": "Galería de conocimientos",
+        "link_title": "Ver todos",
+        "show_category": true,
+        "show_author": false,
+        "show_date": false,
+        "show_excerpt": false,
+        "stack_mobile": false
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "blocks": {
+        "newsletter": {
+          "type": "newsletter",
+          "disabled": true,
+          "settings": {
+            "title": "Join Us",
+            "content": "<p>A short sentence describing what someone will receive by subscribing</p>",
+            "subtext": "100% free, Unsubscribe any time!",
+            "background": "#1e2d7d",
+            "text": "#ffffff"
+          }
+        },
+        "social-media": {
+          "type": "social_media",
+          "disabled": true,
+          "settings": {
+            "title": "Follow us",
+            "show_rss": true
+          }
+        }
+      },
+      "block_order": [
+        "newsletter",
+        "social-media"
+      ],
+      "disabled": true,
+      "settings": {
+        "articles_per_page": 12,
+        "highlight_first_article": true,
+        "show_tags": true,
+        "show_category": true,
+        "show_author": true,
+        "show_date": true,
+        "show_excerpt": false
+      }
+    }
+  },
+  "order": [
+    "e187bee0-6f31-471a-809b-c00216c04b1f",
+    "main"
+  ]
+}

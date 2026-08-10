@@ -1,0 +1,48 @@
+{%- comment -%}
+  Renders ficha técnica...
+{%- endcomment -%}
+
+{%- assign ficha_tecnica = variant.metafields.fichaTecnica.fichaTecnica -%}
+
+{%- if ficha_tecnica != blank -%}
+  <style>
+    .ficha-tecnica-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-items: flex-start;
+    }
+  </style>
+
+
+
+
+  <div class="card__section">
+    <p class="text-ficha">Ficha Técnica</p>
+    <div class="ficha-tecnica-wrapper">
+      {%- assign fichas_array = ficha_tecnica | split: "," -%}
+      {%- for ficha in fichas_array -%}
+        {%- assign ficha_url = ficha | strip -%}
+        <article class="containFichaTecnica">
+          <div id="img-container-{{ forloop.index }}" class="img-ficha-container">
+            <img
+              src="{{ ficha_url }}"
+              alt="Ficha técnica {{ forloop.index }}"
+              width="100%"
+              height="100%"
+              loading="lazy"
+              class="img-ficha"
+            />
+          </div>
+          <button
+            class="button--primary"
+            onclick="downloadImg('{{ ficha_url }}', 'Ficha técnica')"
+            aria-label="Descargar ficha técnica {{ forloop.index }}"
+          >
+            Descargar
+          </button>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+{%- endif -%}

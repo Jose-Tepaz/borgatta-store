@@ -1,0 +1,94 @@
+
+<section class="container">
+  <div class="component-custome-collection">
+    <div class="header-title-component-collection">
+      <h2 class="collection__title heading h1">{{ section.settings.section_title }}</h2>
+    </div>
+    
+  <div class="list-collection-home">
+    {% for block in section.blocks %}
+      {% assign collection = block.settings.collection %}
+      {% if collection %}
+        <div class="wrapp-collection-home">
+           <!-- Verificar si se ha proporcionado una URL personalizada -->
+          <a href="{% if block.settings.custom_url != blank %}{{ block.settings.custom_url }}{% else %}{{ collection.url }}{% endif %}">
+             
+            <div class="wrap-img">
+              {% if block.settings.custom_image != blank %}
+              <!-- Mostrar la imagen personalizada si está seleccionada -->
+               <img class="img-collection-home" src="{{ block.settings.custom_image | img_url: 'master' }}" alt="{{ collection.title }}" />
+            {% else %}
+              <!-- Mostrar la imagen de la colección si no hay personalizada -->
+              {% if collection.image %}
+                <img  class="img-collection-home" src="{{ collection.image.src | img_url: 'master' }}" alt="{{ collection.title }}" />
+              {% else %}
+                <!-- Si ninguna imagen está disponible, mostrar una imagen por defecto -->
+                <img src="URL_DE_IMAGEN_POR_DEFECTO" alt="Imagen por defecto" />
+              {% endif %}
+            {% endif %}
+              
+             
+            </div>
+         
+          </a>
+         
+              
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  </div>
+ 
+</section>
+
+<style>
+  .header-title-component-collection{
+    margin-top: 48px;
+    margin-bottom: 16px;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Custom Collection",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Título de la sección",
+      "default": "Nuestras Colecciones"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Colección",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Elige una colección"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_image",
+          "label": "Imagen personalizada"
+        },
+        {
+          "type": "url",
+          "id": "custom_url",
+          "label": "URL personalizada"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Collection",
+      "category": "Colecciones"
+    }
+  ]
+}
+{% endschema %}
+
+

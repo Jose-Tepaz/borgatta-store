@@ -1,0 +1,40 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "1eb6f1e2-760a-4e41-8690-9c6554eb8dbc": {
+      "type": "custom-liquid",
+      "custom_css": [
+        "{width: 740px; margin: auto; padding: 0px 0px; display: flex: }",
+        "a {padding: 12px 30px;border-radius:100px;border: 2px solid #426FCD;background: #426FCD;color:#fff; }",
+        " .container {padding: 0; }"
+      ],
+      "settings": {
+        "title": "",
+        "include_margins": true,
+        "liquid": "<a href=\"https://borgattastore.myshopify.com/account/\"  >VOLVER</a>"
+      }
+    },
+    "caf_account_edit": {
+      "type": "apps",
+      "custom_css": [
+        ".invert {display: flex; flex-direction: column-reverse; align-items: flex-start;}",
+        "::placeholder {color: #fff;}"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "1eb6f1e2-760a-4e41-8690-9c6554eb8dbc",
+    "caf_account_edit"
+  ]
+}

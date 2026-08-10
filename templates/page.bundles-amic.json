@@ -1,0 +1,126 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "card_list_zbPqf3": {
+      "type": "card-list",
+      "blocks": {
+        "kit_card_jfCMYq": {
+          "type": "kit_card",
+          "settings": {
+            "image": "shopify://shop_images/mosaicos-promos-Amic-2026-01.jpg",
+            "video": "",
+            "tag_text": "",
+            "card_title": "Kit Premium Odontología Digital 3D",
+            "card_description": "Incluye: Escáner intraoral Borgatta Smart con computadora  (27-400-71-1), Impresora 3D Elegoo Mars (493-010), Equipo Wash & Cure Elegoo (493-003), Resina de modelos Elegoo (493-004) y Resina Prizma Bio Splint o Bio Prov.",
+            "button_label": "Quiero este kit",
+            "card_url": "shopify://pages/kit-premium-odontologia-digital-3d",
+            "full_card_link": true
+          }
+        },
+        "kit_card_hREFnz": {
+          "type": "kit_card",
+          "settings": {
+            "image": "shopify://shop_images/mosaicos-promos-Amic-2026-03.jpg",
+            "video": "",
+            "tag_text": "",
+            "card_title": "Kit Ideal Odontología Digital 3D",
+            "card_description": "Incluye: Escáner intraoral Borgatta 3 con computadora (27-400-73-1), Impresora 3D Elegoo Mars (493-010), Equipo Wash & Cure Elegoo (493-003), Resina de modelos Elegoo (493-004) y Resina Prizma Bio Splint o Bio Prov.",
+            "button_label": "Quiero este kit",
+            "card_url": "shopify://pages/kit-ideal-odontologia-digital-3d",
+            "full_card_link": true
+          }
+        },
+        "kit_card_fa3itc": {
+          "type": "kit_card",
+          "settings": {
+            "image": "shopify://shop_images/mosaicos-promos-Amic-2026-02.jpg",
+            "video": "",
+            "tag_text": "Kit Premium Wireless",
+            "card_title": "Kit Premium Wireless",
+            "card_description": "Incluye: Escáner intraoral Borgatta Smart Wireless con computadora (27-400-74), Impresora 3D Elegoo Mars (493-010), Equipo Wash & Cure Elegoo (493-003), Resina de modelos Elegoo (493-004) y Resina Prizma Bio Splint o Bio Prov.",
+            "button_label": "Quiero este kit",
+            "card_url": "shopify://pages/kit-premium-wireless-odontologia-digital-3d",
+            "full_card_link": true
+          }
+        },
+        "kit_card_Jk7xAz": {
+          "type": "kit_card",
+          "settings": {
+            "image": "shopify://shop_images/mosaicos-promos-Amic-2026-04.jpg",
+            "video": "",
+            "tag_text": "Fresado en seco",
+            "card_title": "Kit B500 - Fresadora Semi-industrial",
+            "card_description": "Incluye: Fresadora B500 (600-XMILL-500) (no incluye aspiradora), Horno de sinterización (600-SINT-FURNACE), Horno de Porcelana (600-FURNACE), Escáner de mesa L6 con computadora  (27-400-77-C) y 3 Discos para Fresado.",
+            "button_label": "Quiero este kit",
+            "card_url": "shopify://pages/bundle-b500",
+            "full_card_link": true
+          }
+        },
+        "kit_card_zkQgrn": {
+          "type": "kit_card",
+          "settings": {
+            "image": "shopify://shop_images/mosaicos-promos-Amic-2026-05.jpg",
+            "video": "",
+            "tag_text": "",
+            "card_title": "Kit B300 - Fresadora Semi-Industrial",
+            "card_description": "Incluye: Fresadora B300 (600-XMILL-300), Horno de porcelana (600-FURNACE), Compresor libre de aceite (1-4003), Kit de Stains para cerámica (600-GLAZE), Impresora 3D Elegoo Jupiter SE, Wash and Cure Elegoo, 3 resinas Elegoo Rapid y 3 cajas con 5 bloques de Disilicato de Litio.",
+            "button_label": "Quiero este kit",
+            "card_url": "shopify://pages/bundle-b300",
+            "full_card_link": true
+          }
+        },
+        "kit_card_T9ziix": {
+          "type": "kit_card",
+          "settings": {
+            "image": "shopify://shop_images/mosaicos-promos-Amic-2026-06.jpg",
+            "video": "",
+            "tag_text": "",
+            "card_title": "Kit Chairside-Fresadora 500 SE",
+            "card_description": "Incluye: Fresadora 500SE, Aspiradora 600-VACCUM, Horno de sintetización (600-SINT-FURNACE), Horno de porcelana (600-Furnace) y 3 Discos #D ML calibre 20,22.",
+            "button_label": "Quiero este kit",
+            "card_url": "shopify://pages/combo-chairside-fresadora-500-se-fresado-en-seco",
+            "full_card_link": true
+          }
+        }
+      },
+      "block_order": [
+        "kit_card_jfCMYq",
+        "kit_card_hREFnz",
+        "kit_card_fa3itc",
+        "kit_card_Jk7xAz",
+        "kit_card_zkQgrn",
+        "kit_card_T9ziix"
+      ],
+      "name": "Kits Grid",
+      "settings": {
+        "section_title": "Nuestros Kits",
+        "title_color": "#111111",
+        "columns_desktop": "2",
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "card_background": "#ffffff",
+        "card_border_radius": 24,
+        "heading_color": "#111111",
+        "description_color": "#555555",
+        "button_color": "#111111"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "card_list_zbPqf3"
+  ]
+}

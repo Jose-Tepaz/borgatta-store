@@ -1,0 +1,25 @@
+{%- comment -%}
+  Muestra la descripción del variant seleccionado, con fallback a product.description.
+  Uso: {% render 'product-description', product: product, variant: product.selected_or_first_available_variant, block: block %}
+{%- endcomment -%}
+
+{%- assign variant_description = variant.metafields.description.description -%}
+
+{%- if variant_description != blank or product.description != blank -%}
+  <div class="card__header">
+    <h2 class="card__title heading h3">{{ 'product.general.description' | t }}</h2>
+  </div>
+
+  <div
+    class="card__section {% if block.settings.display_mode == 'view_more' %}expandable-content{% endif %}"
+    {% if block.settings.display_mode == 'view_more' %}aria-expanded="false"{% endif %}
+  >
+    <div class="rte text--pull">
+      {%- if variant_description != blank -%}
+        <p>{{ variant_description }}</p>
+      {%- else -%}
+        {{ product.description }}
+      {%- endif -%}
+    </div>
+  </div>
+{%- endif -%}

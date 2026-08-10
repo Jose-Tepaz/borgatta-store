@@ -1,0 +1,212 @@
+{% comment %}
+  sections/policy-faq-tabs.liquid
+{% endcomment %}
+
+<section class="policy-faq-tabs">
+  <div class="tabs-container">
+    <!-- Sidebar de pestañas -->
+    <nav class="tabs-sidebar" aria-label="Pestañas">
+      <ul>
+        <li>
+          <button class="tab-button active" data-tab="policy">Políticas</button>
+        </li>
+        <li>
+          <button class="tab-button" data-tab="faqs">Preguntas frecuentes</button>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Contenido de pestañas -->
+    <div class="tabs-content">
+      {% assign policy_block = section.blocks | where: "type", "policy" | first %}
+
+      <!-- Panel Políticas -->
+      <div class="tab-panel" id="policy">
+        <div class="conetido-politicas">
+          {{ policy_block.settings.policy_content }}
+        </div>
+        
+      </div>
+
+      <!-- Panel FAQs -->
+      <div class="tab-panel hidden" id="faqs">
+        {% for block in section.blocks %}
+          {% if block.type == 'faq' %}
+            <div class="faq-item">
+              <h4 class="faq-question">{{ block.settings.question }}</h4>
+              <div class="faq-answer hidden">
+                {{ block.settings.answer }}
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.policy-faq-tabs {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.tabs-container {
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.conetido-politicas h2{
+ font-weight: 800;
+    color: #000;
+  font-size: 20px;
+  
+}
+  .conetido-politicas td, th{
+    border: 1px solid #ddd;
+  padding: 8px;
+  }
+  
+/* Sidebar */
+.tabs-sidebar {
+  width: 25%;
+  background: #f7f7f7;
+}
+.tabs-sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 1rem;
+}
+.tabs-sidebar li + li {
+  margin-top: 0.5rem;
+}
+.tab-button {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 500;
+  cursor: pointer;
+}
+.tab-button:hover {
+  background: #eee;
+}
+.tab-button.active {
+  background: #fff;
+  border-left: 4px solid #333;
+}
+/* Contenido */
+.tabs-content {
+  width: 75%;
+  padding: 1.5rem;
+  background: #fff;
+}
+.tab-panel.hidden {
+  display: none;
+}
+
+/* FAQ items */
+.faq-item {
+  border-bottom: 1px solid #eee;
+  padding: 1rem 0;
+}
+.faq-question {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  cursor: pointer;
+  position: relative;
+  padding-right: 1.5rem;
+}
+.faq-question::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.faq-question.open::after {
+  content: "−";
+}
+.faq-answer {
+  margin-top: 0.5rem;
+  line-height: 1.6;
+  transition: max-height 0.3s ease;
+}
+.faq-answer.hidden {
+  display: none;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Pestañas
+  var buttons = document.querySelectorAll('.tab-button');
+  var panels  = document.querySelectorAll('.tab-panel');
+  buttons.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      buttons.forEach(function(b){ b.classList.remove('active'); });
+      panels.forEach(function(p){ p.classList.add('hidden'); });
+      btn.classList.add('active');
+      document.getElementById(btn.getAttribute('data-tab'))
+              .classList.remove('hidden');
+    });
+  });
+
+  // Toggle de FAQs
+  var questions = document.querySelectorAll('.faq-question');
+  questions.forEach(function(q){
+    q.addEventListener('click', function(){
+      var answer = this.nextElementSibling;
+      if(!answer) return;
+      answer.classList.toggle('hidden');
+      this.classList.toggle('open');
+    });
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Políticas + FAQS",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "policy",
+      "name": "Bloque de Políticas",
+      "settings": [
+        {
+          "id": "policy_content",
+          "type": "richtext",
+          "label": "Contenido de Políticas"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "Pregunta Frecuente",
+      "settings": [
+        {
+          "id": "question",
+          "type": "text",
+          "label": "Pregunta"
+        },
+        {
+          "id": "answer",
+          "type": "richtext",
+          "label": "Respuesta"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Políticas + FAQs",
+      "category": "Página"
+    }
+  ]
+}
+{% endschema %}

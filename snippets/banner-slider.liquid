@@ -1,0 +1,159 @@
+{% comment %}
+  Banner Slider — JT Studio
+  Snippet: snippets/banner-slider.liquid
+  v2 — 7 celdas en grid, col-span y row-span configurables por celda, links por celda
+{% endcomment %}
+
+{% assign slider_id = 'bs-' | append: section_id %}
+
+<div
+  class="jts-banner-slider"
+  id="{{ slider_id }}"
+  data-autoplay="{{ section.settings.autoplay | default: true }}"
+  data-autoplay-speed="{{ section.settings.autoplay_speed | default: 4000 }}"
+  data-transition="{{ section.settings.transition | default: 'fade' }}"
+  data-height="{{ section.settings.height | default: 'medium' }}"
+>
+  <div class="jts-bs__track" aria-live="polite">
+    {% for block in section.blocks %}
+      {% assign slide = block %}
+      <div
+        class="jts-bs__slide{% if forloop.first %} is-active{% endif %}"
+        data-index="{{ forloop.index0 }}"
+        {{ block.shopify_attributes }}
+      >
+
+        {% if slide.settings.layout == 'single' %}
+          <div class="jts-bs__single">
+            {% if slide.settings.banner_url != blank %}
+              <a href="{{ slide.settings.banner_url }}" class="jts-bs__cell-link" aria-label="Ver más"></a>
+            {% endif %}
+            {% if slide.settings.media_type == 'video' %}
+              <video
+                class="jts-bs__media"
+                src="{{ slide.settings.video_url }}"
+                autoplay muted loop playsinline
+                aria-hidden="true"
+              ></video>
+            {% elsif slide.settings.image %}
+              <img
+                class="jts-bs__media"
+                src="{{ slide.settings.image | img_url: '2000x' }}"
+                alt="{{ slide.settings.image.alt | escape }}"
+                loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+                width="{{ slide.settings.image.width }}"
+                height="{{ slide.settings.image.height }}"
+              >
+            {% endif %}
+            <div class="jts-bs__overlay jts-bs__overlay--{{ slide.settings.overlay_position | default: 'bottom-left' }}">
+              {% render 'banner-slider-copy', slide: slide %}
+            </div>
+          </div>
+
+        {% else %}
+
+          {%- assign grid_cols = slide.settings.grid_columns | default: 4 -%}
+          {%- assign grid_rows = slide.settings.grid_rows    | default: 2 -%}
+
+          <div
+            class="jts-bs__grid"
+            style="grid-template-columns: repeat({{ grid_cols }}, 1fr); grid-template-rows: repeat({{ grid_rows }}, 1fr);"
+          >
+            {%- assign cell_keys = 'cell0,cell1,cell2,cell3,cell4,cell5,cell6' | split: ',' -%}
+
+            {% for key in cell_keys %}
+              {%- assign media_type_key = key | append: '_media_type' -%}
+              {%- assign image_key      = key | append: '_image' -%}
+              {%- assign video_key      = key | append: '_video_url' -%}
+              {%- assign col_span_key   = key | append: '_col_span' -%}
+              {%- assign row_span_key   = key | append: '_row_span' -%}
+              {%- assign show_cta_key   = key | append: '_show_cta' -%}
+              {%- assign url_key        = key | append: '_url' -%}
+              {%- assign cell_url       = slide.settings[url_key] -%}
+
+              {% if forloop.index0 == 0 %}
+                {%- assign default_col = 2 -%}
+                {%- assign default_row = 2 -%}
+              {% else %}
+                {%- assign default_col = 1 -%}
+                {%- assign default_row = 1 -%}
+              {% endif %}
+
+              {%- assign col_span = slide.settings[col_span_key] | default: default_col -%}
+              {%- assign row_span = slide.settings[row_span_key] | default: default_row -%}
+
+              <div
+                class="jts-bs__cell{% if forloop.index0 == 0 %} jts-bs__cell--hero{% endif %}"
+                style="grid-column: span {{ col_span }}; grid-row: span {{ row_span }};"
+              >
+
+                {% if cell_url != blank %}
+                  <a href="{{ cell_url }}" class="jts-bs__cell-link" aria-label="Ver más"></a>
+                {% endif %}
+
+                {% if slide.settings[media_type_key] == 'video' and slide.settings[video_key] != blank %}
+                  <video
+                    class="jts-bs__media"
+                    src="{{ slide.settings[video_key] }}"
+                    autoplay muted loop playsinline
+                    aria-hidden="true"
+                  ></video>
+                {% elsif slide.settings[image_key] %}
+                  <img
+                    class="jts-bs__media"
+                    src="{{ slide.settings[image_key] | img_url: '1200x' }}"
+                    alt="{{ slide.settings[image_key].alt | escape }}"
+                    loading="{% if forloop.first and forloop.index0 == 0 %}eager{% else %}lazy{% endif %}"
+                    width="{{ slide.settings[image_key].width }}"
+                    height="{{ slide.settings[image_key].height }}"
+                  >
+                {% else %}
+                  <div class="jts-bs__cell-empty"></div>
+                {% endif %}
+
+                {% if forloop.index0 == 0 %}
+                  <div class="jts-bs__overlay jts-bs__overlay--bottom-left">
+                    {% render 'banner-slider-copy', slide: slide %}
+                  </div>
+                {% elsif slide.settings[show_cta_key] %}
+                  <div class="jts-bs__overlay jts-bs__overlay--{{ slide.settings.overlay_position | default: 'bottom-left' }}">
+                    {% render 'banner-slider-copy', slide: slide %}
+                  </div>
+                {% endif %}
+
+              </div>
+
+            {% endfor %}
+
+          </div>
+        {% endif %}
+
+      </div>
+    {% endfor %}
+  </div>
+
+  {% if section.blocks.size > 1 %}
+    <button class="jts-bs__arrow jts-bs__arrow--prev" aria-label="{{ 'general.slider.previous_slide' | t }}">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <button class="jts-bs__arrow jts-bs__arrow--next" aria-label="{{ 'general.slider.next_slide' | t }}">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <div class="jts-bs__dots" role="tablist" aria-label="{{ 'general.slider.slide_count' | t }}">
+      {% for block in section.blocks %}
+        <button
+          class="jts-bs__dot{% if forloop.first %} is-active{% endif %}"
+          role="tab"
+          aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+          aria-label="{{ 'general.slider.go_to_slide' | t: number: forloop.index }}"
+          data-index="{{ forloop.index0 }}"
+        ></button>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>

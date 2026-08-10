@@ -1,0 +1,38 @@
+{%- for filter in filters -%}
+  <details class="facet-group">
+    <summary class="facet-group__title">{{ filter.label }}</summary>
+    <div class="facet-group__values">
+      {%- case filter.type -%}
+        {%- when 'list' -%}
+          {%- for value in filter.values -%}
+            <label>
+              <input
+                type="checkbox"
+                name="{{ filter.param_name }}"
+                value="{{ value.value }}"
+                {% if value.active %}checked{% endif %}
+              >
+              {{ value.label }} ({{ value.count }})
+            </label>
+          {%- endfor -%}
+        {%- when 'price_range' -%}
+          <label>
+            {{ 'From' }}
+            <input
+              type="number"
+              name="{{ filter.min_value.param_name }}"
+              value="{{ filter.min_value.value | default: 0 }}"
+            >
+          </label>
+          <label>
+            {{ 'To' }}
+            <input
+              type="number"
+              name="{{ filter.max_value.param_name }}"
+              value="{{ filter.max_value.value | default: filter.range_max }}"
+            >
+          </label>
+      {%- endcase -%}
+    </div>
+  </details>
+{%- endfor -%}

@@ -1,0 +1,565 @@
+{%- comment -%}
+  ---------------------------------------------------------------------------
+  snippets/product-pdf.liquid
+
+  Visor de PDF por VARIANTE, con barra de herramientas, texto seleccionable
+  y buscador. Funciona en desktop y mobile.
+
+  Usa la capa de componentes de PDF.js (web/pdf_viewer.js), no el core suelto:
+  eso es lo que da capa de texto, navegación por página y zoom real.
+
+  Requiere CORS en el host del PDF. Plytix ya lo trae.
+  Excepción: Google Drive no tiene CORS -> esas URLs caen a iframe /preview.
+
+  Metafields. Acepta los dos niveles, con la VARIANTE mandando sobre el PADRE:
+    Custom data -> VARIANTS  -> custom.product_pdf        (tipo URL)
+    Custom data -> PRODUCTS  -> custom.product_pdf        (tipo URL)
+    Custom data -> PRODUCTS  -> custom.product_pdf_title  (texto, opcional)
+    Custom data -> VARIANTS  -> custom.product_pdf_title  (texto, opcional)
+
+  Precedencia por variante:
+    1. metafield de la variante
+    2. metafield del producto padre
+    3. si ninguno tiene URL, esa variante no muestra el bloque
+
+  Son definiciones distintas aunque compartan namespace y key: el ownerType
+  las separa. Hay que crear ambas si quieres usar ambas.
+
+  Uso:  {% render 'product-pdf', product: product %}
+  Opcionales: namespace / key / height
+  ---------------------------------------------------------------------------
+{%- endcomment -%}
+
+{%- liquid
+  assign ns = namespace | default: 'product_pdf'
+  assign mf_key = key | default: 'product_pdf'
+  assign viewer_height = height | default: 680
+  assign fallback_title = product.metafields[ns].product_pdf_title.value
+  assign parent_url = product.metafields[ns][mf_key].value | strip
+
+  assign entries = ''
+  assign has_any = false
+
+  for v in product.variants
+    assign raw_url = v.metafields[ns][mf_key].value | strip
+    if raw_url == blank
+      assign raw_url = parent_url
+    endif
+    unless raw_url contains 'https://'
+      continue
+    endunless
+    assign has_any = true
+
+    if raw_url contains 'drive.google.com/file/d/'
+      assign drive_id = raw_url | split: '/d/' | last | split: '/' | first | split: '?' | first
+      assign embed_url = 'https://drive.google.com/file/d/' | append: drive_id | append: '/preview'
+      assign open_url = 'https://drive.google.com/file/d/' | append: drive_id | append: '/view'
+      assign mode = 'frame'
+    else
+      assign open_url = raw_url
+      assign embed_url = raw_url
+      assign mode = 'pdfjs'
+    endif
+
+    assign v_title = v.metafields[ns].product_pdf_title.value
+    if v_title == blank
+      assign v_title = fallback_title
+    endif
+    if v_title == blank
+      assign file_name = raw_url | split: '?' | first | split: '/' | last
+      if file_name contains '.pdf'
+        assign v_title = file_name | remove_last: '.pdf' | replace: '_', ' ' | replace: '-', ' '
+      else
+        assign v_title = v.title
+      endif
+    endif
+
+    capture entry
+      echo '"'
+      echo v.id
+      echo '":{"mode":"'
+      echo mode
+      echo '","open":'
+      echo open_url | json
+      echo ',"embed":'
+      echo embed_url | json
+      echo ',"title":'
+      echo v_title | json
+      echo '}'
+    endcapture
+    assign entries = entries | append: ',' | append: entry
+  endfor
+
+  assign variant_json = entries | remove_first: ','
+  assign current = product.selected_or_first_available_variant
+  assign current_url = current.metafields[ns][mf_key].value | strip
+  if current_url == blank
+    assign current_url = parent_url
+  endif
+  assign show_now = false
+  if current_url contains 'https://'
+    assign show_now = true
+  endif
+-%}
+
+{%- if has_any -%}
+  {%- assign uid = mf_key | append: '-' | append: product.id -%}
+
+ 
+
+  <div class="pdfdoc card__section " id="pdf-{{ uid }}" {% unless show_now %}hidden{% endunless %}>
+     <div class="card__section_pdf">
+      <p class="text-ficha">Ficha Técnica PDF</p>
+
+      <script type="application/json" data-map>{ {{- variant_json -}} }</script>
+
+    
+
+      <div class="pdfdoc__toolbar" data-toolbar hidden>
+      <span class="pdfdoc__group">
+        <button class="pdfdoc__btn pdfdoc__btn--icon" type="button" data-prev aria-label="Página anterior">&#8249;</button>
+        <span class="pdfdoc__pages"><input class="pdfdoc__pageinput" data-pageinput type="text" inputmode="numeric" value="1" aria-label="Página"> / <span data-pagecount>–</span></span>
+        <button class="pdfdoc__btn pdfdoc__btn--icon" type="button" data-next aria-label="Página siguiente">&#8250;</button>
+      </span>
+
+      <span class="pdfdoc__group pdfdoc__group--find" style="display:none">
+        <span class="pdfdoc__matches" data-matches></span>
+      </span>
+      </div>
+
+      <div class="pdfdoc__stage" data-stage>
+      <div class="pdfdoc__scroll" data-container>
+        <div class="pdfViewer"></div>
+      </div>
+      <p class="pdfdoc__state" data-state>Cargando documento…</p>
+      </div>
+
+      <div class="pdfdoc__head">
+      <span class="pdfdoc__name" data-title style="display:none;"></span>
+      
+      <a class="button--primary" data-open href="#" download target="_blank" rel="noopener noreferrer">Descargar</a>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <style>
+    #pdf-{{ uid }} {
+      --pd-line: rgba(var(--color-foreground, 18 18 18), 0.14);
+      --pd-fg: rgb(var(--color-foreground, 18 18 18));
+      --pd-bg: rgba(var(--color-foreground, 18 18 18), 0.04);
+      border: 1px solid var(--pd-line);
+      border-radius: var(--inputs-radius, 4px);
+      overflow: hidden;
+      margin: auto;
+      font-size: 1rem;
+     
+      
+    }
+
+    
+    #pdf-{{ uid }}[hidden] { display: none; }
+
+    #pdf-{{ uid }} .pdfdoc__head {
+      display: flex; align-items: center; gap: 1.2rem;
+      padding: 1.2rem 1.4rem;
+      background: var(--pd-bg);
+      border-bottom: 1px solid var(--pd-line);
+    }
+    #pdf-{{ uid }} .pdfdoc__name {
+      flex: 1 1 auto; min-width: 0; font-weight: 600;
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+
+    #pdf-{{ uid }} .pdfdoc__toolbar {
+      display: flex; align-items: center; gap: 1.6rem; justify-content:flex-start;
+      
+      border-bottom: 1px solid var(--pd-line);     margin-bottom: 1rem;
+    }
+    #pdf-{{ uid }} .pdfdoc__toolbar[hidden] { display: none; }
+    #pdf-{{ uid }} .pdfdoc__group { display: flex; align-items: center; gap: 0.5rem;     border: solid 0.5px #d4d6d8;
+    padding: 0.25rem;
+    border-radius: 10px;}
+    #pdf-{{ uid }} .pdfdoc__group--find { flex: 1 1 20rem; min-width: 0; }
+
+    #pdf-{{ uid }} .pdfdoc__btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0.7rem 1.3rem;
+      font-size: 1rem; line-height: 1; text-decoration: none; cursor: pointer;
+      background: transparent; color: var(--pd-fg);
+      border: 1px solid var(--pd-line);
+      border-radius: var(--buttons-radius, 4px);
+    }
+    #pdf-{{ uid }} .pdfdoc__btn--icon { min-width: 3.2rem; height: 3.2rem; padding: 0; font-size: 1rem; }
+    #pdf-{{ uid }} .pdfdoc__btn--solid {
+      background: var(--pd-fg); color: rgb(var(--color-background, 255 255 255));
+      border-color: var(--pd-fg); flex: 0 0 auto;
+    }
+    #pdf-{{ uid }} .pdfdoc__btn:disabled { opacity: 0.35; cursor: default; }
+    #pdf-{{ uid }} .pdfdoc__btn:hover:not(:disabled) { background: var(--pd-bg); }
+    #pdf-{{ uid }} .pdfdoc__btn--solid:hover { opacity: 0.85; background: var(--pd-fg); }
+
+    #pdf-{{ uid }} .pdfdoc__pages { display: flex; align-items: center; gap: 0.4rem; font-size: 1rem; }
+    #pdf-{{ uid }} .pdfdoc__pageinput {
+      width: 1.5rem; height: 3.2rem; padding: 0 0.4rem; text-align: center; font-size: 1rem;
+      color: var(--pd-fg); background: transparent;
+      border: 1px solid var(--pd-line); border-radius: var(--inputs-radius, 4px);
+    }
+    #pdf-{{ uid }} .pdfdoc__find {
+      flex: 1 1 auto; min-width: 0; height: 3.2rem; padding: 0 1rem; font-size: 1rem;
+      color: var(--pd-fg); background: transparent;
+      border: 1px solid var(--pd-line); border-radius: var(--inputs-radius, 4px);
+    }
+    #pdf-{{ uid }} .pdfdoc__matches { font-size: 1rem; opacity: 0.65; white-space: nowrap; }
+
+    #pdf-{{ uid }} .pdfdoc__stage { position: relative; height: {{ viewer_height }}px; background: var(--pd-bg); }
+    /* Sin scroll interno: la hoja entra completa y se navega con las flechas.
+       pan-y es clave: el gesto vertical NO se consume aquí, lo recibe la
+       página de producto. Con 'none' u 'overscroll-behavior: contain' el
+       bloque secuestra el scroll y el usuario queda atrapado. */
+    #pdf-{{ uid }} .pdfdoc__scroll {
+      position: absolute; inset: 0; overflow: hidden;
+      touch-action: pan-y;
+    }
+    /* El usuario amplió: aquí sí necesita panear dentro. */
+    #pdf-{{ uid }}[data-pannable="true"] .pdfdoc__scroll {
+      overflow: auto;
+      touch-action: pan-x pan-y;
+      overscroll-behavior: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    #pdf-{{ uid }} .pdfdoc__stage iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    #pdf-{{ uid }} .pdfdoc__state {
+      position: absolute; inset: 0; z-index: 2;
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      margin: 0; padding: 2rem; text-align: center; opacity: 0.75;
+      background: var(--pd-bg);
+    }
+    #pdf-{{ uid }} .pdfdoc__state[hidden] { display: none; }
+    /* pdf_viewer.css pinta el borde de página; le damos sombra en vez de borde. */
+    #pdf-{{ uid }} .pdfViewer .page { border: 0; margin: 1.2rem 0; border: 1px solid var(--border-color);
+    border-radius: 25px; overflow:hidden;}
+
+    @media screen and (max-width: 749px) {
+      /* Alto de arranque, antes de que haya una hoja medida. En cuanto pdf.js
+         dibuja, fitStage() lo reemplaza por el alto exacto de la hoja, así no
+         queda fondo vacío debajo. Vuelve a este valor si el usuario amplía. */
+      #pdf-{{ uid }} .pdfdoc__stage { height: 58vh; }
+      #pdf-{{ uid }} .pdfdoc__toolbar { gap: 1rem; }
+      #pdf-{{ uid }} .pdfdoc__group--find { flex-basis: 100%; order: 3; }
+    }
+  </style>
+
+  <script>
+    (function () {
+      var VER = '3.11.174';
+      var BASE = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@' + VER + '/';
+
+      var root = document.getElementById('pdf-{{ uid }}');
+      if (!root) return;
+
+      var map = {};
+      try { map = JSON.parse(root.querySelector('[data-map]').textContent); } catch (e) { return; }
+
+      var q = function (s) { return root.querySelector(s); };
+      var stage = q('[data-stage]');
+      var scroll = q('[data-container]');
+      var viewerEl = root.querySelector('.pdfViewer');
+      var toolbar = q('[data-toolbar]');
+      var stateEl = q('[data-state]');
+      var titleEl = q('[data-title]');
+      var pageInput = q('[data-pageinput]');
+      var pageCount = q('[data-pagecount]');
+      var findInput = q('[data-find]');
+      var matchesEl = q('[data-matches]');
+      var openLinks = Array.prototype.slice.call(root.querySelectorAll('[data-open]'));
+
+      var currentId = '{{ current.id }}';
+      var app = null, bus = null, doc = null, token = 0;
+      // Sin controles de zoom, la escala es siempre 'page-width'.
+      var fitMode = 'page-width';
+
+      function setState(msg, data) {
+        stateEl.hidden = false;
+        stateEl.textContent = msg ? msg + ' ' : '';
+        if (data) {
+          var a = document.createElement('a');
+          a.href = data.open; a.target = '_blank'; a.rel = 'noopener noreferrer';
+          a.textContent = 'Ábrelo en una pestaña nueva.';
+          stateEl.appendChild(a);
+        }
+      }
+
+      // --- Carga de assets (core + componentes + css), una vez por página ---
+      function load() {
+        if (window.__pdfjsViewerReady) return window.__pdfjsViewerReady;
+        window.__pdfjsViewerReady = new Promise(function (resolve, reject) {
+          var css = document.createElement('link');
+          css.rel = 'stylesheet';
+          css.href = BASE + 'web/pdf_viewer.css';
+          document.head.appendChild(css);
+
+          function script(src) {
+            return new Promise(function (ok, bad) {
+              var s = document.createElement('script');
+              s.src = src;
+              s.onload = ok;
+              s.onerror = function () { bad(new Error(src)); };
+              document.head.appendChild(s);
+            });
+          }
+          // Orden obligatorio: pdf_viewer.js lee globalThis.pdfjsLib.
+          script(BASE + 'build/pdf.min.js')
+            .then(function () {
+              window.pdfjsLib.GlobalWorkerOptions.workerSrc = BASE + 'build/pdf.worker.min.js';
+              return script(BASE + 'web/pdf_viewer.js');
+            })
+            .then(resolve, reject);
+        });
+        return window.__pdfjsViewerReady;
+      }
+
+      function buildApp() {
+        if (app) return app;
+        var V = window.pdfjsViewer;
+        bus = new V.EventBus();
+        var linkService = new V.PDFLinkService({ eventBus: bus, externalLinkTarget: 2 });
+        var findController = new V.PDFFindController({ eventBus: bus, linkService: linkService });
+
+        app = new V.PDFViewer({
+          container: scroll,
+          viewer: viewerEl,
+          eventBus: bus,
+          linkService: linkService,
+          findController: findController,
+          textLayerMode: 1,          // 1 = capa de texto seleccionable y buscable
+          annotationMode: 2,         // 2 = links y widgets clicables
+          // Sin esto, 'page-width' reserva SCROLLBAR_PADDING (40px) para una
+          // barra de scroll que no existe, y la hoja nunca llena el ancho.
+          removePageBorders: true
+        });
+        linkService.setViewer(app);
+        app.linkService = linkService;
+        app.findController = findController;
+
+        bus.on('pagesinit', function () {
+          app.scrollMode = V.ScrollMode.PAGE;   // una hoja a la vez, sin scroll continuo
+          // 'page-width' en todos los tamaños: la hoja llena el ancho del
+          // frame y el alto lo medimos después en fitStage().
+          fitMode = 'page-width';
+          app.currentScaleValue = fitMode;
+          pageCount.textContent = app.pagesCount;
+          pageInput.value = app.currentPageNumber;
+          toolbar.hidden = false;
+          stateEl.hidden = true;
+          syncNav();
+        });
+        bus.on('pagechanging', function (e) {
+          pageInput.value = e.pageNumber;
+          syncNav();
+        });
+        // Se dispara por cada hoja dibujada: es el momento en que ya hay
+        // medidas reales en el DOM.
+        bus.on('pagerendered', function () {
+          fitStage();
+          syncPannable();
+        });
+        bus.on('scalechanging', function () {
+          setTimeout(function () { fitStage(); syncPannable(); }, 60);
+        });
+        bus.on('updatefindmatchescount', function (e) {
+          var c = e.matchesCount || {};
+          matchesEl.textContent = c.total ? (c.current + ' de ' + c.total) : '';
+        });
+        bus.on('updatefindcontrolstate', function (e) {
+          if (e.state === 1) matchesEl.textContent = 'Sin resultados';
+        });
+        return app;
+      }
+
+      function open(data) {
+        var my = ++token;
+        setState('Cargando documento…');
+        toolbar.hidden = true;
+        matchesEl.textContent = '';
+        if (findInput) findInput.value = '';
+
+        return load()
+          .then(function () {
+            if (my !== token) return;
+            buildApp();
+            return window.pdfjsLib.getDocument({ url: data.embed }).promise;
+          })
+          .then(function (pdf) {
+            if (my !== token || !pdf) return;
+            if (doc) { try { doc.destroy(); } catch (e) {} }
+            doc = pdf;
+            app.setDocument(pdf);
+            app.linkService.setDocument(pdf, null);
+          })
+          .catch(function () {
+            if (my !== token) return;
+            setState('No se pudo cargar el documento aquí.', data);
+          });
+      }
+
+      function frame(data) {
+        token++;
+        toolbar.hidden = true;
+        stateEl.hidden = true;
+        scroll.style.display = 'none';
+        var f = stage.querySelector('iframe');
+        if (!f) { f = document.createElement('iframe'); f.loading = 'lazy'; stage.appendChild(f); }
+        f.title = data.title;
+        f.src = data.embed;
+      }
+
+      function paint(id) {
+        var data = map[String(id)];
+        if (!data) { root.hidden = true; token++; return; }
+        root.hidden = false;
+        titleEl.textContent = data.title;
+        openLinks.forEach(function (a) { a.href = data.open; });
+
+        if (data.mode === 'frame') { frame(data); return; }
+        var old = stage.querySelector('iframe');
+        if (old) old.remove();
+        scroll.style.display = '';
+        open(data);
+      }
+
+      // --- Estado de las flechas segun la hoja actual ---
+      var prevBtn = q('[data-prev]'), nextBtn = q('[data-next]');
+      function syncNav() {
+        if (!app) return;
+        prevBtn.disabled = app.currentPageNumber <= 1;
+        nextBtn.disabled = app.currentPageNumber >= app.pagesCount;
+      }
+
+      // Solo habilita scroll interno si el contenido ya no cabe (usuario amplió).
+      function syncPannable() {
+        var over = scroll.scrollHeight > scroll.clientHeight + 2 ||
+                   scroll.scrollWidth > scroll.clientWidth + 2;
+        root.setAttribute('data-pannable', over ? 'true' : 'false');
+      }
+
+      // Ajusta el alto del stage al de la hoja realmente renderizada, para que
+      // no quede fondo vacío debajo. Aplica en desktop y mobile.
+      // Solo con 'page-width': ahí la escala sale del ANCHO, así que derivar el
+      // alto no realimenta el cálculo. Con 'page-fit' sí lo haría (la escala
+      // depende del alto) y entraría en un bucle de crecimiento.
+      function fitStage() {
+        if (fitMode !== 'page-width') { stage.style.height = ''; return; }
+        var pv = app ? app.getPageView(app.currentPageNumber - 1) : null;
+        var pageDiv = (pv && pv.div) || viewerEl.querySelector('.page');
+        if (!pageDiv || !pageDiv.offsetHeight) return;
+        var cs = getComputedStyle(pageDiv);
+        var h = pageDiv.offsetHeight +
+                (parseFloat(cs.marginTop) || 0) +
+                (parseFloat(cs.marginBottom) || 0);
+        stage.style.height = Math.ceil(h) + 'px';
+      }
+
+      function go(step) {
+        if (!app) return;
+        var n = app.currentPageNumber + step;
+        if (n >= 1 && n <= app.pagesCount) app.currentPageNumber = n;
+      }
+
+      // --- Controles ---
+      prevBtn.addEventListener('click', function () { go(-1); });
+      nextBtn.addEventListener('click', function () { go(1); });
+
+      // Flechas del teclado cuando el bloque tiene el foco.
+      stage.setAttribute('tabindex', '0');
+      stage.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); go(1); }
+        else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(-1); }
+      });
+
+      // Swipe horizontal en mobile: cambia de hoja sin robarle el scroll vertical.
+      var sx = 0, sy = 0, swiping = false;
+      stage.addEventListener('touchstart', function (e) {
+        if (root.getAttribute('data-pannable') === 'true' || e.touches.length !== 1) { swiping = false; return; }
+        swiping = true; sx = e.touches[0].clientX; sy = e.touches[0].clientY;
+      }, { passive: true });
+      stage.addEventListener('touchend', function (e) {
+        if (!swiping) return;
+        swiping = false;
+        var dx = e.changedTouches[0].clientX - sx;
+        var dy = e.changedTouches[0].clientY - sy;
+        if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy)) return;
+        go(dx < 0 ? 1 : -1);
+      }, { passive: true });
+      pageInput.addEventListener('change', function () {
+        if (!app) return;
+        var n = parseInt(pageInput.value, 10);
+        if (n >= 1 && n <= app.pagesCount) app.currentPageNumber = n;
+        else pageInput.value = app.currentPageNumber;
+      });
+      var findTimer;
+      if (findInput) {
+        findInput.addEventListener('input', function () {
+          clearTimeout(findTimer);
+          findTimer = setTimeout(function () {
+            if (!bus) return;
+            bus.dispatch('find', {
+              source: null, type: '', query: findInput.value,
+              phraseSearch: true, caseSensitive: false, entireWord: false,
+              highlightAll: true, findPrevious: false
+            });
+            if (!findInput.value) matchesEl.textContent = '';
+          }, 300);
+        });
+        findInput.addEventListener('keydown', function (e) {
+          if (e.key !== 'Enter' || !bus) return;
+          e.preventDefault();
+          bus.dispatch('find', {
+            source: null, type: 'again', query: findInput.value,
+            phraseSearch: true, caseSensitive: false, entireWord: false,
+            highlightAll: true, findPrevious: e.shiftKey
+          });
+        });
+      }
+
+      // --- Arranque diferido: nada se descarga hasta que el bloque se acerca ---
+      var started = false;
+      function start() { if (!started) { started = true; paint(currentId); } }
+      if ('IntersectionObserver' in window) {
+        var boot = new IntersectionObserver(function (i) {
+          if (i[0].isIntersecting) { boot.disconnect(); start(); }
+        }, { rootMargin: '400px 0px' });
+        boot.observe(root);
+      } else { start(); }
+
+      // --- Cambio de variante ---
+      document.addEventListener('change', function (e) {
+        if (!e.target.closest('form[action*="/cart/add"], variant-selects, variant-radios, .product-form__input')) return;
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            var input = document.querySelector('form[action*="/cart/add"] input[name="id"]');
+            var id = input && input.value ? input.value : currentId;
+            if (id === currentId) return;
+            currentId = id;
+            if (started) paint(id); else root.hidden = !map[String(id)];
+          });
+        });
+      });
+
+      // --- Reajuste al girar el teléfono o cruzar el breakpoint ---
+      var reflow;
+      window.addEventListener('resize', function () {
+        clearTimeout(reflow);
+        reflow = setTimeout(function () {
+          if (!app) return;
+          if (fitMode) app.currentScaleValue = fitMode;
+          fitStage();
+          syncPannable();
+        }, 200);
+      }, { passive: true });
+    })();
+  </script>
+{%- endif -%}

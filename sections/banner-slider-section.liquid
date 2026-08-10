@@ -1,0 +1,550 @@
+{% comment %}
+  Banner Slider Section — JT Studio
+  File: sections/banner-slider.liquid
+  v2 — 6 celdas, col-span y row-span configurables por celda
+{% endcomment %}
+
+{%- assign section_id = section.id -%}
+
+{% render 'banner-slider', section_id: section_id %}
+
+{{ 'jts-banner-slider.css' | asset_url | stylesheet_tag }}
+{{ 'jts-banner-slider.js' | asset_url | script_tag }}
+
+{% schema %}
+
+{
+  "name": "Banner Slider",
+  "tag": "section",
+  "class": "jts-banner-slider-section",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Comportamiento del slider"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Reproducción automática",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "min": 2000,
+      "max": 5000,
+      "step": 500,
+      "unit": "ms",
+      "label": "Velocidad (ms)",
+      "default": 4500
+    },
+    {
+      "type": "select",
+      "id": "transition",
+      "label": "Tipo de transición",
+      "default": "fade",
+      "options": [
+        { "value": "fade",  "label": "Fade" },
+        { "value": "slide", "label": "Slide" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Altura del banner"
+    },
+    {
+      "type": "select",
+      "id": "height",
+      "label": "Altura",
+      "default": "medium",
+      "options": [
+        { "value": "small",  "label": "Pequeño (40vh)" },
+        { "value": "medium", "label": "Mediano (55vh)" },
+        { "value": "large",  "label": "Grande (70vh)" },
+        { "value": "full",   "label": "Pantalla completa (100vh)" }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Layout"
+        },
+        {
+          "type": "select",
+          "id": "layout",
+          "label": "Tipo de layout",
+          "default": "grid",
+          "options": [
+            { "value": "grid",   "label": "Cuadrícula (hasta 6 celdas)" },
+            { "value": "single", "label": "Imagen / video único" }
+          ]
+        },
+
+        {
+          "type": "header",
+          "content": "Configuración del grid"
+        },
+        {
+          "type": "range",
+          "id": "grid_columns",
+          "label": "Columnas totales del grid",
+          "min": 2,
+          "max": 6,
+          "step": 1,
+          "default": 4,
+          "info": "Número de columnas base. Cada celda puede ocupar 1 o más columnas."
+        },
+        {
+          "type": "range",
+          "id": "grid_rows",
+          "label": "Filas totales del grid",
+          "min": 1,
+          "max": 4,
+          "step": 1,
+          "default": 2,
+          "info": "Número de filas base. Cada celda puede ocupar 1 o más filas."
+        },
+
+        {
+          "type": "header",
+          "content": "Texto y CTA (aparece sobre la celda 0)"
+        },
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "Subtítulo / Etiqueta",
+          "placeholder": "Explora nuestras últimas novedades"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Título principal",
+          "placeholder": "Productos nuevos"
+        },
+        {
+          "type": "select",
+          "id": "heading_tag",
+          "label": "Tag HTML del título",
+          "default": "h2",
+          "options": [
+            { "value": "h1", "label": "H1 (página principal)" },
+            { "value": "h2", "label": "H2 (recomendado)" },
+            { "value": "h3", "label": "H3" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Texto del botón",
+          "placeholder": "Ver productos"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Enlace del botón"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_new_tab",
+          "label": "Abrir en nueva pestaña",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "button_style",
+          "label": "Estilo del botón",
+          "default": "outline",
+          "options": [
+            { "value": "outline", "label": "Contorno (outline)" },
+            { "value": "filled",  "label": "Relleno (filled)" }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "overlay_position",
+          "label": "Posición del texto",
+          "default": "bottom-left",
+          "options": [
+            { "value": "bottom-left",   "label": "Abajo izquierda" },
+            { "value": "bottom-center", "label": "Abajo centro" },
+            { "value": "center-left",   "label": "Centro izquierda" },
+            { "value": "center",        "label": "Centro" }
+          ]
+        },
+
+        {
+          "type": "header",
+          "content": "── Celda 0 (hero) ──"
+        },
+        {
+          "type": "paragraph",
+          "content": "Por defecto ocupa 2 columnas × 2 filas. El texto/CTA siempre aparece aquí."
+        },
+        {
+          "type": "range",
+          "id": "cell0_col_span",
+          "label": "Celda 0 — columnas que ocupa",
+          "min": 1, "max": 6, "step": 1, "default": 2
+        },
+        {
+          "type": "range",
+          "id": "cell0_row_span",
+          "label": "Celda 0 — filas que ocupa",
+          "min": 1, "max": 4, "step": 1, "default": 2
+        },
+        {
+          "type": "select",
+          "id": "cell0_media_type",
+          "label": "Celda 0 — tipo de media",
+          "default": "image",
+          "options": [
+            { "value": "image", "label": "Imagen" },
+            { "value": "video", "label": "Video (URL)" }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "cell0_image",
+          "label": "Celda 0 — imagen"
+        },
+        {
+          "type": "text",
+          "id": "cell0_video_url",
+          "label": "Celda 0 — URL del video (MP4/WebM)"
+        },
+        {
+        "type": "url",
+        "id": "cell0_url",
+        "label": "Celda 0 — enlace al hacer clic"
+        },
+
+        {
+          "type": "header",
+          "content": "── Celda 1 ──"
+        },
+        {
+          "type": "range",
+          "id": "cell1_col_span",
+          "label": "Celda 1 — columnas que ocupa",
+          "min": 1, "max": 6, "step": 1, "default": 1
+        },
+        {
+          "type": "range",
+          "id": "cell1_row_span",
+          "label": "Celda 1 — filas que ocupa",
+          "min": 1, "max": 4, "step": 1, "default": 1
+        },
+        {
+          "type": "select",
+          "id": "cell1_media_type",
+          "label": "Celda 1 — tipo de media",
+          "default": "image",
+          "options": [
+            { "value": "image", "label": "Imagen" },
+            { "value": "video", "label": "Video (URL)" }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "cell1_image",
+          "label": "Celda 1 — imagen"
+        },
+        {
+          "type": "text",
+          "id": "cell1_video_url",
+          "label": "Celda 1 — URL del video"
+        },
+        {
+          "type": "checkbox",
+          "id": "cell1_show_cta",
+          "label": "Celda 1 — mostrar texto/CTA",
+          "default": false
+        },
+
+        {
+          "type": "header",
+          "content": "── Celda 2 ──"
+        },
+        {
+          "type": "range",
+          "id": "cell2_col_span",
+          "label": "Celda 2 — columnas que ocupa",
+          "min": 1, "max": 6, "step": 1, "default": 1
+        },
+        {
+          "type": "range",
+          "id": "cell2_row_span",
+          "label": "Celda 2 — filas que ocupa",
+          "min": 1, "max": 4, "step": 1, "default": 1
+        },
+        {
+          "type": "select",
+          "id": "cell2_media_type",
+          "label": "Celda 2 — tipo de media",
+          "default": "image",
+          "options": [
+            { "value": "image", "label": "Imagen" },
+            { "value": "video", "label": "Video (URL)" }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "cell2_image",
+          "label": "Celda 2 — imagen"
+        },
+        {
+          "type": "text",
+          "id": "cell2_video_url",
+          "label": "Celda 2 — URL del video"
+        },
+        {
+          "type": "checkbox",
+          "id": "cell2_show_cta",
+          "label": "Celda 2 — mostrar texto/CTA",
+          "default": false
+        },
+
+        {
+          "type": "header",
+          "content": "── Celda 3 ──"
+        },
+        {
+          "type": "range",
+          "id": "cell3_col_span",
+          "label": "Celda 3 — columnas que ocupa",
+          "min": 1, "max": 6, "step": 1, "default": 1
+        },
+        {
+          "type": "range",
+          "id": "cell3_row_span",
+          "label": "Celda 3 — filas que ocupa",
+          "min": 1, "max": 4, "step": 1, "default": 1
+        },
+        {
+          "type": "select",
+          "id": "cell3_media_type",
+          "label": "Celda 3 — tipo de media",
+          "default": "image",
+          "options": [
+            { "value": "image", "label": "Imagen" },
+            { "value": "video", "label": "Video (URL)" }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "cell3_image",
+          "label": "Celda 3 — imagen"
+        },
+        {
+          "type": "text",
+          "id": "cell3_video_url",
+          "label": "Celda 3 — URL del video"
+        },
+        {
+          "type": "checkbox",
+          "id": "cell3_show_cta",
+          "label": "Celda 3 — mostrar texto/CTA",
+          "default": false
+        },
+
+        {
+          "type": "header",
+          "content": "── Celda 4 ──"
+        },
+        {
+          "type": "range",
+          "id": "cell4_col_span",
+          "label": "Celda 4 — columnas que ocupa",
+          "min": 1, "max": 6, "step": 1, "default": 1
+        },
+        {
+          "type": "range",
+          "id": "cell4_row_span",
+          "label": "Celda 4 — filas que ocupa",
+          "min": 1, "max": 4, "step": 1, "default": 1
+        },
+        {
+          "type": "select",
+          "id": "cell4_media_type",
+          "label": "Celda 4 — tipo de media",
+          "default": "image",
+          "options": [
+            { "value": "image", "label": "Imagen" },
+            { "value": "video", "label": "Video (URL)" }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "cell4_image",
+          "label": "Celda 4 — imagen"
+        },
+        {
+          "type": "text",
+          "id": "cell4_video_url",
+          "label": "Celda 4 — URL del video"
+        },
+        {
+          "type": "checkbox",
+          "id": "cell4_show_cta",
+          "label": "Celda 4 — mostrar texto/CTA",
+          "default": false
+        },
+
+        {
+          "type": "header",
+          "content": "── Celda 5 ──"
+        },
+        {
+          "type": "range",
+          "id": "cell5_col_span",
+          "label": "Celda 5 — columnas que ocupa",
+          "min": 1, "max": 6, "step": 1, "default": 1
+        },
+        {
+          "type": "range",
+          "id": "cell5_row_span",
+          "label": "Celda 5 — filas que ocupa",
+          "min": 1, "max": 4, "step": 1, "default": 1
+        },
+        {
+          "type": "select",
+          "id": "cell5_media_type",
+          "label": "Celda 5 — tipo de media",
+          "default": "image",
+          "options": [
+            { "value": "image", "label": "Imagen" },
+            { "value": "video", "label": "Video (URL)" }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "cell5_image",
+          "label": "Celda 5 — imagen"
+        },
+        {
+          "type": "text",
+          "id": "cell5_video_url",
+          "label": "Celda 5 — URL del video"
+        },
+        {
+          "type": "checkbox",
+          "id": "cell5_show_cta",
+          "label": "Celda 5 — mostrar texto/CTA",
+          "default": false
+        },
+        {
+  "type": "header",
+  "content": "── Celda 6 ──"
+},
+{
+  "type": "range",
+  "id": "cell6_col_span",
+  "label": "Celda 6 — columnas que ocupa",
+  "min": 1, "max": 6, "step": 1, "default": 1
+},
+{
+  "type": "range",
+  "id": "cell6_row_span",
+  "label": "Celda 6 — filas que ocupa",
+  "min": 1, "max": 4, "step": 1, "default": 1
+},
+{
+  "type": "select",
+  "id": "cell6_media_type",
+  "label": "Celda 6 — tipo de media",
+  "default": "image",
+  "options": [
+    { "value": "image", "label": "Imagen" },
+    { "value": "video", "label": "Video (URL)" }
+  ]
+},
+{
+  "type": "image_picker",
+  "id": "cell6_image",
+  "label": "Celda 6 — imagen"
+},
+{
+  "type": "text",
+  "id": "cell6_video_url",
+  "label": "Celda 6 — URL del video"
+},
+{
+  "type": "checkbox",
+  "id": "cell6_show_cta",
+  "label": "Celda 6 — mostrar texto/CTA",
+  "default": false
+},
+
+        {
+          "type": "header",
+          "content": "Layout: Imagen / Video único"
+        },
+        {
+          "type": "select",
+          "id": "media_type",
+          "label": "Tipo de media (single)",
+          "default": "image",
+          "options": [
+            { "value": "image", "label": "Imagen" },
+            { "value": "video", "label": "Video (URL)" }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Imagen de fondo"
+        },
+        {
+          "type": "text",
+          "id": "video_url",
+          "label": "URL del video (MP4/WebM)",
+          "info": "Sube el archivo en Shopify Admin → Content → Files y copia la URL"
+        },
+        {
+        "type": "url",
+        "id": "banner_url",
+        "label": "Celda 0 — enlace al hacer clic"
+        },
+        
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner Slider",
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "layout": "grid",
+            "grid_columns": 4,
+            "grid_rows": 2,
+            "cell0_col_span": 2,
+            "cell0_row_span": 2,
+            "tag": "Explora nuestras últimas novedades",
+            "title": "Productos nuevos",
+            "button_label": "Ver productos",
+            "button_style": "outline"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "layout": "single",
+            "tag": "Colección exclusiva",
+            "title": "Descubre lo nuevo",
+            "button_label": "Ver colección",
+            "button_style": "outline"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

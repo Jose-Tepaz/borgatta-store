@@ -1,0 +1,91 @@
+<section data-section-id="{{ section.id }}" data-section-type="account">
+  <div class="container container--flush">
+    <div class="page__sub-header">
+      <nav aria-label="{{ 'general.breadcrumb.title' | t }}" class="breadcrumb">
+        <ol class="breadcrumb__list" role="list">
+          <li class="breadcrumb__item">
+            <a class="breadcrumb__link link" href="{{ routes.root_url }}">{{ 'general.breadcrumb.home' | t }}</a> {%- render 'icon', icon: 'arrow-right' -%}
+          </li>
+          <li class="breadcrumb__item">
+            <a class="breadcrumb__link link" href="{{ routes.account_url }}">{{ 'general.breadcrumb.account' | t }}</a> {%- render 'icon', icon: 'arrow-right' -%}
+          </li>
+          <li class="breadcrumb__item">
+            <span class="breadcrumb__link" aria-current="page">Datos fiscales</span>
+          </li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="layout">
+      <div class="layout__section layout__section--secondary">
+        <div class="card card--sticky hidden-pocket">
+          <div class="card__section card__section--tight">
+            <div class="card__linklist">
+              <a href="{{ routes.account_url }}" class="card__linklist-item link">{{ 'customer.general.orders' | t }}.</a>
+              <a href="{{ routes.account_addresses_url }}" class="card__linklist-item link">{{ 'customer.general.addresses' | t }}</a>
+              <a href="{{ routes.account.datosfiscales | default: '/account?view=datos-fiscales' }}" class="card__linklist-item link text--strong">Datos fiscales</a>
+              <a href="/apps/subscriptions#/subscriptions/list" class="card__linklist-item link">Suscripciones</a>
+              <a href="/pages/programa-de-lealtad" class="card__linklist-item link">Programa de lealtad</a>
+              {% if customer and customer.tags contains 'academy-member' %}
+                <a href="/apps/mis-cursos" class="card__linklist-item link ">Mis cursos</a>
+              {% endif %}
+              <a href="{{ routes.account_logout_url }}" class="card__linklist-item link" data-no-instant>{{ 'customer.general.logout' | t }}</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="value-picker-wrapper hidden-tablet-and-up">
+           <button class="value-picker-button value-picker-button--pill" aria-haspopup="true" aria-expanded="false" aria-controls="account-selector" data-action="open-value-picker">
+             Datos fiscales {%- render 'icon', icon: 'arrow-bottom' -%}
+           </button>
+
+           <div id="account-selector" class="value-picker" aria-hidden="true">
+             <div class="value-picker__inner">
+               <header class="value-picker__header">
+                 <span class="value-picker__title text--strong">{{ 'customer.general.my_account' | t }}</span>
+                 <button class="value-picker__close" data-action="close-value-picker" aria-controls="account-selector" aria-label="{{ 'general.accessibility.close' | t }}">{% render 'icon', icon: 'close' %}</button>
+               </header>
+
+               <div class="value-picker__choice-list">
+                 <a href="{{ routes.account_url }}" class="value-picker__choice-item">{{ 'customer.general.orders' | t }} {% render 'icon', icon: 'check-2' %}</a>
+                 <a href="{{ routes.account_addresses_url }}" class="value-picker__choice-item">{{ 'customer.general.addresses' | t }} {% render 'icon', icon: 'check-2' %}</a>
+                 <a href="{{ routes.account.datosfiscales | default: '/account?view=datos-fiscales' }}" class="value-picker__choice-item is-selected">Datos fiscales {% render 'icon', icon: 'check-2' %}</a>
+                 <a href="/apps/subscriptions#/subscriptions/list" class="value-picker__choice-item">Suscripciones {% render 'icon', icon: 'check-2' %}</a>
+                 <a href="/pages/programa-de-lealtad" class="value-picker__choice-item">Programa de lealtad {% render 'icon', icon: 'check-2' %}</a>
+                 <a href="{{ routes.account_logout_url }}" class="value-picker__choice-item" data-no-instant>{{ 'customer.general.logout' | t }} {% render 'icon', icon: 'check-2' %}</a>
+               </div>
+             </div>
+           </div>
+         </div>
+      </div>
+
+      <div class="layout__section">
+        <div class="card">
+          <div class="card__section">
+            <iframe
+              id="taxFormIframe"
+              src="https://controladorshop.borgatta.com.mx/customer/{{ customer.id }}/tax-form"
+              title="Formulario de Datos Fiscales"
+              style="width: 100%; height: 800px; border: none;"
+              loading="lazy"
+            >
+              Tu navegador no soporta iframes. Por favor, actualiza o utiliza otro navegador.
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Datos fiscales Iframe"
+}
+{% endschema %}
+
+{% stylesheet %}
+  .card__section {
+     padding-bottom: 0;
+  }
+{% endstylesheet %}

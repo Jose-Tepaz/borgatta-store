@@ -1,0 +1,596 @@
+{% comment %}
+  Section: Kits Grid
+  Descripción: Grid de cards configurables con imagen/video, tag, título, descripción y botón.
+  Cada card tiene efecto hover con sombra y overlay.
+  Ubicación: sections/kits-grid.liquid
+{% endcomment %}
+
+<section class="kits-grid-section" id="section-{{ section.id }}">
+  <div class="padding-global">
+    <div class="container-large">
+
+      {% if section.settings.section_title != blank %}
+        <div class="kits-grid__header">
+          <h2 class="heading-style-h2 kits-grid__title">{{ section.settings.section_title }}</h2>
+        </div>
+      {% endif %}
+
+      <div class="kits-grid__grid kits-grid__grid--{{ section.settings.columns_desktop }}">
+
+        {% for block in section.blocks %}
+          {% assign has_link = false %}
+          {% if block.settings.card_url != blank %}
+            {% assign has_link = true %}
+          {% endif %}
+
+          <div class="kits-card{% if has_link %} kits-card--linked{% endif %}" {{ block.shopify_attributes }}>
+
+            {%- comment -%} Media: imagen o video {%- endcomment -%}
+            <div class="kits-card__media">
+
+              {% if block.settings.tag_text != blank %}
+                <span class="kits-card__tag">{{ block.settings.tag_text }}</span>
+              {% endif %}
+
+              {% if block.settings.video != blank %}
+                <video
+                  class="kits-card__video"
+                  src="{{ block.settings.video }}"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  aria-hidden="true"
+                ></video>
+              {% elsif block.settings.image != blank %}
+                <img
+                  class="kits-card__image"
+                  src="{{ block.settings.image | image_url: width: 800 }}"
+                  srcset="
+                    {{ block.settings.image | image_url: width: 400 }} 400w,
+                    {{ block.settings.image | image_url: width: 800 }} 800w,
+                    {{ block.settings.image | image_url: width: 1200 }} 1200w
+                  "
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  alt="{{ block.settings.image.alt | default: block.settings.card_title | escape }}"
+                  loading="lazy"
+                  width="{{ block.settings.image.width }}"
+                  height="{{ block.settings.image.height }}"
+                >
+              {% else %}
+                <div class="kits-card__image-placeholder">
+                  {{ 'product-1' | placeholder_svg_tag: 'kits-card__placeholder-svg' }}
+                </div>
+              {% endif %}
+
+              <div class="kits-card__overlay" aria-hidden="true"></div>
+
+            </div>
+
+            {%- comment -%} Contenido textual {%- endcomment -%}
+            <div class="kits-card__body">
+
+              {% if block.settings.card_title != blank %}
+                <h3 class="kits-card__heading">{{ block.settings.card_title }}</h3>
+              {% endif %}
+
+              {% if block.settings.card_description != blank %}
+                <p class="kits-card__description text-size-medium">{{ block.settings.card_description }}</p>
+              {% endif %}
+
+              {% if block.settings.button_label != blank %}
+                <div class="kits-card__cta">
+                  {% if has_link %}
+                    <a href="{{ block.settings.card_url }}" class="kits-card__button">
+                      {{ block.settings.button_label }}
+                      <svg class="kits-card__arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </a>
+                  {% else %}
+                    <span class="kits-card__button kits-card__button--no-link">
+                      {{ block.settings.button_label }}
+                      <svg class="kits-card__arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                  {% endif %}
+                </div>
+              {% endif %}
+
+            </div>
+
+            {%- comment -%} Link envolvente opcional {%- endcomment -%}
+            {% if has_link and block.settings.full_card_link %}
+              <a href="{{ block.settings.card_url }}" class="kits-card__full-link" aria-label="{{ block.settings.card_title }}"></a>
+            {% endif %}
+
+          </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<style>
+
+/* =====================================================
+   LAYOUT BASE
+===================================================== */
+.kits-grid-section {
+  padding-top: {{ section.settings.padding_top }}px ;
+  padding-bottom: {{ section.settings.padding_bottom }}px;
+}
+
+.padding-global {
+  padding: 0 32px;
+}
+
+.container-large {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =====================================================
+   ENCABEZADO DE SECCIÓN
+===================================================== */
+.kits-grid__header {
+  margin-bottom: 32px;
+}
+
+.kits-grid__title {
+  margin: 0;
+  color: {{ section.settings.title_color }};
+}
+
+/* =====================================================
+   TIPOGRAFÍA GLOBAL
+===================================================== */
+.heading-style-h1 { font-size: 58px; line-height: 1.1; font-weight: 700; }
+.heading-style-h2 { font-size: 40px; line-height: 1.15; font-weight: 700; }
+.text-size-large  { font-size: 20px; line-height: 1.5; }
+.text-size-medium { font-size: 20px; line-height: 1.5; }
+
+/* =====================================================
+   GRID
+===================================================== */
+.kits-grid__grid {
+  display: grid;
+  gap: 24px;
+}
+
+.kits-grid__grid--1 { grid-template-columns: 1fr; }
+.kits-grid__grid--2 { grid-template-columns: repeat(2, 1fr); }
+.kits-grid__grid--3 { grid-template-columns: repeat(3, 1fr); }
+.kits-grid__grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+/* =====================================================
+   CARD BASE
+===================================================== */
+.kits-card {
+  position: relative;
+  background: #fff;
+  border-radius: 24px;
+  border: 1px solid #C8C8C8;
+
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.kits-card--linked {
+  cursor: pointer;
+}
+
+.kits-card:hover {
+
+
+box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.10), 0 4px 6px -4px rgba(0, 0, 0, 0.10);;
+  
+}
+
+/* =====================================================
+   MEDIA
+===================================================== */
+.kits-card__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.kits-card__image,
+.kits-card__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+
+
+/* Placeholder SVG */
+.kits-card__image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f0;
+}
+
+.kits-card__placeholder-svg {
+  width: 80px;
+  height: 80px;
+  opacity: 0.3;
+}
+
+/* =====================================================
+   OVERLAY HOVER
+===================================================== */
+.kits-card__overlay {
+  position: absolute;
+  inset: 0;
+
+background: radial-gradient(169.02% 130.55% at 48.34% 69.32%, rgba(255, 255, 255, 0.00) 0%, rgba(0, 0, 0, 0.40) 61.33%, rgba(0, 0, 0, 0.40) 74.22%);
+  transition: background 0.35s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+/* =====================================================
+   TAG
+===================================================== */
+.kits-card__tag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.95);
+  color: #111;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 5px 12px;
+  border-radius: 100px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  line-height: 1.4;
+}
+
+/* =====================================================
+   BODY (texto)
+===================================================== */
+.kits-card__body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.kits-card__heading {
+    color: var(--Tailwind-black, #000);
+
+
+font-size: var(--Text-Sizes-heading-style-h3, 32px);
+font-style: normal;
+    font-weight: 600;
+line-height: 120%; /* 38.4px */
+letter-spacing: 0.64px;
+margin:0px;
+
+}
+
+.kits-card__description {
+ color: var(--Text-text-color-primary, #626262);
+
+/* Text/Regular/Normal */
+
+font-size: var(--Text-Sizes-text-size-regular, 16px);
+font-style: normal;
+font-weight: 400;
+line-height: 150%; /* 24px */
+letter-spacing: 0.32px;
+margin:0px;
+}
+
+/* =====================================================
+   BOTÓN / CTA
+===================================================== */
+.kits-card__cta {
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+.kits-card__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 18px;
+  font-weight: 600;
+  color: {{ section.settings.button_color }};
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: gap 0.2s ease, opacity 0.2s ease;
+}
+
+.kits-card__button--no-link {
+  cursor: default;
+}
+
+.kits-card__button:hover {
+  gap: 10px;
+  opacity: 0.75;
+}
+
+.kits-card__arrow {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.kits-card__button:hover .kits-card__arrow {
+  transform: translateX(3px);
+}
+
+/* Full card link overlay */
+.kits-card__full-link {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media screen and (max-width: 1024px) {
+  .kits-grid__grid--4 { grid-template-columns: repeat(2, 1fr); }
+  .kits-grid__grid--3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media screen and (max-width: 768px) {
+  .padding-global { padding: 0 16px; }
+
+  .heading-style-h1 { font-size: 48px; }
+  .heading-style-h2 { font-size: 24px; }
+  .text-size-large  { font-size: 18px; }
+  .text-size-medium { font-size: 18px; }
+.kits-card__button {font-size:16px;}
+  .kits-grid__grid--2,
+  .kits-grid__grid--3,
+  .kits-grid__grid--4 { grid-template-columns: 1fr; }
+
+  .kits-card__heading { font-size: 22px; }
+  .kits-card__description { font-size: 14px; }
+}
+
+@media screen and (max-width: 480px) {
+  .kits-grid__header { margin-bottom: 24px; }
+  .kits-card__body { padding: 18px; }
+  .kits-card__media { aspect-ratio: 1 / 1; }
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Kits Grid",
+  "tag": "section",
+  "class": "kits-grid-wrapper",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Encabezado de sección"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Título de la sección",
+      "default": "Nuestros Kits"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Color del título",
+      "default": "#111111"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "columns_desktop",
+      "label": "Columnas en escritorio",
+      "options": [
+        { "value": "1", "label": "1 columna" },
+        { "value": "2", "label": "2 columnas" },
+        { "value": "3", "label": "3 columnas" },
+        { "value": "4", "label": "4 columnas" }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding superior",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding inferior",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "header",
+      "content": "Estilo de cards"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Color de fondo de card",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Color de títulos de card",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Color de descripción",
+      "default": "#555555"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Color del botón/link",
+      "default": "#111111"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "kit_card",
+      "name": "Card de Kit",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Media"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Imagen"
+        },
+        {
+          "type": "text",
+          "id": "video",
+          "label": "URL de video (mp4)",
+          "info": "Si hay video, reemplaza la imagen. Ej: https://cdn.shopify.com/videos/kit.mp4"
+        },
+        {
+          "type": "header",
+          "content": "Tag (opcional)"
+        },
+        {
+          "type": "text",
+          "id": "tag_text",
+          "label": "Texto del tag",
+          "info": "Déjalo vacío para ocultarlo. Ej: Fresado en seco"
+        },
+        {
+          "type": "header",
+          "content": "Contenido"
+        },
+        {
+          "type": "text",
+          "id": "card_title",
+          "label": "Título de la card",
+          "default": "Kit Premium Odontología Digital 3D"
+        },
+        {
+          "type": "textarea",
+          "id": "card_description",
+          "label": "Descripción",
+          "info": "Déjalo vacío para ocultarla."
+        },
+        {
+          "type": "header",
+          "content": "Botón y link"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Texto del botón",
+          "default": "Quiero este kit",
+          "info": "Déjalo vacío para ocultar el botón."
+        },
+        {
+          "type": "url",
+          "id": "card_url",
+          "label": "URL del link",
+          "info": "Aplica al botón. Si activas 'Toda la card es link', también envuelve la card completa."
+        },
+        {
+          "type": "checkbox",
+          "id": "full_card_link",
+          "label": "Toda la card es clickeable",
+          "default": true,
+          "info": "Requiere que haya una URL configurada."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kits Grid",
+      "blocks": [
+        {
+          "type": "kit_card",
+          "settings": {
+            "card_title": "Kit Premium Odontología Digital 3D",
+            "card_description": "Incluye: Escáner intraoral, Impresora 3D, Equipo Wash & Cure y Resina de modelos.",
+            "button_label": "Quiero este kit"
+          }
+        },
+        {
+          "type": "kit_card",
+          "settings": {
+            "card_title": "Kit Ideal Odontología Digital 3D",
+            "card_description": "Incluye: Escáner intraoral, Impresora 3D, Equipo Wash & Cure y Resina de modelos.",
+            "button_label": "Quiero este kit"
+          }
+        },
+        {
+          "type": "kit_card",
+          "settings": {
+            "card_title": "Kit Premium Wireless",
+            "card_description": "Incluye: Escáner intraoral wireless, Impresora 3D y accesorios.",
+            "button_label": "Quiero este kit"
+          }
+        },
+        {
+          "type": "kit_card",
+          "settings": {
+            "card_title": "Kit B500 - Fresadora Semi-industrial",
+            "card_description": "Incluye: Fresadora B500, Horno de sinterización, Horno de Porcelana y 3 Discos.",
+            "button_label": "Quiero este kit",
+            "tag_text": "Fresado en seco"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

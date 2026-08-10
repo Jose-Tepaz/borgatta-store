@@ -1,0 +1,19 @@
+
+
+
+<div class="list-collection-home">
+{% for link in linklists.all-collections.links %}
+{% assign collection = link.object %}
+{% if collection.products.size > 0 %}
+<div class="wrapp-collection-home">
+<a href="{{ collection.url }}">
+<div class="wrap-img
+">
+<img  class="img-collection-home" src="{{ collection | img_url: '1300x1300' }}">
+</div></a>
+</div>
+
+{% endif %}
+{% endfor %}
+</div>
+

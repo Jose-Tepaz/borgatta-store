@@ -1,0 +1,262 @@
+{% comment %}
+  Sección: Restricciones de Promoción
+  Descripción: Muestra una lista de restricciones con título configurable
+  Ubicación: sections/restrictions-list.liquid
+{% endcomment %}
+
+<div class="restrictions-section">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="restrictions-component">
+        
+        {% if section.settings.title != blank %}
+          <h2 class="restrictions-title">{{ section.settings.title }}</h2>
+        {% endif %}
+
+        {% if section.blocks.size > 0 %}
+          <ul class="restrictions-list">
+            {% for block in section.blocks %}
+              <li class="restriction-item" {{ block.shopify_attributes }}>
+                {{ block.settings.restriction_text }}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .restrictions-section {
+    padding: 60px 0;
+    background-color: {{ section.settings.background_color }};
+ 
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+    border-color: #C8C8C8;
+  }
+
+  .padding-global {
+    padding: 0 32px;
+  }
+
+  .container-large {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .restrictions-component {
+    weight:100%;
+    max-width: 266px;
+    
+    margin: 0 auto;
+  }
+
+  .restrictions-title {
+    font-size: {{ section.settings.title_size }}px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: {{ section.settings.title_color }};
+    letter-spacing: -0.02em;
+    text-align: {{ section.settings.title_alignment }};
+  }
+
+  .restrictions-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: {{ section.settings.text_alignment }};
+  }
+
+  .restriction-item {
+    font-size: {{ section.settings.text_size }}px;
+    line-height: 1.8;
+    color: {{ section.settings.text_color }};
+    margin-bottom: 16px;
+    padding-left: 0;
+  }
+
+  .restriction-item:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .restrictions-section {
+      padding: 40px 0;
+    }
+
+    .padding-global {
+      padding: 0 20px;
+    }
+    .restrictions-component{
+    max-width:100%;
+    }
+
+    .restrictions-title {
+      font-size: calc({{ section.settings.title_size }}px * 0.75);
+      margin-bottom: 16px;
+    }
+
+    .restriction-item {
+      font-size: calc({{ section.settings.text_size }}px * 0.875);
+      margin-bottom: 12px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .restrictions-section {
+      padding: 30px 0;
+    }
+
+    .restrictions-title {
+      font-size: calc({{ section.settings.title_size }}px * 0.625);
+      margin-bottom: 24px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Restricciones",
+  "class": "section-restrictions",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título de la sección",
+      "default": "Restricciones"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 16,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "label": "Tamaño del título",
+      "default": 32
+    },
+    {
+      "type": "select",
+      "id": "title_alignment",
+      "label": "Alineación del título",
+      "options": [
+        {
+          "value": "left",
+          "label": "Izquierda"
+        },
+        {
+          "value": "center",
+          "label": "Centro"
+        },
+        {
+          "value": "right",
+          "label": "Derecha"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Tamaño del texto",
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Alineación del texto",
+      "options": [
+        {
+          "value": "left",
+          "label": "Izquierda"
+        },
+        {
+          "value": "center",
+          "label": "Centro"
+        },
+        {
+          "value": "right",
+          "label": "Derecha"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Colores"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Color de fondo",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Color del título",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Color del texto",
+      "default": "#666666"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "restriction",
+      "name": "Restricción",
+      "settings": [
+        {
+          "type": "text",
+          "id": "restriction_text",
+          "label": "Texto de restricción",
+          "default": "Promoción no retroactiva"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Restricciones",
+      "blocks": [
+        {
+          "type": "restriction",
+          "settings": {
+            "restriction_text": "Promoción no retroactiva"
+          }
+        },
+        {
+          "type": "restriction",
+          "settings": {
+            "restriction_text": "Hasta agotar existencias"
+          }
+        },
+        {
+          "type": "restriction",
+          "settings": {
+            "restriction_text": "No aplica descuentos adicionales"
+          }
+        },
+        {
+          "type": "restriction",
+          "settings": {
+            "restriction_text": "No aplica paquetería"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
