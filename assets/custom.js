@@ -116,7 +116,11 @@
     });
 
     // Recorrer cada grupo de bloques y actualizar ícono por valor
-    section.querySelectorAll('.block-swatch-list[data-option-position]').forEach(function (list) {
+    // :not(.odo__grid) excluye la grilla del odontograma: ese selector maneja
+    // su propio ícono por pieza en el Liquid y tiene su layout propio; si este
+    // script le inserta un <img class="block-swatch__icon"> y la clase
+    // block-swatch__item--has-icon, el tile se deforma (ver CLAUDE.md/odo).
+    section.querySelectorAll('.block-swatch-list[data-option-position]:not(.odo__grid)').forEach(function (list) {
       var pos = parseInt(list.dataset.optionPosition);
       var optKey = 'option' + pos;
 
