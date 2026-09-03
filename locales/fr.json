@@ -311,7 +311,7 @@
       "description": "Entrez votre email :",
       "email": "Email",
       "submit": "Récupérer",
-      "success": "Nous venons de vous envoyer un email avec les instructions pour récupérer votre mot de passe.",
+      "success_html": "Si un compte existe pour cet e-mail, nous vous enverrons des instructions pour réinitialiser votre mot de passe.<br><br>Vous n'avez pas de compte ? <a href=\"{{ link }}\" class=\"link link--accented\">Créez-en un ici</a>.",
       "remembered_your_password": "Vous connaissez votre mot de passe ?",
       "back_to_login": "Se connecter"
     },

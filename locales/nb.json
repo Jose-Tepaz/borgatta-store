@@ -311,7 +311,7 @@
       "description": "Skriv inn din e-post ",
       "email": "E-post",
       "submit": "Gjenopprett",
-      "success": "Vi har sendt deg en e-post med instruksjoner for å tilbakestille passordet ditt.",
+      "success_html": "Hvis det finnes en konto knyttet til denne e-postadressen, sender vi deg instruksjoner for å tilbakestille passordet.<br><br>Har du ikke en konto ennå? <a href=\"{{ link }}\" class=\"link link--accented\">Opprett en her</a>.",
       "remembered_your_password": "Husket du passordet ditt?",
       "back_to_login": "Tilbake til innlogging"
     },

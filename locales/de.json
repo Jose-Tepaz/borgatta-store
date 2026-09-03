@@ -311,7 +311,7 @@
       "description": "Gib Deine Email ein:",
       "email": "Email",
       "submit": "wiederherstellen",
-      "success": "Wir haben Dir eine Email gesendet mit einer Anleitung zum Wiederherstellen Deines Passwortes.",
+      "success_html": "Falls für diese E-Mail-Adresse ein Konto existiert, senden wir dir Anweisungen zum Zurücksetzen deines Passworts.<br><br>Du hast noch kein Konto? <a href=\"{{ link }}\" class=\"link link--accented\">Hier erstellen</a>.",
       "remembered_your_password": "Erinnerst Du Dich an Dein Passwort?",
       "back_to_login": "Zurück zum Login"
     },

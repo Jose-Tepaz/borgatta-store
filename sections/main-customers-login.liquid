@@ -73,7 +73,7 @@
       {%- endif -%}
 
       {%- if form.posted_successfully? -%}
-        <p class="alert alert--center alert--success">{{ 'customer.recover_password.success' | t }}</p>
+        <p class="alert alert--center alert--success">{{ 'customer.recover_password.success_html' | t: link: routes.account_register_url }}</p>
       {%- else -%}
         <div class="form__input-wrapper form__input-wrapper--labelled">
           <input type="email" id="customer[recover_email]" class="form__field form__field--text" name="email" required="required" {% if form.errors %}aria-invalid="true" aria-describedby="recovery-form-error"{% endif %}>

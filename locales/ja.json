@@ -311,7 +311,7 @@
       "description": "メールを入力",
       "email": "メール",
       "submit": "回復する",
-      "success": "パスワードをリセットする手順を記載したメールをお送りしました。",
+      "success_html": "このメールアドレスに関連付けられたアカウントが存在する場合、パスワードリセットの手順をお送りします。<br><br>アカウントをお持ちでない場合は<a href=\"{{ link }}\" class=\"link link--accented\">こちらから作成</a>してください。",
       "remembered_your_password": "パスワードを覚えていますか？",
       "back_to_login": "ログインに戻る"
     },

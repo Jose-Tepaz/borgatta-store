@@ -311,7 +311,7 @@
       "description": "Enter your email:",
       "email": "Email",
       "submit": "Recover",
-      "success": "We have sent you an email with instructions to reset your password.",
+      "success_html": "If an account exists for this email, we'll send instructions to reset your password.<br><br>Don't have an account yet? <a href=\"{{ link }}\" class=\"link link--accented\">Create one here</a>.",
       "remembered_your_password": "Remembered your password?",
       "back_to_login": "Back to login"
     },

@@ -286,7 +286,7 @@
       "description": "Insira seu e-mail:",
       "email": "E-mail",
       "submit": "Recuperar",
-      "success": "Nós te enviamos um email com instruções para a redefinição de senha.",
+      "success_html": "Se existir uma conta associada a este e-mail, enviaremos instruções para redefinir sua senha.<br><br>Ainda não tem uma conta? <a href=\"{{ link }}\" class=\"link link--accented\">Crie uma aqui</a>.",
       "remembered_your_password": "Lembrar sua senha?",
       "back_to_login": "Voltar para o login"
     },
