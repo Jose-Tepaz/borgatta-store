@@ -8,11 +8,22 @@
    visual lo decide el CSS, no el DOM.
    ============================================================================ */
 
+/* Registrada para poder transicionarla: mientras la página carga (imágenes de
+   la galería sin cachear, etc.) el ancho del contenedor de .odo puede
+   fluctuar y el cqi de abajo recalcula --cell de golpe, dando un "estirón"
+   visible. Con --cell animable, ese recálculo se suaviza en vez de saltar. */
+@property --cell{
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 50px;
+}
+
 .odo{
   --cols: 14;                    /* lo escribe Liquid contando el mapa */
   --cell-min: 50px;
   --cell-max: 82px;
   --cell: clamp(var(--cell-min), calc(88cqi / var(--cols)), var(--cell-max));
+  transition: --cell .25s ease;
 
   --gap-tooth: 3px;              /* entre piezas del mismo grupo */
   --gap-group: 10px;             /* pista de separación entre grupos */
@@ -74,6 +85,9 @@
    Los bordes redondeados de los extremos dibujan el recuadro. */
 .odo .tooth[data-tone="plain"]{ background: var(--c-group-a); }
 .odo .tooth[data-tone="molar"]{ background: var(--c-group-b); }
+
+/* ── Sin stock: fondo oscuro semitransparente, por encima del tono de grupo ── */
+.odo .tooth[data-state="out"]{ background: #161C1F99; }
 
 .odo .tooth[data-edge="start"],
 .odo .tooth[data-edge="both"]{
@@ -187,10 +201,37 @@
 .odo .tooth[data-state="out"] .tooth__label::after{
   content: "";
   position: absolute;
-  inset: 22% 20%;
-  background: linear-gradient(to top right, transparent calc(50% - .8px),
-              var(--c-muted) calc(50% - .8px), var(--c-muted) calc(50% + .8px),
-              transparent calc(50% + .8px));
+  inset: 0;
+  background: linear-gradient(to top right, transparent calc(50% - 1.5px),
+              #000 calc(50% - 1.5px), #000 calc(50% + 1.5px),
+              transparent calc(50% + 1.5px));
+}
+/* Solo en "out" el texto sr-only se muestra, como etiqueta sobre la pieza */
+.odo .tooth[data-state="out"] .odo__sr{
+  position: absolute;
+  inset: auto 2px 3px;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip-path: none;
+  white-space: nowrap;
+  text-align: center;
+  font-size: clamp(7px, 1.3cqi, 9px);
+  font-weight: 700;
+  letter-spacing: .02em;
+  color: #000;
+  pointer-events: none;
+}
+/* Arcada superior (fila 1): el número va arriba, la etiqueta lo acompaña arriba */
+.odo .tooth[data-row="1"][data-state="out"] .odo__sr{
+  inset: 3px 2px auto;
+}
+/* No se permite hacer clic sobre una pieza agotada. El input NO se marca
+   disabled (rompería el contrato de theme.js, ver cabecera del snippet):
+   solo se bloquea la interacción del label a nivel visual/puntero. */
+.odo .tooth[data-state="out"] .tooth__label{
+  cursor: not-allowed;
+  pointer-events: none;
 }
 /* Agotada Y seleccionada: manda el acento, se conserva el tachado */
 .odo .tooth[data-state="out"]:has(.block-swatch__radio:checked) .tooth__num{ color: var(--c-accent); }

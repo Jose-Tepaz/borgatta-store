@@ -286,7 +286,7 @@
       "description": "Introduce tu email:",
       "email": "Email",
       "submit": "Recuperar",
-      "success": "Te hemos enviado un correo electrónico con instrucciones para restablecer tu contraseña.",
+      "success_html": "Si existe una cuenta asociada a este correo, te enviaremos un email con instrucciones para restablecer tu contraseña.<br><br>¿No tienes cuenta? <a href=\"{{ link }}\" class=\"link link--accented\">Regístrate aquí</a>.",
       "remembered_your_password": "Recordar tu contraseña?",
       "back_to_login": "Volver para iniciar sesión "
     },
