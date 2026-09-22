@@ -286,7 +286,10 @@
       "description": "Insira seu e-mail:",
       "email": "E-mail",
       "submit": "Recuperar",
-      "success_html": "Se existir uma conta associada a este e-mail, enviaremos instruções para redefinir sua senha.<br><br>Ainda não tem uma conta? <a href=\"{{ link }}\" class=\"link link--accented\">Crie uma aqui</a>.",
+      "success_title": "Verifique seu e-mail",
+      "success_html": "Se existir uma conta associada a <strong>este e-mail</strong>, enviaremos instruções para redefinir sua senha.",
+      "success_hint": "Não recebeu? Verifique o spam ou tente novamente em alguns minutos.",
+      "no_account_html": "Ainda não tem uma conta? <a href=\"{{ link }}\" class=\"link link--accented link--underline\">Crie uma aqui</a>",
       "remembered_your_password": "Lembrar sua senha?",
       "back_to_login": "Voltar para o login"
     },
