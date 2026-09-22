@@ -311,7 +311,10 @@
       "description": "Skriv inn din e-post ",
       "email": "E-post",
       "submit": "Gjenopprett",
-      "success_html": "Hvis det finnes en konto knyttet til denne e-postadressen, sender vi deg instruksjoner for å tilbakestille passordet.<br><br>Har du ikke en konto ennå? <a href=\"{{ link }}\" class=\"link link--accented\">Opprett en her</a>.",
+      "success_title": "Sjekk e-posten din",
+      "success_html": "Hvis det finnes en konto knyttet til <strong>denne e-postadressen</strong>, sender vi deg instruksjoner for å tilbakestille passordet.",
+      "success_hint": "Fikk du den ikke? Sjekk spam-mappen eller prøv igjen om noen minutter.",
+      "no_account_html": "Har du ikke en konto ennå? <a href=\"{{ link }}\" class=\"link link--accented link--underline\">Opprett en her</a>",
       "remembered_your_password": "Husket du passordet ditt?",
       "back_to_login": "Tilbake til innlogging"
     },
