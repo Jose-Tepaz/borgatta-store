@@ -311,7 +311,10 @@
       "description": "Enter your email:",
       "email": "Email",
       "submit": "Recover",
-      "success_html": "If an account exists for this email, we'll send instructions to reset your password.<br><br>Don't have an account yet? <a href=\"{{ link }}\" class=\"link link--accented\">Create one here</a>.",
+      "success_title": "Check your email",
+      "success_html": "If an account exists for <strong>this email</strong>, we'll send instructions to reset your password.",
+      "success_hint": "Didn't get it? Check spam or try again in a few minutes.",
+      "no_account_html": "Don't have an account? <a href=\"{{ link }}\" class=\"link link--accented link--underline\">Create one here</a>",
       "remembered_your_password": "Remembered your password?",
       "back_to_login": "Back to login"
     },

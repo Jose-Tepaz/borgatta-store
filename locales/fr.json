@@ -311,9 +311,12 @@
       "description": "Entrez votre email :",
       "email": "Email",
       "submit": "Récupérer",
-      "success_html": "Si un compte existe pour cet e-mail, nous vous enverrons des instructions pour réinitialiser votre mot de passe.<br><br>Vous n'avez pas de compte ? <a href=\"{{ link }}\" class=\"link link--accented\">Créez-en un ici</a>.",
+      "success_title": "Consultez vos e-mails",
+      "success_html": "Si un compte existe pour <strong>cet e-mail</strong>, nous vous enverrons des instructions pour réinitialiser votre mot de passe.",
+      "success_hint": "Vous ne l'avez pas reçu ? Vérifiez vos spams ou réessayez dans quelques minutes.",
+      "no_account_html": "Vous n'avez pas de compte ? <a href=\"{{ link }}\" class=\"link link--accented link--underline\">Créez-en un ici</a>",
       "remembered_your_password": "Vous connaissez votre mot de passe ?",
-      "back_to_login": "Se connecter"
+      "back_to_login": "Retour à la connexion"
     },
 
     "reset_password": {
