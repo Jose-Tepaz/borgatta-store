@@ -170,9 +170,9 @@
             "cell1_video_url": "",
             "cell1_show_cta": false,
             "cell2_col_span": 1,
-            "cell2_row_span": 1,
+            "cell2_row_span": 2,
             "cell2_media_type": "video",
-            "cell2_video_url": "https://cdn.shopify.com/videos/c/o/v/6c09d70956fc44ba999a3974a72c55e6.mp4",
+            "cell2_video_url": "https://cdn.shopify.com/videos/c/o/v/5f579029014e4a46b363fca2b700db3a.mp4",
             "cell2_show_cta": false,
             "cell3_col_span": 1,
             "cell3_row_span": 1,
@@ -188,9 +188,9 @@
             "cell4_show_cta": false,
             "cell5_col_span": 1,
             "cell5_row_span": 1,
-            "cell5_media_type": "image",
+            "cell5_media_type": "video",
             "cell5_image": "shopify://shop_images/EDGARDO-BAHENA.webp",
-            "cell5_video_url": "",
+            "cell5_video_url": "https://cdn.shopify.com/videos/c/o/v/f2daea452871415f83c250e532f3c3de.mp4",
             "cell5_show_cta": false,
             "cell6_col_span": 1,
             "cell6_row_span": 1,
@@ -494,13 +494,6 @@
     "collection_list_jt_9Jfkma": {
       "type": "collection-list-jt",
       "blocks": {
-        "collection_iLAWkY": {
-          "type": "collection",
-          "settings": {
-            "collection": "seleccion-borgatta",
-            "custom_url": ""
-          }
-        },
         "collection_dxN8mJ": {
           "type": "collection",
           "settings": {
@@ -626,7 +619,6 @@
         }
       },
       "block_order": [
-        "collection_iLAWkY",
         "collection_dxN8mJ",
         "collection_k3diWk",
         "collection_UVaTfE",
