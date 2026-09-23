@@ -14454,3 +14454,25 @@ select {
   justify-content: center;
   gap: 8px;
 }
+
+.btn-primary-full-color {
+  display: inline-block;
+  padding: 0 30px !important;
+  line-height: 48px !important;
+  height: 52px;
+  border-radius: 100px !important;
+  border: 2px solid #426FCD;
+  text-align: center;
+  background: #426FCD !important;
+  color: var(--secondary-button-text-color) !important;
+  font-weight: var(--text-font-bolder-weight) !important;
+  font-size: var(--base-text-font-size) !important;
+  cursor: pointer;
+  transition: background 0.25s ease-in-out, color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+}
+
+.btn-primary-full-color:hover {
+  background: #2e56a9 !important;
+}
+
+/* alias: mismo estilo que .shopify-payment-button__button--unbranded, ver línea ~9055 */

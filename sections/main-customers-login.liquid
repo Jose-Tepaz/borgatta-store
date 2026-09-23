@@ -7,7 +7,7 @@
     {%- endif -%}
   {%- endform -%}
 
-  <div class="container">
+  <div class="container"  >
     {%- comment -%}
     --------------------------------------------------------------------------------------------------------------------
     CUSTOMER LOGIN FORM
@@ -22,7 +22,7 @@
 
     {%- form 'customer_login', name: 'login', class: 'form form--main', id: 'customer_login', style: login_default_visibility -%}
       <header class="form__header">
-        <h1 class="form__title heading h1">{{ 'customer.login.login' | t }}</h1>
+        <h1 class="form__title heading h1">{{ 'customer.login.login' | t }} </h1>
         <p class="form__legend">{{ 'customer.login.description' | t }}</p>
       </header>
 
@@ -82,9 +82,10 @@
           <p><button type="button" data-action="toggle-login-form" class="link link--accented link--underline">{{ 'customer.recover_password.back_to_login' | t }}</button></p>
         </div>
       {%- else -%}
-        <header class="form__header">
-          <h1 class="form__title heading h1">{{ 'customer.recover_password.recover_password' | t }}</h1>
-          <p class="form__legend">{{ 'customer.recover_password.description' | t }}</p>
+        <div style="max-width: 420px!important; margin:auto;">
+        <header class="form__header" style="max-width: 380px; margin:auto; margin-bottom: 24px;">
+          <h1 class="form__success-title" style="text-align: center;">{{ 'customer.recover_password.recover_password' | t }} </h1>
+          <p class="form__success-text " style="text-align: center;">{{ 'customer.recover_password.description' | t }}</p>
         </header>
 
         <div class="form__input-wrapper form__input-wrapper--labelled">
@@ -92,10 +93,11 @@
           <label for="customer[recover_email]" class="form__floating-label">{{ 'customer.recover_password.email' | t }}</label>
         </div>
 
-        <button type="submit" class="form__submit button button--primary button--full">{{ 'customer.recover_password.submit' | t }}</button>
+        <button type="submit" class="form__submit button button--primary button--full btn-primary-full-color">{{ 'customer.recover_password.submit' | t }}</button>
 
-        <div class="form__secondary-action">
+        <div class="form__secondary-action form__success-hint" style="margin-top: 24px; text-align: center;">
           <p>{{ 'customer.recover_password.remembered_your_password' | t }} <button type="button" data-action="toggle-login-form" class="link link--accented">{{ 'customer.recover_password.back_to_login' | t }}</button></p>
+        </div>
         </div>
       {%- endif -%}
     {%- endform -%}

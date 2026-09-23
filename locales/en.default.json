@@ -308,9 +308,9 @@
 
     "recover_password": {
       "recover_password": "Recover password",
-      "description": "Enter your email:",
+      "description": "Enter the email associated with your account and we'll send you instructions.",
       "email": "Email",
-      "submit": "Recover",
+      "submit": "Recover password",
       "success_title": "Check your email",
       "success_html": "If an account exists for <strong>this email</strong>, we'll send instructions to reset your password.",
       "success_hint": "Didn't get it? Check spam or try again in a few minutes.",
