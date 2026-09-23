@@ -283,14 +283,14 @@
     },
     "recover_password": {
       "recover_password": "Recuperar contraseña",
-      "description": "Introduce tu email:",
-      "email": "Email",
-      "submit": "Recuperar",
+      "description": "Ingresa el correo asociado a tu cuenta y te enviaremos instrucciones.",
+      "email": "Correo electrónico",
+      "submit": "Recuperar contraseña",
       "success_title": "Revisa tu correo",
       "success_html": "Si existe una cuenta asociada a <strong>este correo</strong>, te enviaremos un email con instrucciones para restablecer tu contraseña.",
       "success_hint": "¿No te llegó? Revisa spam o inténtalo de nuevo en unos minutos.",
       "no_account_html": "¿No tienes cuenta? <a href=\"{{ link }}\" class=\"link link--accented link--underline\">Regístrate aquí</a>",
-      "remembered_your_password": "Recordar tu contraseña?",
+      "remembered_your_password": "¿Recordaste tu contraseña? ",
       "back_to_login": "Volver a iniciar sesión"
     },
     "reset_password": {

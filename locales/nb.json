@@ -308,9 +308,9 @@
 
     "recover_password": {
       "recover_password": "Gjenopprett passord",
-      "description": "Skriv inn din e-post ",
+      "description": "Skriv inn e-posten knyttet til kontoen din, så sender vi deg instruksjoner.",
       "email": "E-post",
-      "submit": "Gjenopprett",
+      "submit": "Gjenopprett passord",
       "success_title": "Sjekk e-posten din",
       "success_html": "Hvis det finnes en konto knyttet til <strong>denne e-postadressen</strong>, sender vi deg instruksjoner for å tilbakestille passordet.",
       "success_hint": "Fikk du den ikke? Sjekk spam-mappen eller prøv igjen om noen minutter.",
