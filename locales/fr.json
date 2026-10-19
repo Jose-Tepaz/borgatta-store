@@ -308,9 +308,9 @@
 
     "recover_password": {
       "recover_password": "Récupération du mot de passe",
-      "description": "Entrez votre email :",
+      "description": "Indiquez l'e-mail associé à votre compte et nous vous enverrons des instructions.",
       "email": "Email",
-      "submit": "Récupérer",
+      "submit": "Récupérer le mot de passe",
       "success_title": "Consultez vos e-mails",
       "success_html": "Si un compte existe pour <strong>cet e-mail</strong>, nous vous enverrons des instructions pour réinitialiser votre mot de passe.",
       "success_hint": "Vous ne l'avez pas reçu ? Vérifiez vos spams ou réessayez dans quelques minutes.",

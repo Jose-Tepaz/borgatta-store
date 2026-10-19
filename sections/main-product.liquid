@@ -146,7 +146,7 @@
 
                         {%- comment -%} Muestra Videos {%- endcomment -%}
                         {%- assign current_variant = product.selected_or_first_available_variant -%}
-                        {% render 'product-videos', variant: current_variant %}
+                        {% render 'product-videos', product: product, variant: current_variant %}
 
                         {%- comment -%} Muestra PDF {%- endcomment -%}
                         {% render 'product-pdf', product: product %}
@@ -167,7 +167,7 @@
 
                         {%- comment -%} Muestra Videos {%- endcomment -%}
                         {%- assign current_variant = product.selected_or_first_available_variant -%}
-                        {% render 'product-videos', variant: current_variant %}
+                        {% render 'product-videos', product: product, variant: current_variant %}
 
                         {%- comment -%} Muestra ficha tecnica {%- endcomment -%}
                             {% for variant in product.variants %}
