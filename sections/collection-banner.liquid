@@ -6,9 +6,10 @@
     custom.banner_desktop
     custom.banner_mobile
 
-  Prioridad desktop: banner_desktop -> imagen de la colección -> banner_mobile
+  Prioridad desktop: banner_desktop -> banner_mobile
   Prioridad mobile:  banner_mobile  -> la imagen que resulte para desktop
-  Si no hay ninguna imagen, la sección no renderiza nada.
+  NO usa la imagen por defecto de la colección (collection.image).
+  Si no hay ningún metafield con imagen, la sección no renderiza nada.
 
   Breakpoint mobile: 640px, el mismo que usa el theme (--phone).
 {%- endcomment -%}
@@ -16,10 +17,6 @@
 {%- liquid
   assign desktop_image = collection.metafields.custom.banner_desktop.value
   assign mobile_image = collection.metafields.custom.banner_mobile.value
-
-  if desktop_image == blank
-    assign desktop_image = collection.image
-  endif
 
   if desktop_image == blank
     assign desktop_image = mobile_image
@@ -93,7 +90,7 @@
   "settings": [
     {
       "type": "paragraph",
-      "content": "La imagen sale de los metafields de la colección (custom.banner_desktop y custom.banner_mobile). Si no hay, usa la imagen de la colección."
+      "content": "La imagen sale de los metafields de la colección (custom.banner_desktop y custom.banner_mobile). Si no hay ninguno, no se muestra nada."
     }
   ],
   "presets": [
