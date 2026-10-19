@@ -9,8 +9,13 @@
  */
 {
   "sections": {
+    "collection_banner": {
+      "type": "collection-banner",
+      "settings": {}
+    },
     "slideshow_GNXBky": {
       "type": "slideshow",
+      "disabled": true,
       "blocks": {
         "image_bpmVWV": {
           "type": "image",
@@ -177,6 +182,7 @@
     }
   },
   "order": [
+    "collection_banner",
     "slideshow_GNXBky",
     "1632499467448c53e5",
     "0eab875c-abd7-4470-bd5f-fd329ed7237e",
