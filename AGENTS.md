@@ -58,7 +58,7 @@ Objetivo: nada llega a `main` sin pasar por revisión, y la promoción a producc
 ### Notas de este repo en particular
 
 - Repo: `Jose-Tepaz/borgatta-store`. `gh` en esta máquina tiene dos cuentas logueadas (`JoseTepazE` y `Jose-Tepaz`) — solo **`Jose-Tepaz`** tiene permiso de push sobre este repo. Si `git push`/`gh pr` da 403 "Permission denied to JoseTepazE", correr `gh auth switch --user Jose-Tepaz --hostname github.com`.
-- Hoy en el remoto solo existe `main` (no hay `development` ni `staging` todavía) — hay que crearlas antes de que el flujo de arriba se pueda seguir tal cual.
+- En el remoto existen `main`, `staging` y `development`, así que el flujo de arriba se sigue tal cual. Los PRs de promoción dejan merge commits en `staging` y `main` que no están en `development`; es normal y no hay que "arreglarlo".
 
 ## Reglas de despliegue a Shopify (obligatorias)
 
