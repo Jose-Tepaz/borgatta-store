@@ -1,0 +1,131 @@
+{%- comment -%}
+  Banner de colección a ancho completo. Muestra la imagen tal cual (no como
+  background) porque ya trae el texto incluido.
+
+  Metafields. Custom data -> COLLECTIONS (tipo File, solo imágenes):
+    custom.banner_desktop
+    custom.banner_mobile
+
+  Colección normal (/collections/<handle>): lee los metafields de arriba.
+
+  Colección "all" filtrada por etiqueta (/collections/all/<tag>): "all" es una
+  colección automática y no admite metafields, así que el banner sale de un
+  METAOBJECT por etiqueta. Si la URL trae varios tags, gana el primero que
+  tenga entrada.
+    Definición (tipo):  banner_por_etiqueta   (con acceso Storefront activo)
+    Campos:             banner_desktop, banner_mobile  (File, solo imágenes)
+    Handle de la entrada = el tag en minúsculas y con guiones (handleize),
+    ej. el tag "Black" -> handle "black".
+
+  Prioridad desktop: banner_desktop -> banner_mobile
+  Prioridad mobile:  banner_mobile  -> la imagen que resulte para desktop
+  NO usa la imagen por defecto de la colección (collection.image).
+  Si no hay ninguna imagen, la sección no renderiza nada.
+
+  Breakpoint mobile: 640px, el mismo que usa el theme (--phone).
+{%- endcomment -%}
+
+{%- liquid
+  assign desktop_image = nil
+  assign mobile_image = nil
+
+  if collection.handle == 'all'
+    for tag in current_tags
+      assign tag_handle = tag | handleize
+      assign banner_entry = shop.metaobjects.banner_por_etiqueta[tag_handle]
+      assign tag_desktop = banner_entry.banner_desktop.value
+      assign tag_mobile = banner_entry.banner_mobile.value
+
+      if tag_desktop != blank or tag_mobile != blank
+        assign desktop_image = tag_desktop
+        assign mobile_image = tag_mobile
+        break
+      endif
+    endfor
+  else
+    assign desktop_image = collection.metafields.custom.banner_desktop.value
+    assign mobile_image = collection.metafields.custom.banner_mobile.value
+  endif
+
+  if desktop_image == blank
+    assign desktop_image = mobile_image
+  endif
+
+  if mobile_image == blank
+    assign mobile_image = desktop_image
+  endif
+
+  assign widths = '640,960,1280,1600,2000,2400' | split: ','
+-%}
+
+{%- if desktop_image != blank -%}
+  {%- capture desktop_srcset -%}
+    {%- for w in widths -%}
+      {%- assign width = w | plus: 0 -%}
+      {%- if width <= desktop_image.width or forloop.first -%}
+        {% unless forloop.first %}, {% endunless %}{{ desktop_image | image_url: width: width }} {{ width }}w
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+
+  {%- capture mobile_srcset -%}
+    {%- for w in widths -%}
+      {%- assign width = w | plus: 0 -%}
+      {%- if width <= mobile_image.width or forloop.first -%}
+        {% unless forloop.first %}, {% endunless %}{{ mobile_image | image_url: width: width }} {{ width }}w
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+
+  <section class="collection-banner" data-section-id="{{ section.id }}" data-section-type="collection-banner">
+    <picture>
+      <source
+        media="(max-width: 640px)"
+        srcset="{{ mobile_srcset | strip }}"
+        sizes="100vw"
+        width="{{ mobile_image.width }}"
+        height="{{ mobile_image.height }}"
+      >
+      <img
+        src="{{ desktop_image | image_url: width: 1600 }}"
+        srcset="{{ desktop_srcset | strip }}"
+        sizes="100vw"
+        width="{{ desktop_image.width }}"
+        height="{{ desktop_image.height }}"
+        alt="{{ desktop_image.alt | default: collection.title | escape }}"
+        loading="eager"
+        fetchpriority="high"
+      >
+    </picture>
+  </section>
+
+  <style>
+    .collection-banner,
+    .collection-banner picture,
+    .collection-banner img {
+      display: block;
+      width: 100%;
+    }
+
+    .collection-banner img {
+      height: auto;
+    }
+  </style>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Banner de colección",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "La imagen sale de los metafields de la colección (custom.banner_desktop y custom.banner_mobile). En /collections/all/<tag> sale del metaobject banner_por_etiqueta cuyo handle es el tag. Si no hay, no se muestra nada."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner de colección"
+    }
+  ]
+}
+{% endschema %}
