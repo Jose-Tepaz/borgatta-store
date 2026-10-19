@@ -60,6 +60,26 @@ Objetivo: nada llega a `main` sin pasar por revisión, y la promoción a producc
 - Repo: `Jose-Tepaz/borgatta-store`. `gh` en esta máquina tiene dos cuentas logueadas (`JoseTepazE` y `Jose-Tepaz`) — solo **`Jose-Tepaz`** tiene permiso de push sobre este repo. Si `git push`/`gh pr` da 403 "Permission denied to JoseTepazE", correr `gh auth switch --user Jose-Tepaz --hostname github.com`.
 - Hoy en el remoto solo existe `main` (no hay `development` ni `staging` todavía) — hay que crearlas antes de que el flujo de arriba se pueda seguir tal cual.
 
+## Reglas de despliegue a Shopify (obligatorias)
+
+Objetivo: nunca romper producción. El theme **live es la fuente de verdad**: el equipo edita desde el editor de Shopify sin pasar por Git, así que `development` puede quedar atrasado respecto al live.
+
+IDs de referencia (verificar con `shopify theme list --store=borgattastore.myshopify.com --json`; el ID del live cambia si se publica otro theme):
+- Live: `152441258135` ("Copy of Borgatta V2.6.3 | PDF")
+- QA / preview: `189331931287` ("Development | Acueducto")
+
+1. **Sincronizar con el live antes de trabajar.** Al empezar una tarea, bajar el live a una carpeta temporal (`shopify theme pull --theme=<LIVE_ID> --path=<carpeta> --force`) y compararlo con `development` (`diff -rq`). Si hay diferencias, entran por un PR de sync aparte antes de seguir. Nunca mezclar un sync con una feature en el mismo PR.
+2. **Siempre QA primero, live después.** Todo cambio se sube primero a un theme no publicado y se revisa en el preview. Nunca se salta ese paso, aunque el cambio parezca chico.
+3. **Verificar el rol del theme destino antes de cualquier push.** Usar `shopify theme list --json` y comprobar que el ID destino no sea `[live]`, salvo en una promoción acordada. Los IDs se parten en la tabla de texto: no copiarlos de ahí.
+4. **Nunca `theme push` del theme completo al live sin diff previo.** Bajar el live a una carpeta temporal y confirmar que solo difieren los archivos que se quieren subir. Si hay cualquier duda, usar `--only <archivos>`. Un push completo pisa las ediciones hechas desde el editor.
+5. **Los datos van antes que el código.** Si el cambio lee metafields, metaobjects o colecciones nuevas, esas definiciones se crean en Shopify **antes** de subir el código. Dejarlo anotado en la descripción del PR.
+6. **Probar con datos reales.** `shopify theme check` no basta: revisar en local o en el preview los casos límite (valor vacío, con y sin fallback al padre, ambos vacíos) y listarlos en el PR.
+7. **`theme check` sin offenses nuevos.** Comparar el conteo antes y después (hoy hay errores y warnings heredados del theme base). La regla es no subir el número, no dejarlo en cero.
+8. **Archivos de riesgo alto.** `assets/theme.js`, `assets/custom.js` y `config/settings_data.json` se tocan solo con justificación explícita en el PR. Para el odontograma, leer antes `assets/odontograma-doc.md`.
+9. **Un cambio lógico por PR.** Así se puede revertir una sola cosa. Si un PR revierte algo de otro, decirlo explícitamente en la descripción.
+10. **Antes de `git push` o `gh pr`, verificar la cuenta con `gh auth status`** (debe estar activa `Jose-Tepaz`).
+11. **Después de subir al live, volver a bajarlo a una carpeta temporal y comparar** para confirmar que live y `development` quedaron iguales.
+
 ## Arquitectura
 
 ### Estructura
