@@ -308,9 +308,9 @@
 
     "recover_password": {
       "recover_password": "Passwort wiederherstellen",
-      "description": "Gib Deine Email ein:",
+      "description": "Gib die mit deinem Konto verknüpfte E-Mail-Adresse ein und wir senden dir Anweisungen.",
       "email": "Email",
-      "submit": "wiederherstellen",
+      "submit": "Passwort wiederherstellen",
       "success_title": "Überprüfe deine E-Mails",
       "success_html": "Falls für <strong>diese E-Mail-Adresse</strong> ein Konto existiert, senden wir dir Anweisungen zum Zurücksetzen deines Passworts.",
       "success_hint": "Nichts erhalten? Prüfe den Spam-Ordner oder versuche es in ein paar Minuten erneut.",

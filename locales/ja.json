@@ -308,9 +308,9 @@
 
     "recover_password": {
       "recover_password": "パスワードの回復",
-      "description": "メールを入力",
+      "description": "アカウントに登録されているメールアドレスを入力してください。手順をお送りします。",
       "email": "メール",
-      "submit": "回復する",
+      "submit": "パスワードを回復する",
       "success_title": "メールをご確認ください",
       "success_html": "<strong>このメールアドレス</strong>に関連付けられたアカウントが存在する場合、パスワードリセットの手順をお送りします。",
       "success_hint": "届きませんか？迷惑メールフォルダをご確認いただくか、数分後にもう一度お試しください。",
