@@ -12,7 +12,7 @@
   colección automática y no admite metafields, así que el banner sale de un
   METAOBJECT por etiqueta. Si la URL trae varios tags, gana el primero que
   tenga entrada.
-    Definición (tipo):  banner_etiqueta   (con acceso Storefront activo)
+    Definición (tipo):  banner_por_etiqueta   (con acceso Storefront activo)
     Campos:             banner_desktop, banner_mobile  (File, solo imágenes)
     Handle de la entrada = el tag en minúsculas y con guiones (handleize),
     ej. el tag "Black" -> handle "black".
@@ -32,7 +32,7 @@
   if collection.handle == 'all'
     for tag in current_tags
       assign tag_handle = tag | handleize
-      assign banner_entry = shop.metaobjects.banner_etiqueta[tag_handle]
+      assign banner_entry = shop.metaobjects.banner_por_etiqueta[tag_handle]
       assign tag_desktop = banner_entry.banner_desktop.value
       assign tag_mobile = banner_entry.banner_mobile.value
 
@@ -119,7 +119,7 @@
   "settings": [
     {
       "type": "paragraph",
-      "content": "La imagen sale de los metafields de la colección (custom.banner_desktop y custom.banner_mobile). En /collections/all/<tag> sale del metaobject banner_etiqueta cuyo handle es el tag. Si no hay, no se muestra nada."
+      "content": "La imagen sale de los metafields de la colección (custom.banner_desktop y custom.banner_mobile). En /collections/all/<tag> sale del metaobject banner_por_etiqueta cuyo handle es el tag. Si no hay, no se muestra nada."
     }
   ],
   "presets": [
