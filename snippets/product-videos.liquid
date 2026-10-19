@@ -1,43 +1,58 @@
 {%- comment -%}
-  Renders video1/video2 metafields for a variant, si existen.
-  Uso: {% render 'product-videos', variant: product.selected_or_first_available_variant %}
+  Renders video1/video2 (YouTube) por variante, con fallback al producto padre.
+
+  Metafields. Acepta los dos niveles, con la VARIANTE mandando sobre el PADRE,
+  de forma independiente por video (una variante puede reemplazar solo video1
+  y heredar video2 del padre):
+    Custom data -> VARIANTS -> video1.video1 / video2.video2
+    Custom data -> PRODUCTS -> video1.video1 / video2.video2
+
+  Son definiciones distintas aunque compartan namespace y key: el ownerType
+  las separa. Hay que crear ambas si quieres usar ambas.
+
+  Acepta youtu.be/ID, youtube.com/embed/ID, youtube.com/watch?v=ID, shorts/ID,
+  con o sin parámetros extra (?si=..., &t=...), o el ID suelto.
+
+  Uso: {% render 'product-videos', product: product, variant: product.selected_or_first_available_variant %}
 {%- endcomment -%}
 
 {%- liquid
-  assign video1 = variant.metafields.video1.video1
-  assign video2 = variant.metafields.video2.video2
+  assign video1 = variant.metafields.video1.video1 | default: product.metafields.video1.video1
+  assign video2 = variant.metafields.video2.video2 | default: product.metafields.video2.video2
 -%}
 
 {%- if video1 != blank or video2 != blank -%}
   <div class="card__section">
     <p class="text-ficha">Videos</p>
 
-    {%- if video1 != blank -%}
-      {%- assign video1_id = video1 | split: '/' | last -%}
-      <iframe
-        class="wrapp-video"
-        width="100%"
-        height="345"
-        src="https://www.youtube.com/embed/{{ video1_id }}"
-        title="Video producto 1"
-        loading="lazy"
-        frameborder="0"
-        allowfullscreen
-      ></iframe>
-    {%- endif -%}
+    {%- for index in (1..2) -%}
+      {%- liquid
+        if index == 1
+          assign video = video1
+        else
+          assign video = video2
+        endif
+      -%}
 
-    {%- if video2 != blank -%}
-      {%- assign video2_id = video2 | split: '/' | last -%}
-      <iframe
-        class="wrapp-video"
-        width="100%"
-        height="345"
-        src="https://www.youtube.com/embed/{{ video2_id }}"
-        title="Video producto 2"
-        loading="lazy"
-        frameborder="0"
-        allowfullscreen
-      ></iframe>
-    {%- endif -%}
+      {%- if video != blank -%}
+        {%- assign video = video | strip -%}
+        {%- if video contains 'v=' -%}
+          {%- assign video_id = video | split: 'v=' | last | split: '&' | first -%}
+        {%- else -%}
+          {%- assign video_id = video | split: '?' | first | split: '/' | last -%}
+        {%- endif -%}
+
+        <iframe
+          class="wrapp-video"
+          width="100%"
+          height="345"
+          src="https://www.youtube.com/embed/{{ video_id | escape }}"
+          title="Video producto {{ index }}"
+          loading="lazy"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      {%- endif -%}
+    {%- endfor -%}
   </div>
 {%- endif -%}
