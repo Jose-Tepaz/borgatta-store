@@ -14456,6 +14456,7 @@ select {
 }
 
 .btn-primary-full-color {
+
   display: inline-block;
   padding: 0 30px !important;
   line-height: 48px !important;
@@ -14474,5 +14475,3 @@ select {
 .btn-primary-full-color:hover {
   background: #2e56a9 !important;
 }
-
-/* alias: mismo estilo que .shopify-payment-button__button--unbranded, ver línea ~9055 */
