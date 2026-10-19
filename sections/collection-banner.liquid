@@ -6,17 +6,46 @@
     custom.banner_desktop
     custom.banner_mobile
 
+  Colección normal (/collections/<handle>): lee los metafields de arriba.
+
+  Colección "all" filtrada por etiqueta (/collections/all/<tag>): "all" es una
+  colección automática y no admite metafields, así que el banner sale de un
+  METAOBJECT por etiqueta. Si la URL trae varios tags, gana el primero que
+  tenga entrada.
+    Definición (tipo):  banner_etiqueta   (con acceso Storefront activo)
+    Campos:             banner_desktop, banner_mobile  (File, solo imágenes)
+    Handle de la entrada = el tag en minúsculas y con guiones (handleize),
+    ej. el tag "Black" -> handle "black".
+
   Prioridad desktop: banner_desktop -> banner_mobile
   Prioridad mobile:  banner_mobile  -> la imagen que resulte para desktop
   NO usa la imagen por defecto de la colección (collection.image).
-  Si no hay ningún metafield con imagen, la sección no renderiza nada.
+  Si no hay ninguna imagen, la sección no renderiza nada.
 
   Breakpoint mobile: 640px, el mismo que usa el theme (--phone).
 {%- endcomment -%}
 
 {%- liquid
-  assign desktop_image = collection.metafields.custom.banner_desktop.value
-  assign mobile_image = collection.metafields.custom.banner_mobile.value
+  assign desktop_image = nil
+  assign mobile_image = nil
+
+  if collection.handle == 'all'
+    for tag in current_tags
+      assign tag_handle = tag | handleize
+      assign banner_entry = shop.metaobjects.banner_etiqueta[tag_handle]
+      assign tag_desktop = banner_entry.banner_desktop.value
+      assign tag_mobile = banner_entry.banner_mobile.value
+
+      if tag_desktop != blank or tag_mobile != blank
+        assign desktop_image = tag_desktop
+        assign mobile_image = tag_mobile
+        break
+      endif
+    endfor
+  else
+    assign desktop_image = collection.metafields.custom.banner_desktop.value
+    assign mobile_image = collection.metafields.custom.banner_mobile.value
+  endif
 
   if desktop_image == blank
     assign desktop_image = mobile_image
@@ -90,7 +119,7 @@
   "settings": [
     {
       "type": "paragraph",
-      "content": "La imagen sale de los metafields de la colección (custom.banner_desktop y custom.banner_mobile). Si no hay ninguno, no se muestra nada."
+      "content": "La imagen sale de los metafields de la colección (custom.banner_desktop y custom.banner_mobile). En /collections/all/<tag> sale del metaobject banner_etiqueta cuyo handle es el tag. Si no hay, no se muestra nada."
     }
   ],
   "presets": [
