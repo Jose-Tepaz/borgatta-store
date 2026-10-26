@@ -13,6 +13,42 @@
       "type": "collection-banner",
       "settings": {}
     },
+    "collection_benefits": {
+      "type": "collection-benefits",
+      "blocks": {
+        "card_lealtad": {
+          "type": "card",
+          "settings": {
+            "layout": "single",
+            "title": "Programa de lealtad",
+            "text": "Gana puntos en cada compra.",
+            "primary_label": "Ver mis puntos",
+            "primary_link": "https://tienda.borgatta.com.mx/pages/programa-de-lealtad",
+            "secondary_label": "Conoce más",
+            "secondary_link": "https://borgatta.com.mx/programa-de-lealtad"
+          }
+        },
+        "card_suscripciones": {
+          "type": "card",
+          "settings": {
+            "layout": "grid",
+            "title": "Programa tus compras",
+            "text": "Ahorra hasta 10% programando pedidos.",
+            "primary_label": "Ver mis suscripciones",
+            "primary_link": "https://tienda.borgatta.com.mx/apps/subscriptions#/subscriptions/list",
+            "secondary_label": "Conoce más",
+            "secondary_link": "https://borgatta.com.mx/suscripciones"
+          }
+        }
+      },
+      "block_order": [
+        "card_lealtad",
+        "card_suscripciones"
+      ],
+      "settings": {
+        "heading": "Saca más provecho a cada compra"
+      }
+    },
     "slideshow_GNXBky": {
       "type": "slideshow",
       "disabled": true,
@@ -187,6 +223,7 @@
     "1632499467448c53e5",
     "0eab875c-abd7-4470-bd5f-fd329ed7237e",
     "main",
+    "collection_benefits",
     "recently-viewed-products",
     "3160d225-8992-41ab-8406-77a34d1d1ccd",
     "027dfe0c-33e4-45fd-b626-4c9148d502e8"
