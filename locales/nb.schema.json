@@ -1,0 +1,29 @@
+{
+  "collection_notice": {
+    "heading": "Varsler per samling",
+    "enabled": "Vis varsler",
+    "info": "Vises bare på produktsider under prisen. Første samsvarende regel med tekst brukes. Tomme samlinger eller meldinger ignoreres.",
+    "collection": "Samling",
+    "message": "Melding",
+    "icon": "Ikon",
+    "background": "Bakgrunnsfarge",
+    "foreground": "Tekst- og ikonfarge",
+    "none": "Ingen",
+    "discount": "Rabatt",
+    "information": "Informasjon",
+    "time": "Reservasjon / tid",
+    "delivery": "Levering",
+    "gift": "Gave",
+    "check": "Bekreftelse",
+    "rule_1": "Regel 1",
+    "rule_2": "Regel 2",
+    "rule_3": "Regel 3",
+    "rule_4": "Regel 4",
+    "rule_5": "Regel 5",
+    "rule_6": "Regel 6",
+    "rule_7": "Regel 7",
+    "rule_8": "Regel 8",
+    "rule_9": "Regel 9",
+    "rule_10": "Regel 10"
+  }
+}

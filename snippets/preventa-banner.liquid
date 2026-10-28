@@ -1,24 +1,35 @@
-<div class="preventa-banner" style="
-
-background: #F0FDF4; 
-  border-radius: 100px;
-  padding: 12px 16px;
-  display: flex;
-  align-items: flex-start;
-  gap: 4px;
-  align-items: center;
-
-">
-  <span style="font-size: 20px; line-height: 1; flex-shrink: 0;">
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-  <path d="M6 9.5L10 5.5M13 3.17132V14.5L10.5 13.5L8 14.5L5.5 13.5L3 14.5V3.17132C3 2.43267 3.53739 1.80009 4.27112 1.71494C5.49437 1.57298 6.73867 1.5 8 1.5C9.26134 1.5 10.5056 1.57298 11.7289 1.71494C12.4626 1.80009 13 2.43267 13 3.17132ZM6.5 6H6.505V6.005H6.5V6ZM6.75 6C6.75 6.13807 6.63807 6.25 6.5 6.25C6.36193 6.25 6.25 6.13807 6.25 6C6.25 5.86193 6.36193 5.75 6.5 5.75C6.63807 5.75 6.75 5.86193 6.75 6ZM9.5 9H9.505V9.005H9.5V9ZM9.75 9C9.75 9.13807 9.63807 9.25 9.5 9.25C9.36193 9.25 9.25 9.13807 9.25 9C9.25 8.86193 9.36193 8.75 9.5 8.75C9.63807 8.75 9.75 8.86193 9.75 9Z" stroke="#016630" stroke-width="0.444444" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
-  </span>
-  <div>
-    <p style="
-        margin: 0 0 2px; font-size: 14px; font-weight: 600; color: #016630; letter-spacing: 0.28px; line-height: 150%; ">
-      Si compras en pack con 6 cepillos, te ahorras $10 pesos en cada uno.
-    </p>
-  </div>
-</div>
+{%- comment -%}
+  Product-page notices configured in theme settings. First matching nonempty
+  collection/message rule wins. This is informational; it does not enable reservations.
+{%- endcomment -%}
+{%- if template.name == 'product' and settings.collection_notice_enabled -%}
+  {%- for notice_index in (1..10) -%}
+    {%- assign notice_prefix = 'collection_notice_' | append: notice_index | append: '_' -%}
+    {%- assign collection_key = notice_prefix | append: 'collection' -%}
+    {%- assign message_key = notice_prefix | append: 'message' -%}
+    {%- assign notice_collection = settings[collection_key] -%}
+    {%- assign notice_message = settings[message_key] | strip -%}
+    {%- assign notice_matches = false -%}
+    {%- if notice_collection != blank and notice_message != blank -%}
+      {%- for product_collection in product.collections -%}
+        {%- if product_collection.handle == notice_collection.handle -%}
+          {%- assign notice_matches = true -%}
+          {%- break -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+    {%- if notice_matches -%}
+      {%- assign icon_key = notice_prefix | append: 'icon' -%}
+      {%- assign background_key = notice_prefix | append: 'background' -%}
+      {%- assign foreground_key = notice_prefix | append: 'foreground' -%}
+      {{- 'product-notice.css' | asset_url | stylesheet_tag -}}
+      <div class="preventa-banner product-notice" style="background-color: {{ settings[background_key] | default: '#f0fdf4' | escape }}; color: {{ settings[foreground_key] | default: '#016630' | escape }};">
+        {%- if settings[icon_key] != 'none' -%}
+          <span class="product-notice__icon" aria-hidden="true">{%- render 'product-notice-icon', notice_icon: settings[icon_key] -%}</span>
+        {%- endif -%}
+        <p class="product-notice__message">{{ notice_message | escape | newline_to_br }}</p>
+      </div>
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}

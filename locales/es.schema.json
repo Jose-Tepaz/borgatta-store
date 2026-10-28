@@ -1,0 +1,29 @@
+{
+  "collection_notice": {
+    "heading": "Avisos por colección",
+    "enabled": "Mostrar avisos",
+    "info": "Se muestran solo en el detalle del producto, debajo del precio. Se usa la primera regla que coincida y tenga texto. Las colecciones o mensajes vacíos se ignoran.",
+    "collection": "Colección",
+    "message": "Mensaje",
+    "icon": "Icono",
+    "background": "Color de fondo",
+    "foreground": "Color del texto e icono",
+    "none": "Sin icono",
+    "discount": "Descuento",
+    "information": "Información",
+    "time": "Reserva / tiempo",
+    "delivery": "Envío",
+    "gift": "Regalo",
+    "check": "Confirmación",
+    "rule_1": "Regla 1",
+    "rule_2": "Regla 2",
+    "rule_3": "Regla 3",
+    "rule_4": "Regla 4",
+    "rule_5": "Regla 5",
+    "rule_6": "Regla 6",
+    "rule_7": "Regla 7",
+    "rule_8": "Regla 8",
+    "rule_9": "Regla 9",
+    "rule_10": "Regla 10"
+  }
+}

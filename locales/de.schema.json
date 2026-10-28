@@ -1,0 +1,29 @@
+{
+  "collection_notice": {
+    "heading": "Hinweise nach Kollektion",
+    "enabled": "Hinweise anzeigen",
+    "info": "Nur auf Produktseiten unter dem Preis. Die erste passende Regel mit Text gilt. Leere Kollektionen oder Nachrichten werden ignoriert.",
+    "collection": "Kollektion",
+    "message": "Nachricht",
+    "icon": "Symbol",
+    "background": "Hintergrundfarbe",
+    "foreground": "Text- und Symbolfarbe",
+    "none": "Keines",
+    "discount": "Rabatt",
+    "information": "Information",
+    "time": "Reservierung / Zeit",
+    "delivery": "Versand",
+    "gift": "Geschenk",
+    "check": "Bestätigung",
+    "rule_1": "Regel 1",
+    "rule_2": "Regel 2",
+    "rule_3": "Regel 3",
+    "rule_4": "Regel 4",
+    "rule_5": "Regel 5",
+    "rule_6": "Regel 6",
+    "rule_7": "Regel 7",
+    "rule_8": "Regel 8",
+    "rule_9": "Regel 9",
+    "rule_10": "Regel 10"
+  }
+}

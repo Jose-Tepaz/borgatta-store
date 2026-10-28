@@ -1,0 +1,29 @@
+{
+  "collection_notice": {
+    "heading": "Avis par collection",
+    "enabled": "Afficher les avis",
+    "info": "Uniquement sur les fiches produit, sous le prix. La première règle correspondante avec un message est utilisée. Les collections ou messages vides sont ignorés.",
+    "collection": "Collection",
+    "message": "Message",
+    "icon": "Icône",
+    "background": "Couleur de fond",
+    "foreground": "Couleur du texte et de l’icône",
+    "none": "Aucune",
+    "discount": "Remise",
+    "information": "Information",
+    "time": "Réservation / délai",
+    "delivery": "Livraison",
+    "gift": "Cadeau",
+    "check": "Confirmation",
+    "rule_1": "Règle 1",
+    "rule_2": "Règle 2",
+    "rule_3": "Règle 3",
+    "rule_4": "Règle 4",
+    "rule_5": "Règle 5",
+    "rule_6": "Règle 6",
+    "rule_7": "Règle 7",
+    "rule_8": "Règle 8",
+    "rule_9": "Règle 9",
+    "rule_10": "Règle 10"
+  }
+}
