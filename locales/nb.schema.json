@@ -1,0 +1,25 @@
+{
+  "fixed_discount_badge": {
+    "heading": "Merke for fast rabatt",
+    "enabled": "Vis merke",
+    "collection": "Samling",
+    "collection_info": "Vises bare for produkter i denne samlingen. La stå tomt for å skjule.",
+    "percentage": "Rabattprosent",
+    "info": "Viser bare et kampanjemerke; endrer ikke prisene.",
+    "rules_heading": "Rabatter per samling",
+    "rules_info": "Reglene deles mellom produktkort og produktdetaljer. Første treff brukes. Tomme samlinger ignoreres. Merkene endrer ikke prisene.",
+    "shared_info": "Velg samlinger og prosenter i Temainnstillinger → Rabatter per samling.",
+    "rule_1": "Regel 1",
+    "rule_2": "Regel 2",
+    "rule_3": "Regel 3",
+    "rule_4": "Regel 4",
+    "rule_5": "Regel 5",
+    "rule_6": "Regel 6",
+    "rule_7": "Regel 7",
+    "rule_8": "Regel 8",
+    "rule_9": "Regel 9",
+    "rule_10": "Regel 10",
+    "background_color": "Bakgrunnsfarge",
+    "text_color": "Tekstfarge"
+  }
+}

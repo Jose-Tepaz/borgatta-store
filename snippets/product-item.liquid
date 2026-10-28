@@ -66,11 +66,8 @@
 
       <div class="aspect-ratio {% if settings.product_image_size != 'natural' %}aspect-ratio--{{ settings.product_image_size }}{% endif %}" style="padding-bottom: {{ 100.0 | divided_by: primary_media.preview_image.aspect_ratio }}%">
     
-        {% if product.tags.size > 0 %}
- 
-  </div>
-{% endif %}
-        
+        {%- render 'fixed-discount-badge', product: product, badge_class: 'decount-porcent' -%}
+
         <img class="product-item__primary-image lazyload image--fade-in" data-media-id="{{ primary_media.id }}" data-src="{{ image_url }}" data-sizes="auto" data-widths="[{{ supported_sizes }}]" alt="{{ primary_media.alt | escape }}">
 
         {%- if show_secondary_media -%}
@@ -455,47 +452,8 @@
 
       <div class="aspect-ratio {% if settings.product_image_size != 'natural' %}aspect-ratio--{{ settings.product_image_size }}{% endif %}" style="padding-bottom: {{ 100.0 | divided_by: primary_media.preview_image.aspect_ratio }}%">
     
-        {% if product.tags.size > 0 %}
-  <div>
- {% comment %}
-  AGREGA ETIQUETA PERSONALIZADA AL PRODUCTO
-  {% endcomment %}
+        {%- render 'fixed-discount-badge', product: product, badge_class: 'decount-porcent' -%}
 
-  {% comment %}  
-  {% if product.tags contains 'brackets-buen-fin' %}
-  <p class="decount-porcent">-10%</p>
-  {% elsif product.tags contains 'BUENFIN15' %}
-  <p class="decount-porcent">-15%</p>
-     
-  {% elsif product.tags contains 'Outlet' %}
-  <p class="decount-porcent">-20%</p>
-  {% endif %}
-    {% endcomment %}
-
-      {% comment %}
-  Muestra el descuento si el conteien la etiqueta AMIC
-  {% endcomment %}
-
-
-  
-
-
-{% for collection in product.collections %}
-  {% if collection.handle == 'descuentos-relampago' %}
-    <p class="decount-porcent">-13%</p>
-    {% break %}
-  {% endif %}
-{% endfor %}
-  
-{% comment %}
-  Badge para productos con descuento
-{% endcomment %}
-         
-   
-    
-  </div>
-{% endif %}
-        
         <img class="product-item__primary-image lazyload image--fade-in" data-media-id="{{ primary_media.id }}" data-src="{{ image_url }}" data-sizes="auto" data-widths="[{{ supported_sizes }}]" alt="{{ primary_media.alt | escape }}">
 
         {%- if show_secondary_media -%}
