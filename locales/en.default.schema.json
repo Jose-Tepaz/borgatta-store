@@ -47,6 +47,9 @@
     "rule_7": "Rule 7",
     "rule_8": "Rule 8",
     "rule_9": "Rule 9",
-    "rule_10": "Rule 10"
+    "rule_10": "Rule 10",
+    "secondary_message": "Secondary text",
+    "secondary_message_info": "Optional. Appears below the main message.",
+    "secondary_color": "Secondary text color"
   }
 }

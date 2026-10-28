@@ -47,6 +47,9 @@
     "rule_7": "ルール 7",
     "rule_8": "ルール 8",
     "rule_9": "ルール 9",
-    "rule_10": "ルール 10"
+    "rule_10": "ルール 10",
+    "secondary_message": "補足テキスト",
+    "secondary_message_info": "任意。メインメッセージの下に表示します。",
+    "secondary_color": "補足テキストの色"
   }
 }

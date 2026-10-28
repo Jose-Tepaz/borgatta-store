@@ -945,6 +945,17 @@
       "id": "collection_notice_1_message",
       "label": "t:collection_notice.message"
     },
+      {
+        "type": "textarea",
+        "id": "collection_notice_1_secondary_message",
+        "label": "t:collection_notice.secondary_message",
+        "info": "t:collection_notice.secondary_message_info"
+      },
+      {
+        "type": "color",
+        "id": "collection_notice_1_secondary_color",
+        "label": "t:collection_notice.secondary_color"
+      },
     {
       "type": "select",
       "id": "collection_notice_1_icon",
@@ -1007,6 +1018,17 @@
       "id": "collection_notice_2_message",
       "label": "t:collection_notice.message"
     },
+      {
+        "type": "textarea",
+        "id": "collection_notice_2_secondary_message",
+        "label": "t:collection_notice.secondary_message",
+        "info": "t:collection_notice.secondary_message_info"
+      },
+      {
+        "type": "color",
+        "id": "collection_notice_2_secondary_color",
+        "label": "t:collection_notice.secondary_color"
+      },
     {
       "type": "select",
       "id": "collection_notice_2_icon",
@@ -1069,6 +1091,17 @@
       "id": "collection_notice_3_message",
       "label": "t:collection_notice.message"
     },
+      {
+        "type": "textarea",
+        "id": "collection_notice_3_secondary_message",
+        "label": "t:collection_notice.secondary_message",
+        "info": "t:collection_notice.secondary_message_info"
+      },
+      {
+        "type": "color",
+        "id": "collection_notice_3_secondary_color",
+        "label": "t:collection_notice.secondary_color"
+      },
     {
       "type": "select",
       "id": "collection_notice_3_icon",
@@ -1131,6 +1164,17 @@
       "id": "collection_notice_4_message",
       "label": "t:collection_notice.message"
     },
+      {
+        "type": "textarea",
+        "id": "collection_notice_4_secondary_message",
+        "label": "t:collection_notice.secondary_message",
+        "info": "t:collection_notice.secondary_message_info"
+      },
+      {
+        "type": "color",
+        "id": "collection_notice_4_secondary_color",
+        "label": "t:collection_notice.secondary_color"
+      },
     {
       "type": "select",
       "id": "collection_notice_4_icon",
@@ -1193,6 +1237,17 @@
       "id": "collection_notice_5_message",
       "label": "t:collection_notice.message"
     },
+      {
+        "type": "textarea",
+        "id": "collection_notice_5_secondary_message",
+        "label": "t:collection_notice.secondary_message",
+        "info": "t:collection_notice.secondary_message_info"
+      },
+      {
+        "type": "color",
+        "id": "collection_notice_5_secondary_color",
+        "label": "t:collection_notice.secondary_color"
+      },
     {
       "type": "select",
       "id": "collection_notice_5_icon",
@@ -1255,6 +1310,17 @@
       "id": "collection_notice_6_message",
       "label": "t:collection_notice.message"
     },
+      {
+        "type": "textarea",
+        "id": "collection_notice_6_secondary_message",
+        "label": "t:collection_notice.secondary_message",
+        "info": "t:collection_notice.secondary_message_info"
+      },
+      {
+        "type": "color",
+        "id": "collection_notice_6_secondary_color",
+        "label": "t:collection_notice.secondary_color"
+      },
     {
       "type": "select",
       "id": "collection_notice_6_icon",
@@ -1317,6 +1383,17 @@
       "id": "collection_notice_7_message",
       "label": "t:collection_notice.message"
     },
+      {
+        "type": "textarea",
+        "id": "collection_notice_7_secondary_message",
+        "label": "t:collection_notice.secondary_message",
+        "info": "t:collection_notice.secondary_message_info"
+      },
+      {
+        "type": "color",
+        "id": "collection_notice_7_secondary_color",
+        "label": "t:collection_notice.secondary_color"
+      },
     {
       "type": "select",
       "id": "collection_notice_7_icon",
@@ -1379,6 +1456,17 @@
       "id": "collection_notice_8_message",
       "label": "t:collection_notice.message"
     },
+      {
+        "type": "textarea",
+        "id": "collection_notice_8_secondary_message",
+        "label": "t:collection_notice.secondary_message",
+        "info": "t:collection_notice.secondary_message_info"
+      },
+      {
+        "type": "color",
+        "id": "collection_notice_8_secondary_color",
+        "label": "t:collection_notice.secondary_color"
+      },
     {
       "type": "select",
       "id": "collection_notice_8_icon",
@@ -1441,6 +1529,17 @@
       "id": "collection_notice_9_message",
       "label": "t:collection_notice.message"
     },
+      {
+        "type": "textarea",
+        "id": "collection_notice_9_secondary_message",
+        "label": "t:collection_notice.secondary_message",
+        "info": "t:collection_notice.secondary_message_info"
+      },
+      {
+        "type": "color",
+        "id": "collection_notice_9_secondary_color",
+        "label": "t:collection_notice.secondary_color"
+      },
     {
       "type": "select",
       "id": "collection_notice_9_icon",
@@ -1503,6 +1602,17 @@
       "id": "collection_notice_10_message",
       "label": "t:collection_notice.message"
     },
+      {
+        "type": "textarea",
+        "id": "collection_notice_10_secondary_message",
+        "label": "t:collection_notice.secondary_message",
+        "info": "t:collection_notice.secondary_message_info"
+      },
+      {
+        "type": "color",
+        "id": "collection_notice_10_secondary_color",
+        "label": "t:collection_notice.secondary_color"
+      },
     {
       "type": "select",
       "id": "collection_notice_10_icon",

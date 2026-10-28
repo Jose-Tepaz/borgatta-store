@@ -19,15 +19,23 @@
       {%- endfor -%}
     {%- endif -%}
     {%- if notice_matches -%}
+      {%- assign secondary_key = notice_prefix | append: 'secondary_message' -%}
+      {%- assign secondary_color_key = notice_prefix | append: 'secondary_color' -%}
+      {%- assign notice_secondary = settings[secondary_key] | strip -%}
       {%- assign icon_key = notice_prefix | append: 'icon' -%}
       {%- assign background_key = notice_prefix | append: 'background' -%}
       {%- assign foreground_key = notice_prefix | append: 'foreground' -%}
       {{- 'product-notice.css' | asset_url | stylesheet_tag -}}
-      <div class="preventa-banner product-notice" style="background-color: {{ settings[background_key] | default: '#f0fdf4' | escape }}; color: {{ settings[foreground_key] | default: '#016630' | escape }};">
+      <div class="preventa-banner product-notice{% if notice_secondary != blank %} product-notice--with-secondary{% endif %}" style="background-color: {{ settings[background_key] | default: '#f0fdf4' | escape }}; color: {{ settings[foreground_key] | default: '#016630' | escape }};">
         {%- if settings[icon_key] != 'none' -%}
           <span class="product-notice__icon" aria-hidden="true">{%- render 'product-notice-icon', notice_icon: settings[icon_key] -%}</span>
         {%- endif -%}
-        <p class="product-notice__message">{{ notice_message | escape | newline_to_br }}</p>
+        <div class="product-notice__content">
+          <p class="product-notice__message">{{ notice_message | escape | newline_to_br }}</p>
+          {%- if notice_secondary != blank -%}
+            <p class="product-notice__secondary"{% if settings[secondary_color_key] != blank %} style="color: {{ settings[secondary_color_key] | escape }};"{% endif %}>{{ notice_secondary | escape | newline_to_br }}</p>
+          {%- endif -%}
+        </div>
       </div>
       {%- break -%}
     {%- endif -%}

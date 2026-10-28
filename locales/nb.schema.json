@@ -47,6 +47,9 @@
     "rule_7": "Regel 7",
     "rule_8": "Regel 8",
     "rule_9": "Regel 9",
-    "rule_10": "Regel 10"
+    "rule_10": "Regel 10",
+    "secondary_message": "Sekundærtekst",
+    "secondary_message_info": "Valgfritt. Vises under hovedmeldingen.",
+    "secondary_color": "Farge på sekundærtekst"
   }
 }
