@@ -384,9 +384,7 @@
     </div>
   </div>
 
-  {% if product.handle == 'cepillo-dental-b-silk' %}
-  {% render 'preventa-banner' %}
-{% endif %}
+  {%- render 'preventa-banner', product: product -%}
 
   
 
