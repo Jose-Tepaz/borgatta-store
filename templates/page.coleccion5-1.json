@@ -1,0 +1,78 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "collection_list_jt_tfrhay": {
+      "type": "collection-list-jt",
+      "blocks": {
+        "collection_Cd9AEG": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "custom_image": "shopify://shop_images/Coleccion_Odontologia_Digital_AMIC-4.png",
+            "custom_url": "shopify://pages/promocion-linea-odontologia-digital"
+          }
+        },
+        "collection_Dm6czQ": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "custom_image": "shopify://shop_images/Coleccion_Odontologia_Digital_AMIC_957c47f2-a8b0-4bd9-82be-f148e4d3370e.png",
+            "custom_url": "shopify://pages/kit-desktop-scaner-l6"
+          }
+        },
+        "collection_EV93Tz": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "custom_image": "shopify://shop_images/Coleccion_Odontologia_Digital_AMIC-1.png",
+            "custom_url": "shopify://pages/bundle-b500"
+          }
+        },
+        "collection_gw4eqg": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "custom_image": "shopify://shop_images/Coleccion_Odontologia_Digital_AMIC-2.png",
+            "custom_url": "shopify://pages/bundles-amic"
+          }
+        },
+        "collection_RjTW7d": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "custom_image": "shopify://shop_images/Coleccion_Odontologia_Digital_AMIC-3.png",
+            "custom_url": "shopify://pages/kit-press"
+          }
+        }
+      },
+      "block_order": [
+        "collection_Cd9AEG",
+        "collection_Dm6czQ",
+        "collection_EV93Tz",
+        "collection_gw4eqg",
+        "collection_RjTW7d"
+      ],
+      "name": "Custom Collection",
+      "settings": {
+        "section_title": "Nuestros bundles"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "collection_list_jt_tfrhay"
+  ]
+}

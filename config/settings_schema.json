@@ -584,6 +584,341 @@
     ]
   },
 {
+  "name": "t:fixed_discount_badge.rules_heading",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "collection_discount_enabled",
+      "label": "t:fixed_discount_badge.enabled",
+      "default": true
+    },
+    {
+      "type": "paragraph",
+      "content": "t:fixed_discount_badge.rules_info"
+    },
+    {
+      "type": "header",
+      "content": "t:fixed_discount_badge.rule_1"
+    },
+    {
+      "type": "collection",
+      "id": "fixed_discount_collection",
+      "label": "t:fixed_discount_badge.collection",
+      "info": "t:fixed_discount_badge.collection_info"
+    },
+    {
+      "type": "range",
+      "id": "fixed_discount_percentage",
+      "label": "t:fixed_discount_badge.percentage",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 13
+    },
+      {
+        "type": "color",
+        "id": "fixed_discount_background",
+        "label": "t:fixed_discount_badge.background_color",
+        "default": "#e18a38"
+      },
+      {
+        "type": "color",
+        "id": "fixed_discount_text",
+        "label": "t:fixed_discount_badge.text_color",
+        "default": "#ffffff"
+      },
+    {
+      "type": "header",
+      "content": "t:fixed_discount_badge.rule_2"
+    },
+    {
+      "type": "collection",
+      "id": "fixed_discount_collection_2",
+      "label": "t:fixed_discount_badge.collection",
+      "info": "t:fixed_discount_badge.collection_info"
+    },
+    {
+      "type": "range",
+      "id": "fixed_discount_percentage_2",
+      "label": "t:fixed_discount_badge.percentage",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 13
+    },
+      {
+        "type": "color",
+        "id": "fixed_discount_background_2",
+        "label": "t:fixed_discount_badge.background_color",
+        "default": "#e18a38"
+      },
+      {
+        "type": "color",
+        "id": "fixed_discount_text_2",
+        "label": "t:fixed_discount_badge.text_color",
+        "default": "#ffffff"
+      },
+    {
+      "type": "header",
+      "content": "t:fixed_discount_badge.rule_3"
+    },
+    {
+      "type": "collection",
+      "id": "fixed_discount_collection_3",
+      "label": "t:fixed_discount_badge.collection",
+      "info": "t:fixed_discount_badge.collection_info"
+    },
+    {
+      "type": "range",
+      "id": "fixed_discount_percentage_3",
+      "label": "t:fixed_discount_badge.percentage",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 13
+    },
+      {
+        "type": "color",
+        "id": "fixed_discount_background_3",
+        "label": "t:fixed_discount_badge.background_color",
+        "default": "#e18a38"
+      },
+      {
+        "type": "color",
+        "id": "fixed_discount_text_3",
+        "label": "t:fixed_discount_badge.text_color",
+        "default": "#ffffff"
+      },
+    {
+      "type": "header",
+      "content": "t:fixed_discount_badge.rule_4"
+    },
+    {
+      "type": "collection",
+      "id": "fixed_discount_collection_4",
+      "label": "t:fixed_discount_badge.collection",
+      "info": "t:fixed_discount_badge.collection_info"
+    },
+    {
+      "type": "range",
+      "id": "fixed_discount_percentage_4",
+      "label": "t:fixed_discount_badge.percentage",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 13
+    },
+      {
+        "type": "color",
+        "id": "fixed_discount_background_4",
+        "label": "t:fixed_discount_badge.background_color",
+        "default": "#e18a38"
+      },
+      {
+        "type": "color",
+        "id": "fixed_discount_text_4",
+        "label": "t:fixed_discount_badge.text_color",
+        "default": "#ffffff"
+      },
+    {
+      "type": "header",
+      "content": "t:fixed_discount_badge.rule_5"
+    },
+    {
+      "type": "collection",
+      "id": "fixed_discount_collection_5",
+      "label": "t:fixed_discount_badge.collection",
+      "info": "t:fixed_discount_badge.collection_info"
+    },
+    {
+      "type": "range",
+      "id": "fixed_discount_percentage_5",
+      "label": "t:fixed_discount_badge.percentage",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 13
+    },
+      {
+        "type": "color",
+        "id": "fixed_discount_background_5",
+        "label": "t:fixed_discount_badge.background_color",
+        "default": "#e18a38"
+      },
+      {
+        "type": "color",
+        "id": "fixed_discount_text_5",
+        "label": "t:fixed_discount_badge.text_color",
+        "default": "#ffffff"
+      },
+    {
+      "type": "header",
+      "content": "t:fixed_discount_badge.rule_6"
+    },
+    {
+      "type": "collection",
+      "id": "fixed_discount_collection_6",
+      "label": "t:fixed_discount_badge.collection",
+      "info": "t:fixed_discount_badge.collection_info"
+    },
+    {
+      "type": "range",
+      "id": "fixed_discount_percentage_6",
+      "label": "t:fixed_discount_badge.percentage",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 13
+    },
+      {
+        "type": "color",
+        "id": "fixed_discount_background_6",
+        "label": "t:fixed_discount_badge.background_color",
+        "default": "#e18a38"
+      },
+      {
+        "type": "color",
+        "id": "fixed_discount_text_6",
+        "label": "t:fixed_discount_badge.text_color",
+        "default": "#ffffff"
+      },
+    {
+      "type": "header",
+      "content": "t:fixed_discount_badge.rule_7"
+    },
+    {
+      "type": "collection",
+      "id": "fixed_discount_collection_7",
+      "label": "t:fixed_discount_badge.collection",
+      "info": "t:fixed_discount_badge.collection_info"
+    },
+    {
+      "type": "range",
+      "id": "fixed_discount_percentage_7",
+      "label": "t:fixed_discount_badge.percentage",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 13
+    },
+      {
+        "type": "color",
+        "id": "fixed_discount_background_7",
+        "label": "t:fixed_discount_badge.background_color",
+        "default": "#e18a38"
+      },
+      {
+        "type": "color",
+        "id": "fixed_discount_text_7",
+        "label": "t:fixed_discount_badge.text_color",
+        "default": "#ffffff"
+      },
+    {
+      "type": "header",
+      "content": "t:fixed_discount_badge.rule_8"
+    },
+    {
+      "type": "collection",
+      "id": "fixed_discount_collection_8",
+      "label": "t:fixed_discount_badge.collection",
+      "info": "t:fixed_discount_badge.collection_info"
+    },
+    {
+      "type": "range",
+      "id": "fixed_discount_percentage_8",
+      "label": "t:fixed_discount_badge.percentage",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 13
+    },
+      {
+        "type": "color",
+        "id": "fixed_discount_background_8",
+        "label": "t:fixed_discount_badge.background_color",
+        "default": "#e18a38"
+      },
+      {
+        "type": "color",
+        "id": "fixed_discount_text_8",
+        "label": "t:fixed_discount_badge.text_color",
+        "default": "#ffffff"
+      },
+    {
+      "type": "header",
+      "content": "t:fixed_discount_badge.rule_9"
+    },
+    {
+      "type": "collection",
+      "id": "fixed_discount_collection_9",
+      "label": "t:fixed_discount_badge.collection",
+      "info": "t:fixed_discount_badge.collection_info"
+    },
+    {
+      "type": "range",
+      "id": "fixed_discount_percentage_9",
+      "label": "t:fixed_discount_badge.percentage",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 13
+    },
+      {
+        "type": "color",
+        "id": "fixed_discount_background_9",
+        "label": "t:fixed_discount_badge.background_color",
+        "default": "#e18a38"
+      },
+      {
+        "type": "color",
+        "id": "fixed_discount_text_9",
+        "label": "t:fixed_discount_badge.text_color",
+        "default": "#ffffff"
+      },
+    {
+      "type": "header",
+      "content": "t:fixed_discount_badge.rule_10"
+    },
+    {
+      "type": "collection",
+      "id": "fixed_discount_collection_10",
+      "label": "t:fixed_discount_badge.collection",
+      "info": "t:fixed_discount_badge.collection_info"
+    },
+    {
+      "type": "range",
+      "id": "fixed_discount_percentage_10",
+      "label": "t:fixed_discount_badge.percentage",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 13
+    },
+      {
+        "type": "color",
+        "id": "fixed_discount_background_10",
+        "label": "t:fixed_discount_badge.background_color",
+        "default": "#e18a38"
+      },
+      {
+        "type": "color",
+        "id": "fixed_discount_text_10",
+        "label": "t:fixed_discount_badge.text_color",
+        "default": "#ffffff"
+      }
+  ]
+},
+{
   "name": "t:collection_notice.heading",
   "settings": [
     {

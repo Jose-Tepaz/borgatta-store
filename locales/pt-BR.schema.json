@@ -1,4 +1,27 @@
 {
+  "fixed_discount_badge": {
+    "heading": "Selo de desconto fixo",
+    "enabled": "Mostrar selo",
+    "collection": "Coleção",
+    "collection_info": "Apenas produtos desta coleção exibem o selo. Deixe vazio para ocultar.",
+    "percentage": "Percentual de desconto",
+    "info": "Exibe apenas um selo promocional; não altera os preços.",
+    "rules_heading": "Descontos por coleção",
+    "rules_info": "As regras são compartilhadas entre cartões e detalhes dos produtos. A primeira correspondência é usada. Coleções vazias são ignoradas. Os selos não alteram os preços.",
+    "shared_info": "Configure coleções e percentuais em Configurações do tema → Descontos por coleção.",
+    "rule_1": "Regra 1",
+    "rule_2": "Regra 2",
+    "rule_3": "Regra 3",
+    "rule_4": "Regra 4",
+    "rule_5": "Regra 5",
+    "rule_6": "Regra 6",
+    "rule_7": "Regra 7",
+    "rule_8": "Regra 8",
+    "rule_9": "Regra 9",
+    "rule_10": "Regra 10",
+    "background_color": "Cor de fundo",
+    "text_color": "Cor do texto"
+  },
   "collection_notice": {
     "heading": "Avisos por coleção",
     "enabled": "Mostrar avisos",

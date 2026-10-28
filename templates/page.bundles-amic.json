@@ -14,6 +14,34 @@
       "disabled": true,
       "settings": {}
     },
+    "collection_list_jt_zzhat3": {
+      "type": "collection-list-jt",
+      "blocks": {
+        "collection_B7dCLc": {
+          "type": "collection",
+          "settings": {
+            "collection": "bloques-de-disilicato-5-1",
+            "custom_url": ""
+          }
+        },
+        "collection_U4KXGY": {
+          "type": "collection",
+          "settings": {
+            "collection": "pastillas-de-disilicato-5-1",
+            "custom_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_B7dCLc",
+        "collection_U4KXGY"
+      ],
+      "disabled": true,
+      "name": "Custom Collection",
+      "settings": {
+        "section_title": "Nuestras Colecciones"
+      }
+    },
     "card_list_zbPqf3": {
       "type": "card-list",
       "blocks": {
@@ -45,6 +73,7 @@
         },
         "kit_card_fa3itc": {
           "type": "kit_card",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/mosaicos-promos-Amic-2026-02.jpg",
             "video": "",
@@ -58,6 +87,7 @@
         },
         "kit_card_Jk7xAz": {
           "type": "kit_card",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/mosaicos-promos-Amic-2026-04.jpg",
             "video": "",
@@ -71,6 +101,7 @@
         },
         "kit_card_zkQgrn": {
           "type": "kit_card",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/mosaicos-promos-Amic-2026-05.jpg",
             "video": "",
@@ -84,6 +115,7 @@
         },
         "kit_card_T9ziix": {
           "type": "kit_card",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/mosaicos-promos-Amic-2026-06.jpg",
             "video": "",
@@ -121,6 +153,7 @@
   },
   "order": [
     "main",
+    "collection_list_jt_zzhat3",
     "card_list_zbPqf3"
   ]
 }

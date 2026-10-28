@@ -6,21 +6,7 @@
     <div id="product-zoom-{{ section.id }}" class="product__zoom-wrapper"></div>
   {%- endif -%}
 
-        {% comment %}
-  Badge para productos con descuento
-{% endcomment %}
- 
-
-{% for collection in product.collections %}
-  {% if collection.handle == '------------' %}
-    <p class="decount-porcent-on-product-info">-25%</p>
-    {% break %}
-  {% endif %}
-{% endfor %}
-
-    {% comment %}
-  Badge para productos de colección AMIC
-{% endcomment %}
+  {%- render 'fixed-discount-badge', product: product, badge_class: 'decount-porcent-on-product-info' -%}
 
   <div class="card__section">
     

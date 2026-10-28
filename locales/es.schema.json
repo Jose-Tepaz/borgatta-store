@@ -1,4 +1,27 @@
 {
+  "fixed_discount_badge": {
+    "heading": "Badge de descuento fijo",
+    "enabled": "Mostrar badge",
+    "collection": "Colección",
+    "collection_info": "Solo aparece en productos de esta colección. Déjala vacía para ocultarlo.",
+    "percentage": "Porcentaje de descuento",
+    "info": "Solo muestra una etiqueta promocional; no modifica los precios.",
+    "rules_heading": "Descuentos por colección",
+    "rules_info": "Configura aquí las colecciones y porcentajes. Las reglas se comparten entre tarjetas y detalle. Se usa la primera coincidencia; las colecciones vacías se ignoran. Las etiquetas no modifican precios.",
+    "shared_info": "Configura las colecciones y porcentajes en Configuración del tema → Descuentos por colección.",
+    "rule_1": "Regla 1",
+    "rule_2": "Regla 2",
+    "rule_3": "Regla 3",
+    "rule_4": "Regla 4",
+    "rule_5": "Regla 5",
+    "rule_6": "Regla 6",
+    "rule_7": "Regla 7",
+    "rule_8": "Regla 8",
+    "rule_9": "Regla 9",
+    "rule_10": "Regla 10",
+    "background_color": "Color de fondo",
+    "text_color": "Color del texto"
+  },
   "collection_notice": {
     "heading": "Avisos por colección",
     "enabled": "Mostrar avisos",
