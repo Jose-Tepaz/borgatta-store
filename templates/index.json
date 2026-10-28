@@ -494,6 +494,51 @@
     "collection_list_jt_9Jfkma": {
       "type": "collection-list-jt",
       "blocks": {
+        "collection_KfWdae": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "custom_image": "shopify://shop_images/Frame_5.png",
+            "custom_url": "https://tienda.borgatta.com.mx/pages/bundles-amic"
+          }
+        },
+        "collection_htfAPj": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "custom_image": "shopify://shop_images/Frame_6.png",
+            "custom_url": "shopify://pages/combos"
+          }
+        },
+        "collection_rKLiFq": {
+          "type": "collection",
+          "settings": {
+            "collection": "discos-de-circonia-1-1",
+            "custom_url": ""
+          }
+        },
+        "collection_PeDnUV": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "custom_image": "shopify://shop_images/Frame_7.png",
+            "custom_url": "https://tienda.borgatta.com.mx/pages/5-1"
+          }
+        },
+        "collection_xTAYgE": {
+          "type": "collection",
+          "settings": {
+            "collection": "15-amic",
+            "custom_url": ""
+          }
+        },
+        "collection_iw3t6X": {
+          "type": "collection",
+          "settings": {
+            "collection": "5-amic",
+            "custom_url": ""
+          }
+        },
         "collection_dxN8mJ": {
           "type": "collection",
           "settings": {
@@ -625,6 +670,12 @@
         }
       },
       "block_order": [
+        "collection_KfWdae",
+        "collection_htfAPj",
+        "collection_rKLiFq",
+        "collection_PeDnUV",
+        "collection_xTAYgE",
+        "collection_iw3t6X",
         "collection_dxN8mJ",
         "collection_k3diWk",
         "collection_UVaTfE",

@@ -46,7 +46,7 @@
       "settings": {
         "heading": "KIT PREMIUM ODONTOLOGÍA DIGITAL 3D",
         "description": "Aprovecha nuestras promociones exclusivas en la línea Odontología Digital y lleva tu consulta al siguiente nivel.",
-        "price_text": "<p>Desde <strong> $187,735.68 MXN</strong> (IVA incluido) con <strong>7% de descuento</strong> en pago de contado.</p>",
+        "price_text": "<p>Desde <strong>&nbsp;$187,735.68 MXN</strong> (IVA incluido) con <strong>7% de descuento</strong> en pago de contado.</p>",
         "features_title": "Te incluy",
         "background_color": "#fbfbfd",
         "heading_color": "#161c1f",
@@ -65,7 +65,7 @@
         "bundler_custom_bundle_pnWhMx": {
           "type": "shopify://apps/bundler/blocks/custom-bundle/7a6ae1b8-3b16-449b-8429-8bb89a62c664",
           "settings": {
-            "shortcode": "geib"
+            "shortcode": "ifew"
           }
         }
       },
