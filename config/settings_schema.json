@@ -917,5 +917,640 @@
         "default": "#ffffff"
       }
   ]
+},
+{
+  "name": "t:collection_notice.heading",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "collection_notice_enabled",
+      "label": "t:collection_notice.enabled",
+      "default": true
+    },
+    {
+      "type": "paragraph",
+      "content": "t:collection_notice.info"
+    },
+    {
+      "type": "header",
+      "content": "t:collection_notice.rule_1"
+    },
+    {
+      "type": "collection",
+      "id": "collection_notice_1_collection",
+      "label": "t:collection_notice.collection"
+    },
+    {
+      "type": "textarea",
+      "id": "collection_notice_1_message",
+      "label": "t:collection_notice.message"
+    },
+    {
+      "type": "select",
+      "id": "collection_notice_1_icon",
+      "label": "t:collection_notice.icon",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:collection_notice.none"
+        },
+        {
+          "value": "discount",
+          "label": "t:collection_notice.discount"
+        },
+        {
+          "value": "information",
+          "label": "t:collection_notice.information"
+        },
+        {
+          "value": "time",
+          "label": "t:collection_notice.time"
+        },
+        {
+          "value": "delivery",
+          "label": "t:collection_notice.delivery"
+        },
+        {
+          "value": "gift",
+          "label": "t:collection_notice.gift"
+        },
+        {
+          "value": "check",
+          "label": "t:collection_notice.check"
+        }
+      ],
+      "default": "information"
+    },
+    {
+      "type": "color",
+      "id": "collection_notice_1_background",
+      "label": "t:collection_notice.background",
+      "default": "#f0fdf4"
+    },
+    {
+      "type": "color",
+      "id": "collection_notice_1_foreground",
+      "label": "t:collection_notice.foreground",
+      "default": "#016630"
+    },
+    {
+      "type": "header",
+      "content": "t:collection_notice.rule_2"
+    },
+    {
+      "type": "collection",
+      "id": "collection_notice_2_collection",
+      "label": "t:collection_notice.collection"
+    },
+    {
+      "type": "textarea",
+      "id": "collection_notice_2_message",
+      "label": "t:collection_notice.message"
+    },
+    {
+      "type": "select",
+      "id": "collection_notice_2_icon",
+      "label": "t:collection_notice.icon",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:collection_notice.none"
+        },
+        {
+          "value": "discount",
+          "label": "t:collection_notice.discount"
+        },
+        {
+          "value": "information",
+          "label": "t:collection_notice.information"
+        },
+        {
+          "value": "time",
+          "label": "t:collection_notice.time"
+        },
+        {
+          "value": "delivery",
+          "label": "t:collection_notice.delivery"
+        },
+        {
+          "value": "gift",
+          "label": "t:collection_notice.gift"
+        },
+        {
+          "value": "check",
+          "label": "t:collection_notice.check"
+        }
+      ],
+      "default": "information"
+    },
+    {
+      "type": "color",
+      "id": "collection_notice_2_background",
+      "label": "t:collection_notice.background",
+      "default": "#f0fdf4"
+    },
+    {
+      "type": "color",
+      "id": "collection_notice_2_foreground",
+      "label": "t:collection_notice.foreground",
+      "default": "#016630"
+    },
+    {
+      "type": "header",
+      "content": "t:collection_notice.rule_3"
+    },
+    {
+      "type": "collection",
+      "id": "collection_notice_3_collection",
+      "label": "t:collection_notice.collection"
+    },
+    {
+      "type": "textarea",
+      "id": "collection_notice_3_message",
+      "label": "t:collection_notice.message"
+    },
+    {
+      "type": "select",
+      "id": "collection_notice_3_icon",
+      "label": "t:collection_notice.icon",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:collection_notice.none"
+        },
+        {
+          "value": "discount",
+          "label": "t:collection_notice.discount"
+        },
+        {
+          "value": "information",
+          "label": "t:collection_notice.information"
+        },
+        {
+          "value": "time",
+          "label": "t:collection_notice.time"
+        },
+        {
+          "value": "delivery",
+          "label": "t:collection_notice.delivery"
+        },
+        {
+          "value": "gift",
+          "label": "t:collection_notice.gift"
+        },
+        {
+          "value": "check",
+          "label": "t:collection_notice.check"
+        }
+      ],
+      "default": "information"
+    },
+    {
+      "type": "color",
+      "id": "collection_notice_3_background",
+      "label": "t:collection_notice.background",
+      "default": "#f0fdf4"
+    },
+    {
+      "type": "color",
+      "id": "collection_notice_3_foreground",
+      "label": "t:collection_notice.foreground",
+      "default": "#016630"
+    },
+    {
+      "type": "header",
+      "content": "t:collection_notice.rule_4"
+    },
+    {
+      "type": "collection",
+      "id": "collection_notice_4_collection",
+      "label": "t:collection_notice.collection"
+    },
+    {
+      "type": "textarea",
+      "id": "collection_notice_4_message",
+      "label": "t:collection_notice.message"
+    },
+    {
+      "type": "select",
+      "id": "collection_notice_4_icon",
+      "label": "t:collection_notice.icon",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:collection_notice.none"
+        },
+        {
+          "value": "discount",
+          "label": "t:collection_notice.discount"
+        },
+        {
+          "value": "information",
+          "label": "t:collection_notice.information"
+        },
+        {
+          "value": "time",
+          "label": "t:collection_notice.time"
+        },
+        {
+          "value": "delivery",
+          "label": "t:collection_notice.delivery"
+        },
+        {
+          "value": "gift",
+          "label": "t:collection_notice.gift"
+        },
+        {
+          "value": "check",
+          "label": "t:collection_notice.check"
+        }
+      ],
+      "default": "information"
+    },
+    {
+      "type": "color",
+      "id": "collection_notice_4_background",
+      "label": "t:collection_notice.background",
+      "default": "#f0fdf4"
+    },
+    {
+      "type": "color",
+      "id": "collection_notice_4_foreground",
+      "label": "t:collection_notice.foreground",
+      "default": "#016630"
+    },
+    {
+      "type": "header",
+      "content": "t:collection_notice.rule_5"
+    },
+    {
+      "type": "collection",
+      "id": "collection_notice_5_collection",
+      "label": "t:collection_notice.collection"
+    },
+    {
+      "type": "textarea",
+      "id": "collection_notice_5_message",
+      "label": "t:collection_notice.message"
+    },
+    {
+      "type": "select",
+      "id": "collection_notice_5_icon",
+      "label": "t:collection_notice.icon",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:collection_notice.none"
+        },
+        {
+          "value": "discount",
+          "label": "t:collection_notice.discount"
+        },
+        {
+          "value": "information",
+          "label": "t:collection_notice.information"
+        },
+        {
+          "value": "time",
+          "label": "t:collection_notice.time"
+        },
+        {
+          "value": "delivery",
+          "label": "t:collection_notice.delivery"
+        },
+        {
+          "value": "gift",
+          "label": "t:collection_notice.gift"
+        },
+        {
+          "value": "check",
+          "label": "t:collection_notice.check"
+        }
+      ],
+      "default": "information"
+    },
+    {
+      "type": "color",
+      "id": "collection_notice_5_background",
+      "label": "t:collection_notice.background",
+      "default": "#f0fdf4"
+    },
+    {
+      "type": "color",
+      "id": "collection_notice_5_foreground",
+      "label": "t:collection_notice.foreground",
+      "default": "#016630"
+    },
+    {
+      "type": "header",
+      "content": "t:collection_notice.rule_6"
+    },
+    {
+      "type": "collection",
+      "id": "collection_notice_6_collection",
+      "label": "t:collection_notice.collection"
+    },
+    {
+      "type": "textarea",
+      "id": "collection_notice_6_message",
+      "label": "t:collection_notice.message"
+    },
+    {
+      "type": "select",
+      "id": "collection_notice_6_icon",
+      "label": "t:collection_notice.icon",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:collection_notice.none"
+        },
+        {
+          "value": "discount",
+          "label": "t:collection_notice.discount"
+        },
+        {
+          "value": "information",
+          "label": "t:collection_notice.information"
+        },
+        {
+          "value": "time",
+          "label": "t:collection_notice.time"
+        },
+        {
+          "value": "delivery",
+          "label": "t:collection_notice.delivery"
+        },
+        {
+          "value": "gift",
+          "label": "t:collection_notice.gift"
+        },
+        {
+          "value": "check",
+          "label": "t:collection_notice.check"
+        }
+      ],
+      "default": "information"
+    },
+    {
+      "type": "color",
+      "id": "collection_notice_6_background",
+      "label": "t:collection_notice.background",
+      "default": "#f0fdf4"
+    },
+    {
+      "type": "color",
+      "id": "collection_notice_6_foreground",
+      "label": "t:collection_notice.foreground",
+      "default": "#016630"
+    },
+    {
+      "type": "header",
+      "content": "t:collection_notice.rule_7"
+    },
+    {
+      "type": "collection",
+      "id": "collection_notice_7_collection",
+      "label": "t:collection_notice.collection"
+    },
+    {
+      "type": "textarea",
+      "id": "collection_notice_7_message",
+      "label": "t:collection_notice.message"
+    },
+    {
+      "type": "select",
+      "id": "collection_notice_7_icon",
+      "label": "t:collection_notice.icon",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:collection_notice.none"
+        },
+        {
+          "value": "discount",
+          "label": "t:collection_notice.discount"
+        },
+        {
+          "value": "information",
+          "label": "t:collection_notice.information"
+        },
+        {
+          "value": "time",
+          "label": "t:collection_notice.time"
+        },
+        {
+          "value": "delivery",
+          "label": "t:collection_notice.delivery"
+        },
+        {
+          "value": "gift",
+          "label": "t:collection_notice.gift"
+        },
+        {
+          "value": "check",
+          "label": "t:collection_notice.check"
+        }
+      ],
+      "default": "information"
+    },
+    {
+      "type": "color",
+      "id": "collection_notice_7_background",
+      "label": "t:collection_notice.background",
+      "default": "#f0fdf4"
+    },
+    {
+      "type": "color",
+      "id": "collection_notice_7_foreground",
+      "label": "t:collection_notice.foreground",
+      "default": "#016630"
+    },
+    {
+      "type": "header",
+      "content": "t:collection_notice.rule_8"
+    },
+    {
+      "type": "collection",
+      "id": "collection_notice_8_collection",
+      "label": "t:collection_notice.collection"
+    },
+    {
+      "type": "textarea",
+      "id": "collection_notice_8_message",
+      "label": "t:collection_notice.message"
+    },
+    {
+      "type": "select",
+      "id": "collection_notice_8_icon",
+      "label": "t:collection_notice.icon",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:collection_notice.none"
+        },
+        {
+          "value": "discount",
+          "label": "t:collection_notice.discount"
+        },
+        {
+          "value": "information",
+          "label": "t:collection_notice.information"
+        },
+        {
+          "value": "time",
+          "label": "t:collection_notice.time"
+        },
+        {
+          "value": "delivery",
+          "label": "t:collection_notice.delivery"
+        },
+        {
+          "value": "gift",
+          "label": "t:collection_notice.gift"
+        },
+        {
+          "value": "check",
+          "label": "t:collection_notice.check"
+        }
+      ],
+      "default": "information"
+    },
+    {
+      "type": "color",
+      "id": "collection_notice_8_background",
+      "label": "t:collection_notice.background",
+      "default": "#f0fdf4"
+    },
+    {
+      "type": "color",
+      "id": "collection_notice_8_foreground",
+      "label": "t:collection_notice.foreground",
+      "default": "#016630"
+    },
+    {
+      "type": "header",
+      "content": "t:collection_notice.rule_9"
+    },
+    {
+      "type": "collection",
+      "id": "collection_notice_9_collection",
+      "label": "t:collection_notice.collection"
+    },
+    {
+      "type": "textarea",
+      "id": "collection_notice_9_message",
+      "label": "t:collection_notice.message"
+    },
+    {
+      "type": "select",
+      "id": "collection_notice_9_icon",
+      "label": "t:collection_notice.icon",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:collection_notice.none"
+        },
+        {
+          "value": "discount",
+          "label": "t:collection_notice.discount"
+        },
+        {
+          "value": "information",
+          "label": "t:collection_notice.information"
+        },
+        {
+          "value": "time",
+          "label": "t:collection_notice.time"
+        },
+        {
+          "value": "delivery",
+          "label": "t:collection_notice.delivery"
+        },
+        {
+          "value": "gift",
+          "label": "t:collection_notice.gift"
+        },
+        {
+          "value": "check",
+          "label": "t:collection_notice.check"
+        }
+      ],
+      "default": "information"
+    },
+    {
+      "type": "color",
+      "id": "collection_notice_9_background",
+      "label": "t:collection_notice.background",
+      "default": "#f0fdf4"
+    },
+    {
+      "type": "color",
+      "id": "collection_notice_9_foreground",
+      "label": "t:collection_notice.foreground",
+      "default": "#016630"
+    },
+    {
+      "type": "header",
+      "content": "t:collection_notice.rule_10"
+    },
+    {
+      "type": "collection",
+      "id": "collection_notice_10_collection",
+      "label": "t:collection_notice.collection"
+    },
+    {
+      "type": "textarea",
+      "id": "collection_notice_10_message",
+      "label": "t:collection_notice.message"
+    },
+    {
+      "type": "select",
+      "id": "collection_notice_10_icon",
+      "label": "t:collection_notice.icon",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:collection_notice.none"
+        },
+        {
+          "value": "discount",
+          "label": "t:collection_notice.discount"
+        },
+        {
+          "value": "information",
+          "label": "t:collection_notice.information"
+        },
+        {
+          "value": "time",
+          "label": "t:collection_notice.time"
+        },
+        {
+          "value": "delivery",
+          "label": "t:collection_notice.delivery"
+        },
+        {
+          "value": "gift",
+          "label": "t:collection_notice.gift"
+        },
+        {
+          "value": "check",
+          "label": "t:collection_notice.check"
+        }
+      ],
+      "default": "information"
+    },
+    {
+      "type": "color",
+      "id": "collection_notice_10_background",
+      "label": "t:collection_notice.background",
+      "default": "#f0fdf4"
+    },
+    {
+      "type": "color",
+      "id": "collection_notice_10_foreground",
+      "label": "t:collection_notice.foreground",
+      "default": "#016630"
+    }
+  ]
 }
 ]

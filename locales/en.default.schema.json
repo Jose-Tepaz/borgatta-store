@@ -21,5 +21,32 @@
     "rule_10": "Rule 10",
     "background_color": "Background color",
     "text_color": "Text color"
+  },
+  "collection_notice": {
+    "heading": "Product notices by collection",
+    "enabled": "Show notices",
+    "info": "Shown only on product pages, below the price. The first matching rule with text is used. Empty collections or messages are ignored.",
+    "collection": "Collection",
+    "message": "Message",
+    "icon": "Icon",
+    "background": "Background color",
+    "foreground": "Text and icon color",
+    "none": "None",
+    "discount": "Discount",
+    "information": "Information",
+    "time": "Reservation / time",
+    "delivery": "Delivery",
+    "gift": "Gift",
+    "check": "Check mark",
+    "rule_1": "Rule 1",
+    "rule_2": "Rule 2",
+    "rule_3": "Rule 3",
+    "rule_4": "Rule 4",
+    "rule_5": "Rule 5",
+    "rule_6": "Rule 6",
+    "rule_7": "Rule 7",
+    "rule_8": "Rule 8",
+    "rule_9": "Rule 9",
+    "rule_10": "Rule 10"
   }
 }
