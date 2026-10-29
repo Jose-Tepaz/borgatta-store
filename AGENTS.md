@@ -45,7 +45,7 @@ Objetivo: nada llega a `main` sin pasar por revisión, y la promoción a producc
    Convención de nombres: `feature/…` (funcionalidad nueva), `fix/…` (corrección de bug), `chore/…` (mantenimiento/config), `hotfix/…` (corrección urgente sobre producción).
 3. **El PR de la rama de trabajo va contra `development`**, nunca directo contra `staging` ni `main`. La promoción `development → staging` y `staging → main` es un PR aparte, separado del PR de la feature individual.
 4. **Commits atómicos y descriptivos.** Un commit = un cambio lógico. El mensaje explica el *por qué*, no solo el *qué*.
-5. **Todo PR necesita al menos una aprobación antes de mergear.** Si piden cambios, se resuelven con commits nuevos en la misma rama.
+5. **Todo PR necesita al menos una aprobación antes de mergear, salvo autorización explícita del usuario para un PR contra `development`.** Con esa autorización, Codex puede ejecutar el merge sin aprobación adicional en GitHub, siempre que complete las validaciones del punto 6 y GitHub permita el merge sin omitir protecciones. No usar `--admin` ni desactivar protecciones para forzarlo. Las promociones a `staging` y `main` siguen requiriendo aprobación. Si piden cambios, se resuelven con commits nuevos en la misma rama.
 6. **Antes de mergear un PR:** `shopify theme check` sin errores nuevos, y si el cambio afecta UI, el preview del theme (`shopify theme push --theme=<ID>`) revisado visualmente.
 7. **Prohibido:**
    - `git push --force` a `development`/`staging`/`main`.
