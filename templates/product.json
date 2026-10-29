@@ -55,6 +55,9 @@
         ".shopify-payment-button__button {height: 52px; border-style: solid; border-width: 1px; border-color: #2e56a9 !important;}"
       ],
       "settings": {
+        "fixed_discount_enabled": true,
+        "fixed_discount_collection": "15-amic",
+        "fixed_discount_percentage": 15,
         "image_size": "small",
         "enable_video_looping": true,
         "enable_image_zoom": true,
