@@ -380,6 +380,34 @@ margin:0px;
   .kits-card__media { aspect-ratio: 1 / 1; }
 }
 
+
+{% if section.settings.media_sizing == 'original' %}
+  #section-{{ section.id }} .kits-card__media {
+    aspect-ratio: auto;
+  }
+
+  #section-{{ section.id }} .kits-card__image,
+  #section-{{ section.id }} .kits-card__video {
+    height: auto;
+    object-fit: contain;
+  }
+
+  #section-{{ section.id }} .kits-card__image-placeholder {
+    aspect-ratio: 1 / 1;
+  }
+{% elsif section.settings.media_sizing == 'fixed' %}
+  #section-{{ section.id }} .kits-card__media {
+    aspect-ratio: auto;
+    height: {{ section.settings.media_height | default: 320 }}px;
+  }
+
+  #section-{{ section.id }} .kits-card__image,
+  #section-{{ section.id }} .kits-card__video {
+    height: 100%;
+    object-fit: cover;
+  }
+{% endif %}
+
 </style>
 
 {% schema %}
@@ -439,6 +467,42 @@ margin:0px;
       "step": 8,
       "unit": "px",
       "default": 64
+    },
+    {
+      "type": "header",
+      "content": "Imágenes y videos"
+    },
+    {
+      "type": "select",
+      "id": "media_sizing",
+      "label": "Formato de imagen o video",
+      "options": [
+        {
+          "value": "square",
+          "label": "Cuadrado (actual)"
+        },
+        {
+          "value": "original",
+          "label": "Proporción original (sin recorte)"
+        },
+        {
+          "value": "fixed",
+          "label": "Altura personalizada (con recorte)"
+        }
+      ],
+      "default": "original",
+      "info": "Se aplica a todas las tarjetas de esta sección."
+    },
+    {
+      "type": "range",
+      "id": "media_height",
+      "label": "Altura personalizada",
+      "min": 120,
+      "max": 800,
+      "step": 10,
+      "unit": "px",
+      "default": 320,
+      "info": "Solo se aplica al elegir altura personalizada. La imagen llena el espacio y se recorta para encajar."
     },
     {
       "type": "header",
