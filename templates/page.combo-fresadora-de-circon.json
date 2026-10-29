@@ -46,9 +46,9 @@
       "name": "Tarjeta de Descuentos",
       "settings": {
         "heading": "KIT FRESADORA DE CIRCONIA",
+        "description": "Integra todo el sistema de fresado para tu laboratorio a un precio especial.",
         "notice_title": "<p>Agrega la Fresadora de circonia <a href=\"/products/fresadora-500\"><strong>X-MILL 500</strong></a> o la <a href=\"/products/fresadora-500se\"><strong>X-MILL 500 SE</strong></a> después de agregar todos los componentes al carrito.</p>",
         "notice_text": "<p>Para respetar el descuento, asegúrate de solo añadir a este carrito el kit y la fresadora.</p>",
-        "description": "Aprovecha nuestras promociones exclusivas en la línea Odontología Digital y lleva tu consulta al siguiente nivel.",
         "price_text": "<p>Desde <strong>&nbsp;$293,706.78MXN</strong> (IVA incluido) con <strong>3% de descuento</strong> en pago de contado.</p>",
         "features_title": "Te incluy",
         "background_color": "#fbfbfd",

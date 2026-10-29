@@ -48,11 +48,11 @@
         "kit_card_jfCMYq": {
           "type": "kit_card",
           "settings": {
-            "image": "shopify://shop_images/mosaicos-promos-Amic-2026-01.jpg",
+            "image": "shopify://shop_images/Frame_7148_1.png",
             "video": "",
             "tag_text": "",
-            "card_title": "Kit Fresadora de Circonia",
-            "card_description": "Incluye: Escáner intraoral Borgatta Smart con computadora  (27-400-71-1), Impresora 3D Elegoo Mars (493-010), Equipo Wash & Cure Elegoo (493-003), Resina de modelos Elegoo (493-004) y Resina Prizma Bio Splint o Bio Prov.",
+            "card_title": "Kit fresadora de circonia",
+            "card_description": "Incluye: Fresadora de Circonia, Horno de sinterizado, Horno de porcelana, Kit de Stains cerámicos, Compresor libre de aceite, Vaccum y 10 Discos de circonia.",
             "button_label": "Quiero este kit",
             "card_url": "shopify://pages/combo-fresadora-de-circonia",
             "full_card_link": true
@@ -61,11 +61,11 @@
         "kit_card_hREFnz": {
           "type": "kit_card",
           "settings": {
-            "image": "shopify://shop_images/mosaicos-promos-Amic-2026-03.jpg",
+            "image": "shopify://shop_images/Frame_7148.png",
             "video": "",
             "tag_text": "",
-            "card_title": "Kit Fresadora de Disilicato",
-            "card_description": "Incluye: Escáner intraoral Borgatta 3 con computadora (27-400-73-1), Impresora 3D Elegoo Mars (493-010), Equipo Wash & Cure Elegoo (493-003), Resina de modelos Elegoo (493-004) y Resina Prizma Bio Splint o Bio Prov.",
+            "card_title": "Kit fresadora de disilicato de litio",
+            "card_description": "Incluye: Fresadora de disilicato de litio, Horno de porcelana, Kit de Stains cerámicos, Compresor libre de aceite, Líquido lubricante de fresado y 10 Cajas de bloques de disilicato de litio.",
             "button_label": "Quiero este kit",
             "card_url": "shopify://pages/combo-fresadora-de-disilicato-de-litio",
             "full_card_link": true
