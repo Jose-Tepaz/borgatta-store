@@ -14,6 +14,34 @@
       "disabled": true,
       "settings": {}
     },
+    "collection_list_jt_zzhat3": {
+      "type": "collection-list-jt",
+      "blocks": {
+        "collection_B7dCLc": {
+          "type": "collection",
+          "settings": {
+            "collection": "bloques-de-disilicato-5-1",
+            "custom_url": ""
+          }
+        },
+        "collection_U4KXGY": {
+          "type": "collection",
+          "settings": {
+            "collection": "pastillas-de-disilicato-5-1",
+            "custom_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_B7dCLc",
+        "collection_U4KXGY"
+      ],
+      "disabled": true,
+      "name": "Custom Collection",
+      "settings": {
+        "section_title": "Nuestras Colecciones"
+      }
+    },
     "card_list_zbPqf3": {
       "type": "card-list",
       "blocks": {
@@ -23,10 +51,10 @@
             "image": "shopify://shop_images/mosaicos-promos-Amic-2026-01.jpg",
             "video": "",
             "tag_text": "",
-            "card_title": "Kit Premium Odontología Digital 3D",
+            "card_title": "Kit Fresadora de Circonia",
             "card_description": "Incluye: Escáner intraoral Borgatta Smart con computadora  (27-400-71-1), Impresora 3D Elegoo Mars (493-010), Equipo Wash & Cure Elegoo (493-003), Resina de modelos Elegoo (493-004) y Resina Prizma Bio Splint o Bio Prov.",
             "button_label": "Quiero este kit",
-            "card_url": "shopify://pages/kit-premium-odontologia-digital-3d",
+            "card_url": "shopify://pages/combo-fresadora-de-circonia",
             "full_card_link": true
           }
         },
@@ -36,15 +64,16 @@
             "image": "shopify://shop_images/mosaicos-promos-Amic-2026-03.jpg",
             "video": "",
             "tag_text": "",
-            "card_title": "Kit Ideal Odontología Digital 3D",
+            "card_title": "Kit Fresadora de Disilicato",
             "card_description": "Incluye: Escáner intraoral Borgatta 3 con computadora (27-400-73-1), Impresora 3D Elegoo Mars (493-010), Equipo Wash & Cure Elegoo (493-003), Resina de modelos Elegoo (493-004) y Resina Prizma Bio Splint o Bio Prov.",
             "button_label": "Quiero este kit",
-            "card_url": "shopify://pages/kit-ideal-odontologia-digital-3d",
+            "card_url": "shopify://pages/combo-fresadora-de-disilicato-de-litio",
             "full_card_link": true
           }
         },
         "kit_card_fa3itc": {
           "type": "kit_card",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/mosaicos-promos-Amic-2026-02.jpg",
             "video": "",
@@ -58,6 +87,7 @@
         },
         "kit_card_Jk7xAz": {
           "type": "kit_card",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/mosaicos-promos-Amic-2026-04.jpg",
             "video": "",
@@ -71,6 +101,7 @@
         },
         "kit_card_zkQgrn": {
           "type": "kit_card",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/mosaicos-promos-Amic-2026-05.jpg",
             "video": "",
@@ -84,6 +115,7 @@
         },
         "kit_card_T9ziix": {
           "type": "kit_card",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/mosaicos-promos-Amic-2026-06.jpg",
             "video": "",
@@ -106,7 +138,7 @@
       ],
       "name": "Kits Grid",
       "settings": {
-        "section_title": "Nuestros Kits",
+        "section_title": "Nuestros Kits de fresado",
         "title_color": "#111111",
         "columns_desktop": "2",
         "padding_top": 64,
@@ -121,6 +153,7 @@
   },
   "order": [
     "main",
+    "collection_list_jt_zzhat3",
     "card_list_zbPqf3"
   ]
 }
