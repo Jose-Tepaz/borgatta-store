@@ -327,6 +327,125 @@
         "autoplay_speed": 4500,
         "transition": "fade",
         "height": "medium"
+      },
+      "disabled": true
+    },
+    "banner_grid_kryfCd": {
+      "type": "banner-grid",
+      "blocks": {
+        "celda_EzAPMt": {
+          "type": "celda",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/F2IM3-1.png",
+            "video_url": "",
+            "label": "",
+            "link": "",
+            "open_new_tab": false
+          }
+        },
+        "celda_EAQTHr": {
+          "type": "celda",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/F2IM3-2.png",
+            "video_url": "",
+            "label": "Ofertas -15%",
+            "link": "shopify://collections/15-amic",
+            "open_new_tab": false
+          }
+        },
+        "celda_MqQqgk": {
+          "type": "celda",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/F2IM3-3.png",
+            "video_url": "",
+            "label": "Ofertas -5%",
+            "link": "shopify://collections/5-amic",
+            "open_new_tab": false
+          }
+        },
+        "celda_xRidek": {
+          "type": "celda",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/F2IM3-4.png",
+            "video_url": "",
+            "label": "Kits fresado",
+            "link": "shopify://pages/combos",
+            "open_new_tab": false
+          }
+        },
+        "celda_kqwmLe": {
+          "type": "celda",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/F2IM3-5.png",
+            "video_url": "",
+            "label": "Compra 5+1",
+            "link": "shopify://pages/5-1",
+            "open_new_tab": false
+          }
+        },
+        "celda_y4QQgt": {
+          "type": "celda",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/F2IM3-6.png",
+            "video_url": "",
+            "label": "Compra 1+1",
+            "link": "shopify://collections/discos-de-circonia-1-1",
+            "open_new_tab": false
+          }
+        },
+        "celda_FKiy7C": {
+          "type": "celda",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/F2IM3-7.png",
+            "video_url": "",
+            "label": "Kits Impresión 3D",
+            "link": "shopify://pages/bundles-amic",
+            "open_new_tab": false
+          }
+        },
+        "celda_zL6N7h": {
+          "type": "celda",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/F2IM3-8.png",
+            "video_url": "",
+            "label": "",
+            "link": "",
+            "open_new_tab": false
+          }
+        }
+      },
+      "block_order": [
+        "celda_EzAPMt",
+        "celda_EAQTHr",
+        "celda_MqQqgk",
+        "celda_xRidek",
+        "celda_kqwmLe",
+        "celda_y4QQgt",
+        "celda_FKiy7C",
+        "celda_zL6N7h"
+      ],
+      "name": "Banner Cuadrícula",
+      "settings": {
+        "full_width": true,
+        "size_mode_desktop": "fixed",
+        "aspect_ratio_desktop": "1 / 1",
+        "height_desktop": 420,
+        "size_mode_mobile": "ratio",
+        "aspect_ratio_mobile": "1 / 1",
+        "height_mobile": 240,
+        "gap": 4,
+        "gap_mobile": 2,
+        "mobile_columns": "2",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "slideshow_c3iYUP": {
@@ -704,6 +823,7 @@
     "a2c88842-8e45-4511-ab7e-ba1746b6a8dc",
     "banner_grid_axpdqw",
     "banner_slider_section_ntADpD",
+    "banner_grid_kryfCd",
     "slideshow_c3iYUP",
     "featured-collection",
     "0357e0ce-909a-4520-9dfe-9df7dbab125e",
