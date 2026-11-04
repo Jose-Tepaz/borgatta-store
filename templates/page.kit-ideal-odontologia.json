@@ -46,8 +46,10 @@
       "settings": {
         "heading": "KIT IDEAL ODONTOLOGÍA DIGITAL 3D",
         "description": "Aprovecha nuestras promociones exclusivas en la línea Odontología Digital y lleva tu consulta al siguiente nivel.",
-        "price_text": "<p>Desde <strong> $140,542.31 MXN</strong> (IVA incluido) con <strong>5% de descuento</strong> en pago de contado.</p>",
-        "features_title": "Te incluy",
+        "notice_title": "",
+        "notice_text": "",
+        "price_text": "<p>Desde <strong>&nbsp;$140,542.31 MXN</strong> (IVA incluido) con <strong>5% de descuento</strong> en pago de contado.</p>",
+        "features_title": "Te incluye",
         "background_color": "#fbfbfd",
         "heading_color": "#161c1f",
         "text_color": "#626262",
