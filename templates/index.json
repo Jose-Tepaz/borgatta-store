@@ -321,14 +321,14 @@
         "slide_BV6EDn",
         "slide_tcCm8w"
       ],
+      "disabled": true,
       "name": "Banner Slider",
       "settings": {
         "autoplay": true,
         "autoplay_speed": 4500,
         "transition": "fade",
         "height": "medium"
-      },
-      "disabled": true
+      }
     },
     "banner_grid_kryfCd": {
       "type": "banner-grid",
@@ -347,8 +347,9 @@
         "celda_EAQTHr": {
           "type": "celda",
           "settings": {
-            "media_type": "image",
+            "media_type": "video",
             "image": "shopify://shop_images/F2IM3-2.png",
+            "video": "shopify://files/videos/Splash 01-1.mp4",
             "video_url": "",
             "label": "Ofertas -15%",
             "link": "shopify://collections/15-amic",
@@ -369,8 +370,9 @@
         "celda_xRidek": {
           "type": "celda",
           "settings": {
-            "media_type": "image",
+            "media_type": "video",
             "image": "shopify://shop_images/F2IM3-4.png",
+            "video": "shopify://files/videos/Banner AMIC.mp4",
             "video_url": "",
             "label": "Kits fresado",
             "link": "shopify://pages/combos",
@@ -395,15 +397,16 @@
             "image": "shopify://shop_images/F2IM3-6.png",
             "video_url": "",
             "label": "Compra 1+1",
-            "link": "shopify://collections/discos-de-circonia-1-1",
+            "link": "shopify://products/disco-de-circonia-multicapa-sht-ml",
             "open_new_tab": false
           }
         },
         "celda_FKiy7C": {
           "type": "celda",
           "settings": {
-            "media_type": "image",
+            "media_type": "video",
             "image": "shopify://shop_images/F2IM3-7.png",
+            "video": "shopify://files/videos/Impresora 04-1_609558ff-53e3-441a-823a-08a566a9826f.mp4",
             "video_url": "",
             "label": "Kits Impresión 3D",
             "link": "shopify://pages/bundles-amic",
@@ -613,41 +616,11 @@
     "collection_list_jt_9Jfkma": {
       "type": "collection-list-jt",
       "blocks": {
-        "collection_KfWdae": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "custom_image": "shopify://shop_images/Frame_5.png",
-            "custom_url": "https://tienda.borgatta.com.mx/pages/bundles-amic"
-          }
-        },
-        "collection_htfAPj": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "custom_image": "shopify://shop_images/Frame_6.png",
-            "custom_url": "shopify://pages/combos"
-          }
-        },
-        "collection_rKLiFq": {
-          "type": "collection",
-          "settings": {
-            "collection": "discos-de-circonia-1-1",
-            "custom_url": ""
-          }
-        },
-        "collection_PeDnUV": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "custom_image": "shopify://shop_images/Frame_7.png",
-            "custom_url": "https://tienda.borgatta.com.mx/pages/5-1"
-          }
-        },
         "collection_xTAYgE": {
           "type": "collection",
           "settings": {
             "collection": "15-amic",
+            "custom_image": "shopify://shop_images/Ofertas_en_ortodoncia_2.png",
             "custom_url": ""
           }
         },
@@ -655,7 +628,40 @@
           "type": "collection",
           "settings": {
             "collection": "5-amic",
+            "custom_image": "shopify://shop_images/Ofertas_en_odontologia_digital_v2.png",
             "custom_url": ""
+          }
+        },
+        "collection_KfWdae": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "custom_image": "shopify://shop_images/Kits_Impresion_3D_v2.png",
+            "custom_url": "shopify://pages/bundles-amic"
+          }
+        },
+        "collection_htfAPj": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "custom_image": "shopify://shop_images/Kits_Fresado_v2.png",
+            "custom_url": "shopify://pages/combos"
+          }
+        },
+        "collection_PeDnUV": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "custom_image": "shopify://shop_images/Compra_5_1.png",
+            "custom_url": "shopify://pages/5-1"
+          }
+        },
+        "collection_rKLiFq": {
+          "type": "collection",
+          "settings": {
+            "collection": "discos-de-circonia-1-1",
+            "custom_image": "shopify://shop_images/Compra_1_1.png",
+            "custom_url": "shopify://products/disco-de-circonia-multicapa-sht-ml"
           }
         },
         "collection_dxN8mJ": {
@@ -789,12 +795,12 @@
         }
       },
       "block_order": [
-        "collection_KfWdae",
-        "collection_htfAPj",
-        "collection_rKLiFq",
-        "collection_PeDnUV",
         "collection_xTAYgE",
         "collection_iw3t6X",
+        "collection_KfWdae",
+        "collection_htfAPj",
+        "collection_PeDnUV",
+        "collection_rKLiFq",
         "collection_dxN8mJ",
         "collection_k3diWk",
         "collection_UVaTfE",
