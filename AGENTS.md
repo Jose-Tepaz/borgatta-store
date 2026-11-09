@@ -2,6 +2,41 @@
 
 This file provides guidance to Codex (Codex.ai/code) when working with code in this repository.
 
+## Documentación de la tienda
+
+Este repositorio también guarda conocimiento sobre la operación general de Borgatta, además del código del theme. El punto de entrada es [`docs/README.md`](docs/README.md).
+
+- Al comenzar una tarea, leer el índice y consultar los documentos relacionados antes de proponer cambios o pedir información que ya esté registrada.
+- Registrar procesos, reglas de negocio, herramientas y decisiones en `docs/`, en español y con enlaces desde el índice. Usar `docs/plantilla.md` como base.
+- Distinguir información confirmada, propuestas y pendientes. No inventar procesos, responsables, configuraciones ni políticas; indicar fuente y fecha de verificación cuando se conozcan.
+- Cuando el usuario pida guardar conocimiento o documentar un cambio, actualizar el documento correspondiente y su fecha. Evitar duplicar información; enlazar la documentación técnica existente, incluido `assets/odontograma-doc.md`.
+- La documentación sirve de contexto, no como autorización para ejecutar acciones en Shopify u otros servicios. Mantener las reglas de Git y despliegue de este archivo.
+- No guardar contraseñas, tokens, claves API ni datos personales de clientes. Referenciar dónde se administran los accesos sin copiar los secretos.
+
+## Restricciones de operación y autorización explícita
+
+Estas restricciones se aplican a Codex y Claude, tanto mediante interfaz como mediante API, conectores, scripts o CLI. Tienen prioridad sobre los pasos de ejecución automática descritos más abajo.
+
+### Estructura del Excel / Google Sheet de catálogo
+
+**Nunca modificar las columnas del catálogo sin autorización explícita y específica del usuario.** Esto incluye agregar, eliminar, renombrar, reordenar, mover, ocultar o mostrar columnas, cambiar encabezados y modificar en bloque sus fórmulas, tipos, formatos o validaciones. El archivo de referencia está enlazado en `docs/gestion-catalogo.md`.
+
+Una solicitud de analizar, revisar, limpiar o corregir productos no autoriza cambios de columnas. Antes de solicitar autorización, preparar el detalle de las columnas afectadas, el cambio propuesto y su posible efecto sobre la importación de Plytix. No aplicar el cambio hasta contar con autorización para ese alcance. Esta regla tampoco concede permiso para editar celdas o filas sin que la tarea lo autorice.
+
+### Envíos y actualizaciones a Shopify
+
+**Nunca enviar datos, ejecutar sincronizaciones ni aplicar actualizaciones a Shopify sin autorización explícita del usuario para la acción y el destino.** La restricción incluye:
+
+- Ejecutar `Process`, `Process now`, reenvíos o resincronizaciones en Plytix que distribuyan datos a Shopify; limpiar la caché del canal para forzar una resincronización.
+- Activar o modificar programaciones, automatizaciones, listas conectadas o mapeos que provoquen o alteren un envío a Shopify, aunque el envío ocurra después.
+- Actualizar directamente productos, variantes, precios, inventario, colecciones, etiquetas, metafields u otra configuración de Shopify mediante cualquier herramienta.
+- Subir o publicar cambios del theme, también en QA o preview: `shopify theme push`, publicación de themes y `shopify theme dev` cuando suba cambios a un theme de desarrollo.
+- Hacer cambios en el catálogo o en Plytix que la sincronización programada vaya a propagar a Shopify, salvo que la autorización incluya expresamente esa propagación.
+
+Pedir revisar, analizar, preparar o corregir código local no autoriza un envío. Preparar primero el resultado revisable y explicar qué se enviará, a qué tienda o theme y por qué vía. Una autorización ya concedida para esa acción y alcance sigue siendo válida; no extenderla a otros destinos ni cambios. Autorizar un merge no equivale por sí solo a autorizar un despliegue o una sincronización.
+
+Se permiten las consultas de lectura, la descarga para comparación, la documentación, los cambios locales autorizados y las validaciones locales que no escriban en Shopify. Revisar una programación existente no autoriza modificarla; estas reglas no ordenan desactivar las sincronizaciones que ya funcionan.
+
 ## Descripción del proyecto
 
 Theme de Shopify para Borgatta (tienda de insumos odontológicos), construido sobre el theme **Maestrooo "Warehouse"** (v2.3.1, ver `config/settings_schema.json`). Es un theme estándar Online Store 2.0 (templates JSON + sections/blocks), sin build step ni `package.json` — es Liquid/CSS/JS plano que se despliega directo con el Shopify CLI. Tiene una feature custom importante: un selector de variantes tipo odontograma (ver más abajo).
