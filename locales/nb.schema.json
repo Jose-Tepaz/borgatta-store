@@ -36,6 +36,8 @@
     "enabled": "Vis varsler",
     "info": "Vises bare på produktsider under prisen. Første samsvarende regel med tekst brukes. Tomme samlinger eller meldinger ignoreres.",
     "collection": "Samling",
+    "product": "Produkt",
+    "product_info": "Valgfritt. Når valgt, vises meldingen bare på dette produktet; kolleksjonen ignoreres.",
     "message": "Melding",
     "icon": "Ikon",
     "background": "Bakgrunnsfarge",
