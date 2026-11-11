@@ -18,128 +18,6 @@
         "liquid": "<script>\nvar url = \"https://borgattastore.myshopify.com/?contact_posted=true#contact_form\";\nvar LocationActual=window.location;\nconsole.log(LocationActual);\n\n\nif  (LocationActual == url) {\n//alert(\"correcto\");\n\nSwal.fire({\nicon: 'success',\nhtml: '<h4 class=\"title-2\">Factura solicitada correctamente<br><br> Te enviaremos tu factura en 3 días hábiless <br><br> Cualquier duda contacta a <a href=\"mailto:facturacion@borgatta.com.mx\"style=\"color: #426FCD;\">facturacion@borgatta.com.mx</a> </h4>',\nconfirmButtonColor:'#3792E6',               buttonsStyling: false,\ncustomClass: {\nconfirmButton: 'shopify-payment-button__button--unbranded',\npopup: 'popAlert',\n}\n})\n}else {\n\n\n}\n\n\n</script>"
       }
     },
-    "banner_grid_axpdqw": {
-      "type": "banner-grid",
-      "blocks": {
-        "celda_EzAPMt": {
-          "type": "celda",
-          "settings": {
-            "media_type": "image",
-            "image": "shopify://shop_images/NOVA.jpg",
-            "video_url": "",
-            "label": "",
-            "link": "",
-            "open_new_tab": false
-          }
-        },
-        "celda_EAQTHr": {
-          "type": "celda",
-          "settings": {
-            "media_type": "video",
-            "video": "shopify://files/videos/Splash 01-1 (1).mp4",
-            "video_url": "",
-            "label": "Ofertas -13%",
-            "link": "shopify://collections/amic",
-            "open_new_tab": false
-          }
-        },
-        "celda_MqQqgk": {
-          "type": "celda",
-          "settings": {
-            "media_type": "image",
-            "image": "shopify://shop_images/afb54a82c67f012a16f9b269b4376ccb97f3594e.jpg",
-            "video_url": "",
-            "label": "",
-            "link": "",
-            "open_new_tab": false
-          }
-        },
-        "celda_xRidek": {
-          "type": "celda",
-          "settings": {
-            "media_type": "video",
-            "image": "shopify://shop_images/e6422381b2fb7fe7f499c1328aa97ff2ef7f3246.png",
-            "video": "shopify://files/videos/loop Master Zirconia seg46 al 48.mp4",
-            "video_url": "",
-            "label": "",
-            "link": "",
-            "open_new_tab": false
-          }
-        },
-        "celda_kqwmLe": {
-          "type": "celda",
-          "settings": {
-            "media_type": "video",
-            "image": "shopify://shop_images/b0d5e530c9ca31f28705895a8882d4f4fe20d7c4.png",
-            "video": "shopify://files/videos/Pinzas 02-1.mp4",
-            "video_url": "",
-            "label": "",
-            "link": "",
-            "open_new_tab": false
-          }
-        },
-        "celda_y4QQgt": {
-          "type": "celda",
-          "settings": {
-            "media_type": "image",
-            "image": "shopify://shop_images/0e9d3d9446698763090f17716e9f7ebfd22e033c.jpg",
-            "video_url": "",
-            "label": "",
-            "link": "",
-            "open_new_tab": false
-          }
-        },
-        "celda_FKiy7C": {
-          "type": "celda",
-          "settings": {
-            "media_type": "video",
-            "image": "shopify://shop_images/17f1fd530355abcbab305ede113bc51549f64b1f.png",
-            "video": "shopify://files/videos/Impresora 04-1.mp4",
-            "video_url": "",
-            "label": "Kits OD",
-            "link": "shopify://pages/bundles-amic",
-            "open_new_tab": false
-          }
-        },
-        "celda_zL6N7h": {
-          "type": "celda",
-          "settings": {
-            "media_type": "image",
-            "image": "shopify://shop_images/d203a578138839a63e5fa5eb07609efa3cc38a3f.jpg",
-            "video_url": "",
-            "label": "",
-            "link": "",
-            "open_new_tab": false
-          }
-        }
-      },
-      "block_order": [
-        "celda_EzAPMt",
-        "celda_EAQTHr",
-        "celda_MqQqgk",
-        "celda_xRidek",
-        "celda_kqwmLe",
-        "celda_y4QQgt",
-        "celda_FKiy7C",
-        "celda_zL6N7h"
-      ],
-      "disabled": true,
-      "name": "Banner Cuadrícula",
-      "settings": {
-        "full_width": true,
-        "size_mode_desktop": "fixed",
-        "aspect_ratio_desktop": "1 / 1",
-        "height_desktop": 420,
-        "size_mode_mobile": "ratio",
-        "aspect_ratio_mobile": "1 / 1",
-        "height_mobile": 240,
-        "gap": 4,
-        "gap_mobile": 2,
-        "mobile_columns": "2",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
     "banner_slider_section_ntADpD": {
       "type": "banner-slider-section",
       "blocks": {
@@ -321,7 +199,6 @@
         "slide_BV6EDn",
         "slide_tcCm8w"
       ],
-      "disabled": true,
       "name": "Banner Slider",
       "settings": {
         "autoplay": true,
@@ -435,6 +312,7 @@
         "celda_FKiy7C",
         "celda_zL6N7h"
       ],
+      "disabled": true,
       "name": "Banner Cuadrícula",
       "settings": {
         "full_width": true,
@@ -616,54 +494,6 @@
     "collection_list_jt_9Jfkma": {
       "type": "collection-list-jt",
       "blocks": {
-        "collection_xTAYgE": {
-          "type": "collection",
-          "settings": {
-            "collection": "15-amic",
-            "custom_image": "shopify://shop_images/Ofertas_en_ortodoncia_2.png",
-            "custom_url": ""
-          }
-        },
-        "collection_iw3t6X": {
-          "type": "collection",
-          "settings": {
-            "collection": "5-amic",
-            "custom_image": "shopify://shop_images/Ofertas_en_odontologia_digital_v2.png",
-            "custom_url": ""
-          }
-        },
-        "collection_KfWdae": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "custom_image": "shopify://shop_images/Kits_Impresion_3D_v2.png",
-            "custom_url": "shopify://pages/bundles-amic"
-          }
-        },
-        "collection_htfAPj": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "custom_image": "shopify://shop_images/Kits_Fresado_v2.png",
-            "custom_url": "shopify://pages/combos"
-          }
-        },
-        "collection_PeDnUV": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "custom_image": "shopify://shop_images/Compra_5_1.png",
-            "custom_url": "shopify://pages/5-1"
-          }
-        },
-        "collection_rKLiFq": {
-          "type": "collection",
-          "settings": {
-            "collection": "discos-de-circonia-1-1",
-            "custom_image": "shopify://shop_images/Compra_1_1.png",
-            "custom_url": "shopify://products/disco-de-circonia-multicapa-sht-ml"
-          }
-        },
         "collection_dxN8mJ": {
           "type": "collection",
           "settings": {
@@ -795,12 +625,6 @@
         }
       },
       "block_order": [
-        "collection_xTAYgE",
-        "collection_iw3t6X",
-        "collection_KfWdae",
-        "collection_htfAPj",
-        "collection_PeDnUV",
-        "collection_rKLiFq",
         "collection_dxN8mJ",
         "collection_k3diWk",
         "collection_UVaTfE",
@@ -827,7 +651,6 @@
   },
   "order": [
     "a2c88842-8e45-4511-ab7e-ba1746b6a8dc",
-    "banner_grid_axpdqw",
     "banner_slider_section_ntADpD",
     "banner_grid_kryfCd",
     "slideshow_c3iYUP",
