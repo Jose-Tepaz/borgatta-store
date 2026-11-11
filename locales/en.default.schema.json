@@ -36,6 +36,8 @@
     "enabled": "Show notices",
     "info": "Shown only on product pages, below the price. The first matching rule with text is used. Empty collections or messages are ignored.",
     "collection": "Collection",
+    "product": "Product",
+    "product_info": "Optional. When selected, the notice only appears on this product; the collection is ignored.",
     "message": "Message",
     "icon": "Icon",
     "background": "Background color",

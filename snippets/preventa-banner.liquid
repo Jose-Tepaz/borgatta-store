@@ -1,22 +1,30 @@
 {%- comment -%}
-  Product-page notices configured in theme settings. First matching nonempty
-  collection/message rule wins. This is informational; it does not enable reservations.
+  Product-page notices configured in theme settings. A selected product takes
+  precedence over the collection. First matching nonempty message wins.
 {%- endcomment -%}
 {%- if template.name == 'product' and settings.collection_notice_enabled -%}
   {%- for notice_index in (1..10) -%}
     {%- assign notice_prefix = 'collection_notice_' | append: notice_index | append: '_' -%}
     {%- assign collection_key = notice_prefix | append: 'collection' -%}
+    {%- assign product_key = notice_prefix | append: 'product' -%}
+    {%- assign notice_product = settings[product_key] -%}
     {%- assign message_key = notice_prefix | append: 'message' -%}
     {%- assign notice_collection = settings[collection_key] -%}
     {%- assign notice_message = settings[message_key] | strip -%}
     {%- assign notice_matches = false -%}
-    {%- if notice_collection != blank and notice_message != blank -%}
-      {%- for product_collection in product.collections -%}
-        {%- if product_collection.handle == notice_collection.handle -%}
+    {%- if notice_message != blank -%}
+      {%- if notice_product != blank -%}
+        {%- if notice_product.id == product.id -%}
           {%- assign notice_matches = true -%}
-          {%- break -%}
         {%- endif -%}
-      {%- endfor -%}
+      {%- elsif notice_collection != blank -%}
+        {%- for product_collection in product.collections -%}
+          {%- if product_collection.handle == notice_collection.handle -%}
+            {%- assign notice_matches = true -%}
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
     {%- endif -%}
     {%- if notice_matches -%}
       {%- assign secondary_key = notice_prefix | append: 'secondary_message' -%}

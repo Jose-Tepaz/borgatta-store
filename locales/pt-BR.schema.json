@@ -36,6 +36,8 @@
     "enabled": "Mostrar avisos",
     "info": "Apenas nos detalhes do produto, abaixo do preço. A primeira regra correspondente com texto é usada. Coleções ou mensagens vazias são ignoradas.",
     "collection": "Coleção",
+    "product": "Produto",
+    "product_info": "Opcional. Quando selecionado, o aviso aparece apenas neste produto; a coleção é ignorada.",
     "message": "Mensagem",
     "icon": "Ícone",
     "background": "Cor de fundo",

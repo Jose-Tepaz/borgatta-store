@@ -941,6 +941,12 @@
       "label": "t:collection_notice.collection"
     },
     {
+      "type": "product",
+      "id": "collection_notice_1_product",
+      "label": "t:collection_notice.product",
+      "info": "t:collection_notice.product_info"
+    },
+    {
       "type": "textarea",
       "id": "collection_notice_1_message",
       "label": "t:collection_notice.message"
@@ -1012,6 +1018,12 @@
       "type": "collection",
       "id": "collection_notice_2_collection",
       "label": "t:collection_notice.collection"
+    },
+    {
+      "type": "product",
+      "id": "collection_notice_2_product",
+      "label": "t:collection_notice.product",
+      "info": "t:collection_notice.product_info"
     },
     {
       "type": "textarea",
@@ -1087,6 +1099,12 @@
       "label": "t:collection_notice.collection"
     },
     {
+      "type": "product",
+      "id": "collection_notice_3_product",
+      "label": "t:collection_notice.product",
+      "info": "t:collection_notice.product_info"
+    },
+    {
       "type": "textarea",
       "id": "collection_notice_3_message",
       "label": "t:collection_notice.message"
@@ -1158,6 +1176,12 @@
       "type": "collection",
       "id": "collection_notice_4_collection",
       "label": "t:collection_notice.collection"
+    },
+    {
+      "type": "product",
+      "id": "collection_notice_4_product",
+      "label": "t:collection_notice.product",
+      "info": "t:collection_notice.product_info"
     },
     {
       "type": "textarea",
@@ -1233,6 +1257,12 @@
       "label": "t:collection_notice.collection"
     },
     {
+      "type": "product",
+      "id": "collection_notice_5_product",
+      "label": "t:collection_notice.product",
+      "info": "t:collection_notice.product_info"
+    },
+    {
       "type": "textarea",
       "id": "collection_notice_5_message",
       "label": "t:collection_notice.message"
@@ -1304,6 +1334,12 @@
       "type": "collection",
       "id": "collection_notice_6_collection",
       "label": "t:collection_notice.collection"
+    },
+    {
+      "type": "product",
+      "id": "collection_notice_6_product",
+      "label": "t:collection_notice.product",
+      "info": "t:collection_notice.product_info"
     },
     {
       "type": "textarea",
@@ -1379,6 +1415,12 @@
       "label": "t:collection_notice.collection"
     },
     {
+      "type": "product",
+      "id": "collection_notice_7_product",
+      "label": "t:collection_notice.product",
+      "info": "t:collection_notice.product_info"
+    },
+    {
       "type": "textarea",
       "id": "collection_notice_7_message",
       "label": "t:collection_notice.message"
@@ -1450,6 +1492,12 @@
       "type": "collection",
       "id": "collection_notice_8_collection",
       "label": "t:collection_notice.collection"
+    },
+    {
+      "type": "product",
+      "id": "collection_notice_8_product",
+      "label": "t:collection_notice.product",
+      "info": "t:collection_notice.product_info"
     },
     {
       "type": "textarea",
@@ -1525,6 +1573,12 @@
       "label": "t:collection_notice.collection"
     },
     {
+      "type": "product",
+      "id": "collection_notice_9_product",
+      "label": "t:collection_notice.product",
+      "info": "t:collection_notice.product_info"
+    },
+    {
       "type": "textarea",
       "id": "collection_notice_9_message",
       "label": "t:collection_notice.message"
@@ -1596,6 +1650,12 @@
       "type": "collection",
       "id": "collection_notice_10_collection",
       "label": "t:collection_notice.collection"
+    },
+    {
+      "type": "product",
+      "id": "collection_notice_10_product",
+      "label": "t:collection_notice.product",
+      "info": "t:collection_notice.product_info"
     },
     {
       "type": "textarea",

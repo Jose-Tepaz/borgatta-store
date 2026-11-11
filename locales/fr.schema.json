@@ -36,6 +36,8 @@
     "enabled": "Afficher les avis",
     "info": "Uniquement sur les fiches produit, sous le prix. La première règle correspondante avec un message est utilisée. Les collections ou messages vides sont ignorés.",
     "collection": "Collection",
+    "product": "Produit",
+    "product_info": "Facultatif. Si un produit est sélectionné, l’avis apparaît uniquement sur ce produit ; la collection est ignorée.",
     "message": "Message",
     "icon": "Icône",
     "background": "Couleur de fond",
