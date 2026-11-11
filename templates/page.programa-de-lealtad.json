@@ -49,7 +49,6 @@
         },
         "joy_loyalty_program_customer_account_hKw7x8": {
           "type": "shopify://apps/joy-loyalty-program/blocks/customer-account/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
-          "disabled": false,
           "settings": {
             "joy-customer-account-available-point": "Puntos disponibles:",
             "joy-customer-account-expiration-point": "Vigencia:",
