@@ -103,7 +103,7 @@ IDs de referencia (verificar con `shopify theme list --store=borgattastore.mysho
 - Live: `152441258135` ("Copy of Borgatta V2.6.3 | PDF")
 - QA / preview: `189331931287` ("Development | Acueducto")
 
-1. **Sincronizar con el live antes de trabajar.** Al empezar una tarea, bajar el live a una carpeta temporal (`shopify theme pull --theme=<LIVE_ID> --path=<carpeta> --force`) y compararlo con `development` (`diff -rq`). Si hay diferencias, entran por un PR de sync aparte antes de seguir. Nunca mezclar un sync con una feature en el mismo PR.
+1. **Sincronizar con el live antes de trabajar.** Al empezar una tarea, bajar el live a una carpeta temporal (`shopify theme pull --theme=<LIVE_ID> --path=<carpeta> --force`) y compararlo con `development` (`diff -rq`). Si hay diferencias de código compartido, entran por un PR de sync aparte antes de seguir. Identificar y preservar las diferencias de configuración propias de cada theme según la regla de campañas de abajo. Nunca mezclar un sync con una feature en el mismo PR.
 2. **Siempre QA primero, live después.** Todo cambio se sube primero a un theme no publicado y se revisa en el preview. Nunca se salta ese paso, aunque el cambio parezca chico.
 3. **Verificar el rol del theme destino antes de cualquier push.** Usar `shopify theme list --json` y comprobar que el ID destino no sea `[live]`, salvo en una promoción acordada. Los IDs se parten en la tabla de texto: no copiarlos de ahí.
 4. **Nunca `theme push` del theme completo al live sin diff previo.** Bajar el live a una carpeta temporal y confirmar que solo difieren los archivos que se quieren subir. Si hay cualquier duda, usar `--only <archivos>`. Un push completo pisa las ediciones hechas desde el editor.
@@ -113,7 +113,17 @@ IDs de referencia (verificar con `shopify theme list --store=borgattastore.mysho
 8. **Archivos de riesgo alto.** `assets/theme.js`, `assets/custom.js` y `config/settings_data.json` se tocan solo con justificación explícita en el PR. Para el odontograma, leer antes `assets/odontograma-doc.md`.
 9. **Un cambio lógico por PR.** Así se puede revertir una sola cosa. Si un PR revierte algo de otro, decirlo explícitamente en la descripción.
 10. **Antes de `git push` o `gh pr`, verificar la cuenta con `gh auth status`** (debe estar activa `Jose-Tepaz`).
-11. **Después de subir al live, volver a bajarlo a una carpeta temporal y comparar** para confirmar que live y `development` quedaron iguales.
+11. **Después de subir al live, volver a bajarlo a una carpeta temporal y comparar** para confirmar que el código compartido enviado coincide con `development` y que live conserva su configuración aprobada; no exigir igualdad de configuraciones de campañas.
+
+### Código compartido y configuración de campañas
+
+- **Código nuevo o correcciones funcionales:** integrar por PR a `development`, validar en un theme no publicado y promover por `staging` → `main` con las autorizaciones y aprobaciones correspondientes. Distribuir el código a Development y producción cuando esté aprobado; mantener apagadas las funciones de campaña hasta su lanzamiento.
+- **Configuración de campaña:** encender badges/chips, seleccionar colecciones, cambiar banners o activar secciones ya existentes únicamente en el theme aislado de esa campaña, por ejemplo `Cyber Monday`. No copiar esos ajustes al theme live ni a Development general.
+- Se puede versionar y mergear una configuración de campaña como referencia, identificando su theme destino; **el merge no autoriza desplegarla en otros themes**. Al distribuir código compartido, conservar los valores propios del destino en `config/settings_data.json`, templates JSON y demás archivos que contengan configuración del editor. No hacer un push completo desde una configuración de campaña hacia otro theme.
+- Al comparar o sincronizar themes, separar diferencias de código compartido de diferencias de configuración deliberadas. No borrar ni propagar estas últimas para conseguir igualdad de archivos. Tras desplegar, comprobar el código enviado y que se conserva la configuración aprobada del destino.
+- Los descuentos y segmentos de clientes de Shopify son compartidos por la tienda: duplicar un theme no los aísla. Su activación, programación y whitelist requieren autorización independiente para ese alcance.
+
+Decisión confirmada por José el 2026-11-18. Procedimiento y ejemplos: [Themes compartidos y campañas](docs/themes-campanas.md). Skill local: [borgatta-themes](.agents/skills/borgatta-themes/SKILL.md).
 
 ## Arquitectura
 
