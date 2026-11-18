@@ -8,6 +8,7 @@
  * ------------------------------------------------------------
  */
 {
+  "collection_promo_title": "Titre de la carte (facultatif)",
   "fixed_discount_badge": {
     "heading": "Badge de remise fixe",
     "enabled": "Afficher le badge",

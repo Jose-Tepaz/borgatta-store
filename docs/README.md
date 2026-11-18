@@ -4,6 +4,8 @@ Base de conocimiento para ayudar con la operación de la tienda y el mantenimien
 
 ## Índice
 
+- [Home Cyber Monday](cyber-monday-home.md): cuadrícula de promociones y subpágina de bloques/pastillas.
+
 - [Themes compartidos y campañas](themes-campanas.md): promoción de código común y aislamiento de la configuración de cada campaña.
 
 - [Promociones finalizadas](promociones-finalizadas.md): páginas ocultas, badges apagados y estado de Joy y el aviso B-Silk.

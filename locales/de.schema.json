@@ -8,6 +8,7 @@
  * ------------------------------------------------------------
  */
 {
+  "collection_promo_title": "Kartentitel (optional)",
   "fixed_discount_badge": {
     "heading": "Fester Rabatt-Badge",
     "enabled": "Badge anzeigen",

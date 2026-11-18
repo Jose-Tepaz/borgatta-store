@@ -8,6 +8,7 @@
  * ------------------------------------------------------------
  */
 {
+  "collection_promo_title": "Korttittel (valgfritt)",
   "fixed_discount_badge": {
     "heading": "Merke for fast rabatt",
     "enabled": "Vis merke",
