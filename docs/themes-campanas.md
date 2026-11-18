@@ -38,7 +38,7 @@ La configuración del editor puede estar en `config/settings_data.json`, templat
 
 ## Pendientes
 
-- Crear y configurar el theme Cyber Monday en el trabajo de campaña; este documento no afirma que ya esté creado.
+- Theme Cyber Monday creado como no publicado; consultar [su implementación y pendientes](cyber-monday-theme.md).
 
 ## Decisiones e historial
 

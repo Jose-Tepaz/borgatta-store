@@ -9,6 +9,10 @@
  */
 {
   "fixed_discount_badge": {
+    "campaign": "Campagne (facultatif)",
+    "campaign_info": "Valeur exacte du champ Campagnes du produit. Remplace la condition de collection si renseignée.",
+    "label": "Texte du badge (facultatif)",
+    "label_info": "Par exemple : 5+1 ou 1+1. Laissez vide pour afficher le pourcentage configuré.",
     "heading": "Badge de remise fixe",
     "enabled": "Afficher le badge",
     "collection": "Collection",

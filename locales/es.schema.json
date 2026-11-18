@@ -9,6 +9,10 @@
  */
 {
   "fixed_discount_badge": {
+    "campaign": "Campaña (opcional)",
+    "campaign_info": "Valor exacto del campo Campañas del producto. Si se indica, reemplaza la condición de colección.",
+    "label": "Texto del chip (opcional)",
+    "label_info": "Por ejemplo: 5+1 o 1+1. Vacío: muestra el porcentaje configurado.",
     "heading": "Badge de descuento fijo",
     "enabled": "Mostrar badge",
     "collection": "Colección",

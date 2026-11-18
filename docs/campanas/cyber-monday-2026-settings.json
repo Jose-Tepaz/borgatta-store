@@ -1,0 +1,31 @@
+{
+  "theme_name": "Cyber Monday",
+  "theme_id": "190446436503",
+  "store": "borgattastore.myshopify.com",
+  "scope": "Referencia de configuración; aplicar solo a este theme, nunca al live ni a Development general.",
+  "current_settings_override": {
+    "collection_discount_enabled": true,
+    "fixed_discount_collection": "cyber-monday-2026",
+    "fixed_discount_percentage": 20,
+    "fixed_discount_collection_2": "bloques-de-disilicato-5-1",
+    "fixed_discount_percentage_2": 1,
+    "collection_notice_1_collection": "discos-de-circonia-1-1",
+    "collection_notice_2_collection": "bloques-de-disilicato-5-1",
+    "collection_notice_3_collection": "pastillas-de-disilicato-5-1",
+    "fixed_discount_collection_3": "pastillas-de-disilicato-5-1",
+    "fixed_discount_collection_4": "discos-de-circonia-1-1",
+    "fixed_discount_collection_5": "",
+    "fixed_discount_collection_6": "",
+    "fixed_discount_collection_7": "",
+    "fixed_discount_collection_8": "",
+    "fixed_discount_collection_9": "",
+    "fixed_discount_collection_10": "",
+    "fixed_discount_label": "-20%",
+    "fixed_discount_label_2": "5+1",
+    "fixed_discount_percentage_3": 1,
+    "fixed_discount_label_3": "5+1",
+    "fixed_discount_percentage_4": 1,
+    "fixed_discount_label_4": "1+1",
+    "fixed_discount_campaign": "cyber-monday-2026"
+  }
+}

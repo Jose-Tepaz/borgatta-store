@@ -4,31 +4,44 @@
   Promotional label only: does not change prices or apply discounts.
 {%- endcomment -%}
 {%- if settings.collection_discount_enabled -%}
-  {%- assign badge_percentage = 0 -%}
+  {%- assign badge_label = '' -%}
   {%- for rule_index in (1..10) -%}
     {%- assign collection_key = 'fixed_discount_collection' -%}
     {%- assign percentage_key = 'fixed_discount_percentage' -%}
+    {%- assign label_key = 'fixed_discount_label' -%}
+    {%- assign campaign_key = 'fixed_discount_campaign' -%}
     {%- assign background_key = 'fixed_discount_background' -%}
     {%- assign text_key = 'fixed_discount_text' -%}
     {%- if rule_index > 1 -%}
       {%- assign collection_key = collection_key | append: '_' | append: rule_index -%}
       {%- assign percentage_key = percentage_key | append: '_' | append: rule_index -%}
+      {%- assign label_key = label_key | append: '_' | append: rule_index -%}
+      {%- assign campaign_key = campaign_key | append: '_' | append: rule_index -%}
       {%- assign background_key = background_key | append: '_' | append: rule_index -%}
       {%- assign text_key = text_key | append: '_' | append: rule_index -%}
     {%- endif -%}
     {%- assign rule_collection = settings[collection_key] -%}
+    {%- assign rule_campaign = settings[campaign_key] | strip -%}
     {%- assign rule_percentage = settings[percentage_key] | default: 0 -%}
-    {%- if rule_collection != blank and rule_percentage > 0 -%}
+    {%- assign rule_label = settings[label_key] | strip -%}
+    {%- if rule_label == blank and rule_percentage > 0 -%}
+      {%- assign rule_label = rule_percentage | prepend: '-' | append: '%' -%}
+    {%- endif -%}
+    {%- if rule_campaign != blank and rule_label != blank -%}
+      {%- if product.metafields.borgatta_campaigns.campanas.value contains rule_campaign -%}
+        {%- assign badge_label = rule_label -%}
+      {%- endif -%}
+    {%- elsif rule_collection != blank and rule_label != blank -%}
       {%- for badge_collection in product.collections -%}
         {%- if badge_collection.handle == rule_collection.handle -%}
-          {%- assign badge_percentage = rule_percentage -%}
+          {%- assign badge_label = rule_label -%}
           {%- break -%}
         {%- endif -%}
       {%- endfor -%}
     {%- endif -%}
-    {%- if badge_percentage > 0 -%}{%- break -%}{%- endif -%}
+    {%- if badge_label != blank -%}{%- break -%}{%- endif -%}
   {%- endfor -%}
-  {%- if badge_percentage > 0 -%}
-    <p class="{{ badge_class | escape }}" style="background-color: {{ settings[background_key] | default: '#e18a38' | escape }}; color: {{ settings[text_key] | default: '#ffffff' | escape }};">-{{ badge_percentage }}%</p>
+  {%- if badge_label != blank -%}
+    <p class="{{ badge_class | escape }}" style="background-color: {{ settings[background_key] | default: '#e18a38' | escape }}; color: {{ settings[text_key] | default: '#ffffff' | escape }};">{{ badge_label | escape }}</p>
   {%- endif -%}
 {%- endif -%}
