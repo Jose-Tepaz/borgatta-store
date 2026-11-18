@@ -4,6 +4,8 @@ Base de conocimiento para ayudar con la operación de la tienda y el mantenimien
 
 ## Índice
 
+- [Themes compartidos y campañas](themes-campanas.md): promoción de código común y aislamiento de la configuración de cada campaña.
+
 - [Promociones finalizadas](promociones-finalizadas.md): páginas ocultas, badges apagados y estado de Joy y el aviso B-Silk.
 - [Ticket Cyber Monday](ticket-cyber-monday.md): alcance de Acueducto, dependencias de Borgatta y criterios de aceptación; creado en Linear como JTS-1296.
 - [Contexto de la tienda](contexto-tienda.md): información confirmada y temas por documentar.
