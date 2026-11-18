@@ -1,0 +1,57 @@
+{
+  "sections": {
+    "card_list_cmiHUR": {
+      "type": "card-list",
+      "blocks": {
+        "kit_card_pP4HA3": {
+          "type": "kit_card",
+          "settings": {
+            "image": "shopify://shop_images/Frame_7148-1.png",
+            "video": "",
+            "tag_text": "5+1",
+            "card_title": "5+1 en pastillas de disilicato de litio",
+            "card_description": "Lleva 6 cajas de pastillas de disilicato de litio y la de menor precio es gratis.",
+            "button_label": "Ver productos participantes",
+            "card_url": "shopify://collections/pastillas-de-disilicato-5-1",
+            "full_card_link": true
+          }
+        },
+        "kit_card_fdVri4": {
+          "type": "kit_card",
+          "settings": {
+            "image": "shopify://shop_images/Frame_7148_8b5d0a94-c0a8-4907-ae1c-ecb804ca0d9a.png",
+            "video": "",
+            "tag_text": "5+1",
+            "card_title": "5+1 en bloques de disilicato de litio",
+            "card_description": "Lleva 6 cajas de bloques de disilicato de litio y la de menor precio es gratis.",
+            "button_label": "Ver productos participantes",
+            "card_url": "shopify://collections/bloques-de-disilicato-5-1",
+            "full_card_link": true
+          }
+        }
+      },
+      "block_order": [
+        "kit_card_pP4HA3",
+        "kit_card_fdVri4"
+      ],
+      "name": "Kits Grid",
+      "settings": {
+        "section_title": "Elige tu promoción 5+1",
+        "title_color": "#111111",
+        "columns_desktop": "2",
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "media_sizing": "original",
+        "media_height": 320,
+        "card_background": "#ffffff",
+        "card_border_radius": 16,
+        "heading_color": "#111111",
+        "description_color": "#555555",
+        "button_color": "#111111"
+      }
+    }
+  },
+  "order": [
+    "card_list_cmiHUR"
+  ]
+}
