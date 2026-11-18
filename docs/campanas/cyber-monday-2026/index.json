@@ -242,14 +242,73 @@
             "link": "/collections/all?view=cyber-5-1",
             "open_new_tab": false
           }
+        },
+        "cyberBrackets": {
+          "type": "celda",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/70-100-1.png",
+            "video_url": "",
+            "label": "Brackets y tubos",
+            "link": "/collections/brackets-y-tubos",
+            "open_new_tab": false
+          }
+        },
+        "cyberHigiene": {
+          "type": "celda",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/300-800-ID-MOSAICO.png",
+            "video_url": "",
+            "label": "Higiene",
+            "link": "/collections/higiene",
+            "open_new_tab": false
+          }
+        },
+        "cyberPiezas": {
+          "type": "celda",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/KIT-FIT-LUX2400px.jpg",
+            "video_url": "",
+            "label": "Piezas de mano",
+            "link": "/collections/piezas-de-mano",
+            "open_new_tab": false
+          }
+        },
+        "cyberElasticos": {
+          "type": "celda",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/80400-1.png",
+            "video_url": "",
+            "label": "Elásticos",
+            "link": "/collections/elasticos",
+            "open_new_tab": false
+          }
+        },
+        "cyberInstrumentos": {
+          "type": "celda",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/BOR-1016-P.png",
+            "video_url": "",
+            "label": "Pinzas e instrumentos",
+            "link": "/collections/pinzas-e-instrumentos",
+            "open_new_tab": false
+          }
         }
       },
       "block_order": [
         "cyber20",
         "cyber11",
-        "cyber51"
+        "cyber51",
+        "cyberBrackets",
+        "cyberHigiene",
+        "cyberPiezas",
+        "cyberElasticos",
+        "cyberInstrumentos"
       ],
-      "disabled": false,
       "name": "Banner Cuadrícula",
       "settings": {
         "full_width": false,
@@ -261,13 +320,10 @@
         "height_mobile": 240,
         "gap": 4,
         "gap_mobile": 2,
-        "mobile_columns": "1",
+        "mobile_columns": "2",
         "padding_top": 24,
         "padding_bottom": 24
-      },
-      "custom_css": [
-        "@media (min-width: 1025px) {.banner-cuadricula__grid {grid-template-columns: repeat(3, minmax(0, 1fr));}}"
-      ]
+      }
     },
     "slideshow_c3iYUP": {
       "type": "slideshow",
@@ -562,9 +618,39 @@
             "collection": "accesorios-para-brackets",
             "custom_url": ""
           }
+        },
+        "promo20": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "custom_image": "shopify://shop_images/80400-1.png",
+            "custom_url": "/collections/cyber-monday-2026",
+            "custom_title": "20% de descuento"
+          }
+        },
+        "promo11": {
+          "type": "collection",
+          "settings": {
+            "collection": "discos-de-circonia-1-1",
+            "custom_image": "shopify://shop_images/F2IM3-6.png",
+            "custom_url": "/collections/discos-de-circonia-1-1",
+            "custom_title": "1+1 en discos"
+          }
+        },
+        "promo51": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "custom_image": "shopify://shop_images/F2IM3-5.png",
+            "custom_url": "/collections/all?view=cyber-5-1",
+            "custom_title": "Promociones 5+1"
+          }
         }
       },
       "block_order": [
+        "promo20",
+        "promo11",
+        "promo51",
         "collection_dxN8mJ",
         "collection_k3diWk",
         "collection_UVaTfE",

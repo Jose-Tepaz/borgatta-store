@@ -8,6 +8,7 @@
  * ------------------------------------------------------------
  */
 {
+  "collection_promo_title": "Título do cartão (opcional)",
   "fixed_discount_badge": {
     "heading": "Selo de desconto fixo",
     "enabled": "Mostrar selo",

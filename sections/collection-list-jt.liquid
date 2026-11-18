@@ -9,18 +9,18 @@
     {% for block in section.blocks %}
       {% assign collection = block.settings.collection %}
       {% if collection %}
-        <div class="wrapp-collection-home">
+        <div class="wrapp-collection-home{% if block.settings.custom_title != blank %} has-promo-title{% endif %}">
            <!-- Verificar si se ha proporcionado una URL personalizada -->
           <a href="{% if block.settings.custom_url != blank %}{{ block.settings.custom_url }}{% else %}{{ collection.url }}{% endif %}">
              
             <div class="wrap-img">
               {% if block.settings.custom_image != blank %}
               <!-- Mostrar la imagen personalizada si está seleccionada -->
-               <img class="img-collection-home" src="{{ block.settings.custom_image | img_url: 'master' }}" alt="{{ collection.title }}" />
+               <img class="img-collection-home" src="{{ block.settings.custom_image | img_url: 'master' }}" alt="{{ block.settings.custom_title | default: collection.title | escape }}" />
             {% else %}
               <!-- Mostrar la imagen de la colección si no hay personalizada -->
               {% if collection.image %}
-                <img  class="img-collection-home" src="{{ collection.image.src | img_url: 'master' }}" alt="{{ collection.title }}" />
+                <img  class="img-collection-home" src="{{ collection.image.src | img_url: 'master' }}" alt="{{ block.settings.custom_title | default: collection.title | escape }}" />
               {% else %}
                 <!-- Si ninguna imagen está disponible, mostrar una imagen por defecto -->
                 <img src="URL_DE_IMAGEN_POR_DEFECTO" alt="Imagen por defecto" />
@@ -30,6 +30,9 @@
              
             </div>
          
+            {% if block.settings.custom_title != blank %}
+              <span class="collection-home-promo-title">{{ block.settings.custom_title | escape }}</span>
+            {% endif %}
           </a>
          
               
@@ -42,6 +45,10 @@
 </section>
 
 <style>
+  .list-collection-home .has-promo-title a {position: relative; display: block; overflow: hidden; border-radius: 20px;}
+  .has-promo-title .wrap-img {aspect-ratio: 16 / 9;}
+  .has-promo-title .img-collection-home {height: 100%; object-fit: cover;}
+  .collection-home-promo-title {position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; color: #fff; background: linear-gradient(transparent, rgba(0,0,0,.8)); font-size: clamp(22px, 3vw, 40px); line-height: 1.2; font-weight: 600;}
   .header-title-component-collection{
     margin-top: 48px;
     margin-bottom: 16px;
@@ -78,6 +85,11 @@
           "type": "url",
           "id": "custom_url",
           "label": "URL personalizada"
+        },
+        {
+          "type": "text",
+          "id": "custom_title",
+          "label": "t:collection_promo_title"
         }
       ]
     }

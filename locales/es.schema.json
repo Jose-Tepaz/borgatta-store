@@ -8,6 +8,7 @@
  * ------------------------------------------------------------
  */
 {
+  "collection_promo_title": "Título de tarjeta (opcional)",
   "fixed_discount_badge": {
     "heading": "Badge de descuento fijo",
     "enabled": "Mostrar badge",
