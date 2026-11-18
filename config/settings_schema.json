@@ -616,6 +616,18 @@
       "unit": "%",
       "default": 13
     },
+    {
+      "type": "text",
+      "id": "fixed_discount_label",
+      "label": "t:fixed_discount_badge.label",
+      "info": "t:fixed_discount_badge.label_info"
+    },
+    {
+      "type": "text",
+      "id": "fixed_discount_campaign",
+      "label": "t:fixed_discount_badge.campaign",
+      "info": "t:fixed_discount_badge.campaign_info"
+    },
       {
         "type": "color",
         "id": "fixed_discount_background",
@@ -647,6 +659,18 @@
       "step": 1,
       "unit": "%",
       "default": 13
+    },
+    {
+      "type": "text",
+      "id": "fixed_discount_label_2",
+      "label": "t:fixed_discount_badge.label",
+      "info": "t:fixed_discount_badge.label_info"
+    },
+    {
+      "type": "text",
+      "id": "fixed_discount_campaign_2",
+      "label": "t:fixed_discount_badge.campaign",
+      "info": "t:fixed_discount_badge.campaign_info"
     },
       {
         "type": "color",
@@ -680,6 +704,18 @@
       "unit": "%",
       "default": 13
     },
+    {
+      "type": "text",
+      "id": "fixed_discount_label_3",
+      "label": "t:fixed_discount_badge.label",
+      "info": "t:fixed_discount_badge.label_info"
+    },
+    {
+      "type": "text",
+      "id": "fixed_discount_campaign_3",
+      "label": "t:fixed_discount_badge.campaign",
+      "info": "t:fixed_discount_badge.campaign_info"
+    },
       {
         "type": "color",
         "id": "fixed_discount_background_3",
@@ -711,6 +747,18 @@
       "step": 1,
       "unit": "%",
       "default": 13
+    },
+    {
+      "type": "text",
+      "id": "fixed_discount_label_4",
+      "label": "t:fixed_discount_badge.label",
+      "info": "t:fixed_discount_badge.label_info"
+    },
+    {
+      "type": "text",
+      "id": "fixed_discount_campaign_4",
+      "label": "t:fixed_discount_badge.campaign",
+      "info": "t:fixed_discount_badge.campaign_info"
     },
       {
         "type": "color",
@@ -744,6 +792,18 @@
       "unit": "%",
       "default": 13
     },
+    {
+      "type": "text",
+      "id": "fixed_discount_label_5",
+      "label": "t:fixed_discount_badge.label",
+      "info": "t:fixed_discount_badge.label_info"
+    },
+    {
+      "type": "text",
+      "id": "fixed_discount_campaign_5",
+      "label": "t:fixed_discount_badge.campaign",
+      "info": "t:fixed_discount_badge.campaign_info"
+    },
       {
         "type": "color",
         "id": "fixed_discount_background_5",
@@ -775,6 +835,18 @@
       "step": 1,
       "unit": "%",
       "default": 13
+    },
+    {
+      "type": "text",
+      "id": "fixed_discount_label_6",
+      "label": "t:fixed_discount_badge.label",
+      "info": "t:fixed_discount_badge.label_info"
+    },
+    {
+      "type": "text",
+      "id": "fixed_discount_campaign_6",
+      "label": "t:fixed_discount_badge.campaign",
+      "info": "t:fixed_discount_badge.campaign_info"
     },
       {
         "type": "color",
@@ -808,6 +880,18 @@
       "unit": "%",
       "default": 13
     },
+    {
+      "type": "text",
+      "id": "fixed_discount_label_7",
+      "label": "t:fixed_discount_badge.label",
+      "info": "t:fixed_discount_badge.label_info"
+    },
+    {
+      "type": "text",
+      "id": "fixed_discount_campaign_7",
+      "label": "t:fixed_discount_badge.campaign",
+      "info": "t:fixed_discount_badge.campaign_info"
+    },
       {
         "type": "color",
         "id": "fixed_discount_background_7",
@@ -839,6 +923,18 @@
       "step": 1,
       "unit": "%",
       "default": 13
+    },
+    {
+      "type": "text",
+      "id": "fixed_discount_label_8",
+      "label": "t:fixed_discount_badge.label",
+      "info": "t:fixed_discount_badge.label_info"
+    },
+    {
+      "type": "text",
+      "id": "fixed_discount_campaign_8",
+      "label": "t:fixed_discount_badge.campaign",
+      "info": "t:fixed_discount_badge.campaign_info"
     },
       {
         "type": "color",
@@ -872,6 +968,18 @@
       "unit": "%",
       "default": 13
     },
+    {
+      "type": "text",
+      "id": "fixed_discount_label_9",
+      "label": "t:fixed_discount_badge.label",
+      "info": "t:fixed_discount_badge.label_info"
+    },
+    {
+      "type": "text",
+      "id": "fixed_discount_campaign_9",
+      "label": "t:fixed_discount_badge.campaign",
+      "info": "t:fixed_discount_badge.campaign_info"
+    },
       {
         "type": "color",
         "id": "fixed_discount_background_9",
@@ -903,6 +1011,18 @@
       "step": 1,
       "unit": "%",
       "default": 13
+    },
+    {
+      "type": "text",
+      "id": "fixed_discount_label_10",
+      "label": "t:fixed_discount_badge.label",
+      "info": "t:fixed_discount_badge.label_info"
+    },
+    {
+      "type": "text",
+      "id": "fixed_discount_campaign_10",
+      "label": "t:fixed_discount_badge.campaign",
+      "info": "t:fixed_discount_badge.campaign_info"
     },
       {
         "type": "color",

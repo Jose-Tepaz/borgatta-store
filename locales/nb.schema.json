@@ -9,6 +9,10 @@
  */
 {
   "fixed_discount_badge": {
+    "campaign": "Kampanje (valgfritt)",
+    "campaign_info": "Nøyaktig verdi i produktets kampanjefelt. Erstatter samlingsvilkåret når angitt.",
+    "label": "Merketekst (valgfritt)",
+    "label_info": "For eksempel: 5+1 eller 1+1. La stå tomt for å vise den angitte prosenten.",
     "heading": "Merke for fast rabatt",
     "enabled": "Vis merke",
     "collection": "Samling",

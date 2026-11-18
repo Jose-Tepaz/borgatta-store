@@ -4,6 +4,8 @@ Base de conocimiento para ayudar con la operación de la tienda y el mantenimien
 
 ## Índice
 
+- [Theme Cyber Monday 2026](cyber-monday-theme.md): preview, chips y configuración exclusiva de campaña.
+
 - [Themes compartidos y campañas](themes-campanas.md): promoción de código común y aislamiento de la configuración de cada campaña.
 
 - [Promociones finalizadas](promociones-finalizadas.md): páginas ocultas, badges apagados y estado de Joy y el aviso B-Silk.
