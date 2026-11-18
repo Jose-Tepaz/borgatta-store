@@ -11,7 +11,7 @@ Activar solo en Cyber Monday `190446436503` una cuadrícula completa con 20%, 1+
 
 ## Reglas y contexto
 
-- Home: sección existente banner-grid, ocho tarjetas: 20%, 1+1, 5+1, brackets, higiene, piezas de mano, elásticos e instrumentos; cuatro columnas en escritorio (dos filas) y dos en móvil. Se conserva el resto del home.
+- Home: sección existente banner-grid, ocho tarjetas: 20%, 1+1, 5+1, brackets, higiene, piezas de mano, elásticos e instrumentos; cuatro columnas en escritorio (dos filas) y dos en móvil. Slider oculto; cuadrícula a ancho completo y sin padding vertical. Se conserva el resto del home.
 - 20% enlaza a `/collections/cyber-monday-2026`. Imagen de producto existente, sin reutilizar artes de 15% o 5%.
 - 1+1 enlaza a `/collections/discos-de-circonia-1-1`.
 - 5+1 enlaza a `/collections/all?view=cyber-5-1`. La plantilla alternativa solo está subida al theme Cyber Monday y reutiliza card-list para ofrecer pastillas y bloques, con enlaces a sus colecciones.

@@ -205,7 +205,8 @@
         "autoplay_speed": 4500,
         "transition": "fade",
         "height": "medium"
-      }
+      },
+      "disabled": true
     },
     "banner_grid_kryfCd": {
       "type": "banner-grid",
@@ -311,7 +312,7 @@
       ],
       "name": "Banner Cuadrícula",
       "settings": {
-        "full_width": false,
+        "full_width": true,
         "size_mode_desktop": "fixed",
         "aspect_ratio_desktop": "1 / 1",
         "height_desktop": 380,
@@ -321,8 +322,8 @@
         "gap": 4,
         "gap_mobile": 2,
         "mobile_columns": "2",
-        "padding_top": 24,
-        "padding_bottom": 24
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "slideshow_c3iYUP": {
