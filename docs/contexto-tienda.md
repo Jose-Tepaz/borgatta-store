@@ -1,13 +1,14 @@
 # Contexto de la tienda
 
 Estado: parcial; pendiente de completar con el usuario.
-Última actualización: 2026-11-08.
-Fuentes: instrucciones del repositorio (`AGENTS.md`) y explicación del usuario sobre el catálogo. Los datos operativos pueden cambiar y deben verificarse antes de usarlos para ejecutar acciones.
+Última actualización: 2026-11-13.
+Fuentes: instrucciones del repositorio (`AGENTS.md`), explicación del usuario sobre el catálogo y confirmación del usuario sobre Shopify Plus (2026-11-13). Los datos operativos pueden cambiar y deben verificarse antes de usarlos para ejecutar acciones.
 
 ## Información registrada
 
 - Negocio: Borgatta, tienda de insumos odontológicos.
 - Plataforma: Shopify.
+- Plan: **Shopify Plus**, confirmado por el usuario el 2026-11-13. Tenerlo presente al evaluar funcionalidades y personalizaciones del checkout; no asumir las restricciones de los planes sin Plus. Esta confirmación no implica que haya una app o extensión de checkout instalada ni autoriza cambios en Shopify.
 - Dominio de administración de referencia: `borgattastore.myshopify.com`.
 - Idioma principal del storefront: español.
 - Este repositorio contiene el theme y la documentación general de la tienda.
