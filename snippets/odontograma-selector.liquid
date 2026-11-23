@@ -234,6 +234,14 @@
         {%- endif -%}
 
         {%- assign icon_url = v.metafields.custom.icono_de_variante.value -%}
+        {%- comment -%}
+          Sin metafield, usa el SVG compartido de la pieza (Settings > Files:
+          11.svg ... 47.svg). El metafield queda como override por producto.
+        {%- endcomment -%}
+        {%- if icon_url == blank -%}
+          {%- assign icon_file = tooth | append: '.svg' -%}
+          {%- assign icon_url = icon_file | file_url -%}
+        {%- endif -%}
         {%- capture swatch_id -%}{{ option_name }}-{{ tooth }}{%- endcapture -%}
 
         <div class="block-swatch tooth"
@@ -299,7 +307,9 @@
                      style="--r: {{ coords[0] }}; --c: {{ coords[1] }};">
                   <span class="tooth__label" title="Pieza {{ t }} · no disponible para este producto">
                     <span class="tooth__num">{{ t }}</span>
-                    <svg class="tooth__icon" viewBox="0 0 100 110" aria-hidden="true"><use href="#{{ shape }}"/></svg>
+                    {%- comment -%} Diente punteado de la pieza: assets/odontograma-off-<pieza>.svg {%- endcomment -%}
+                    {%- assign off_file = 'odontograma-off-' | append: t | append: '.svg' -%}
+                    <img class="tooth__icon" src="{{ off_file | asset_url }}" width="90" height="90" alt="" loading="lazy">
                   </span>
                 </div>
               {%- endunless -%}
