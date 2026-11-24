@@ -37,6 +37,20 @@ Pedir revisar, analizar, preparar o corregir código local no autoriza un envío
 
 Se permiten las consultas de lectura, la descarga para comparación, la documentación, los cambios locales autorizados y las validaciones locales que no escriban en Shopify. Revisar una programación existente no autoriza modificarla; estas reglas no ordenan desactivar las sincronizaciones que ya funcionan.
 
+## Acceso a la Admin API de Shopify
+
+Para leer datos de la tienda (descuentos, segmentos, clientes, productos, pedidos) se usa `shopify store execute --store borgattastore.myshopify.com --query '...'`. Las mutaciones solo corren con `--allow-mutations`.
+
+Scopes autorizados el 2026-11-24: `read_discounts`, `read_customers`, `read_products`, `write_products`, `read_orders`, `read_price_rules`, `read_themes`, `read_content`, `write_content`, `read_markets`, `read_inventory`. No hay escritura para descuentos, clientes, pedidos, inventario ni themes.
+
+Si una consulta da `ACCESS_DENIED` por falta de scope, o la sesión expiró, José repite el login (con el prefijo `!` en Claude Code) pidiendo **todos** los scopes juntos:
+
+```bash
+shopify store auth --store borgattastore.myshopify.com --scopes read_discounts,read_customers,read_products,write_products,read_orders,read_price_rules,read_themes,read_content,write_content,read_markets,read_inventory
+```
+
+Tener un scope no autoriza la acción: cada escritura sigue necesitando autorización explícita de José, según las restricciones de arriba. No copiar datos de clientes ni tokens al repo. Detalle, reglas de productos y páginas, y la verificación de la whitelist de Cyber Monday: [Acceso a la Admin API](docs/acceso-admin-api.md).
+
 ## Descripción del proyecto
 
 Theme de Shopify para Borgatta (tienda de insumos odontológicos), construido sobre el theme **Maestrooo "Warehouse"** (v2.3.1, ver `config/settings_schema.json`). Es un theme estándar Online Store 2.0 (templates JSON + sections/blocks), sin build step ni `package.json` — es Liquid/CSS/JS plano que se despliega directo con el Shopify CLI. Tiene una feature custom importante: un selector de variantes tipo odontograma (ver más abajo).
