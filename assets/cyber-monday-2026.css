@@ -1,0 +1,20 @@
+.cyber-banner{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px;background:#c8c8c8;width:100%}
+.cyber-banner__cell{position:relative;aspect-ratio:360/422;overflow:hidden;background:#111}
+.cyber-banner__media{width:100%;height:100%;object-fit:cover;display:block}
+.cyber-banner__link{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;padding:24px;color:#fff;font-size:clamp(22px,2.5vw,40px);font-weight:500;line-height:1.2;text-decoration:none}
+.cyber-banner__link:hover{color:#fff}
+.cyber-banner__arrow{display:flex;align-items:center;justify-content:center;flex:0 0 48px;height:48px;border-radius:24px;background:#fff;box-shadow:0 4px 2px #0004}
+.cyber-banner__arrow img{display:block;width:24px;height:24px}
+.cyber-banner__cell--dark-arrow .cyber-banner__arrow{background:#161c1f}
+.cyber-banner__link:focus-visible,.cyber-promo-card a:focus-visible{outline:3px solid #00a63e;outline-offset:-4px}
+.list-collection-home .cyber-promo-card{position:relative;overflow:hidden;border-radius:22px;background:#111;box-shadow:none}
+.list-collection-home .cyber-promo-card a{position:relative;display:block;aspect-ratio:596/422;text-align:left;color:#fff;font-weight:500;line-height:1.2}
+.cyber-promo-card__image{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain}
+.cyber-promo-card--gradient a:before{content:'';position:absolute;inset:0;background:linear-gradient(transparent,#0006);z-index:1;pointer-events:none}
+.cyber-promo-card__badge{position:absolute;top:24px;left:24px;padding:4px 8px;border-radius:24px;background:#00a63e;color:#fff;font-size:14px;line-height:1.5;letter-spacing:.28px;z-index:2}
+.cyber-promo-card__copy{position:absolute;left:24px;right:24px;bottom:24px;display:flex;flex-direction:column;gap:2px;z-index:2}
+.cyber-promo-card__title{font-size:clamp(24px,3.34vw,40px);line-height:1.2;font-weight:500}
+.cyber-promo-card__subtitle{font-size:18px;line-height:1.5;letter-spacing:.36px;color:#c8c8c8;font-weight:400}
+@media(max-width:1000px){.cyber-banner{grid-template-columns:repeat(2,minmax(0,1fr))}.cyber-banner__link{font-size:32px}}
+@media(max-width:600px){.cyber-banner__link{padding:12px;gap:8px;font-size:22px}.cyber-banner__arrow{flex-basis:36px;height:36px}.cyber-promo-card__copy{left:18px;right:18px;bottom:18px}.cyber-promo-card__badge{top:18px;left:18px}.cyber-promo-card__title{font-size:28px}.cyber-promo-card__subtitle{font-size:16px}}
+@media(prefers-reduced-motion:reduce){.cyber-banner__media{animation:none}}

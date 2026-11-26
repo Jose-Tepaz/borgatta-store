@@ -62,5 +62,10 @@
     "secondary_message": "Sekundærtekst",
     "secondary_message_info": "Valgfritt. Vises under hovedmeldingen.",
     "secondary_color": "Farge på sekundærtekst"
-  }
+  },
+  "cyber_monday": {
+    "enable_cards": "Vis Cyber Monday-kort",
+    "pliers_video": "Video av tenger (MP4)"
+  },
+  "collection_promo_title": "Korttittel (valgfritt)"
 }

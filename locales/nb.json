@@ -540,5 +540,16 @@
     "month_day_year": "%B %d, %Y",
     "short_month_day_year": "%b %d, %Y",
     "month_day_year_time": "%B %d, %Y at %H:%M%P"
+  },
+  "cyber_monday": {
+    "enable_cards": "Vis Cyber Monday-kort",
+    "pliers_video": "Video av tenger (MP4)",
+    "offer": "Tilbud -20%",
+    "five": "Kjøp 5+1",
+    "one": "Kjøp 1+1",
+    "store_offers": "Tilbud i nettbutikken",
+    "date": "30. november 2026",
+    "ingots_blocks": "Litiumdisilikat-ingoter og blokker",
+    "discs": "Zirkoniaskiver"
   }
 }

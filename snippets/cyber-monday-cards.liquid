@@ -1,0 +1,28 @@
+{{ 'cyber-monday-2026.css' | asset_url | stylesheet_tag }}
+{% assign promo_keys = 'store_offers,five,one' | split: ',' %}
+{% for promo_key in promo_keys %}
+  {% liquid
+    case forloop.index
+      when 1
+        assign image = 'cyber-2026-5821-9511.jpg'
+        assign destination = '/collections/cyber-monday-2026'
+        assign subtitle = 'cyber_monday.date' | t
+      when 2
+        assign image = 'cyber-2026-5825-10212.jpg'
+        assign destination = '/collections/all?view=cyber-5-1'
+        assign subtitle = 'cyber_monday.ingots_blocks' | t
+      when 3
+        assign image = 'cyber-2026-5821-9537.jpg'
+        assign destination = '/collections/discos-de-circonia-1-1'
+        assign subtitle = 'cyber_monday.discs' | t
+    endcase
+    assign title_key = 'cyber_monday.' | append: promo_key
+  %}
+  <div class="wrapp-collection-home cyber-promo-card{% if forloop.index == 2 %} cyber-promo-card--gradient{% endif %}">
+    <a href="{{ destination }}">
+      <img class="cyber-promo-card__image" src="{{ image | asset_url }}" alt="" width="596" height="422" loading="lazy">
+      {% if forloop.first %}<span class="cyber-promo-card__badge">-20%</span>{% endif %}
+      <span class="cyber-promo-card__copy"><span class="cyber-promo-card__title">{{ title_key | t }}</span><span class="cyber-promo-card__subtitle">{{ subtitle }}</span></span>
+    </a>
+  </div>
+{% endfor %}

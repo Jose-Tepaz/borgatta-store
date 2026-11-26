@@ -498,5 +498,16 @@
     "month_day_year": "%B %d, %Y",
     "short_month_day_year": "%b %d, %Y",
     "month_day_year_time": "%B %d, %Y at %H:%M%P"
+  },
+  "cyber_monday": {
+    "enable_cards": "Mostrar cartões Cyber Monday",
+    "pliers_video": "Vídeo de alicates (MP4)",
+    "offer": "Ofertas -20%",
+    "five": "Compre 5+1",
+    "one": "Compre 1+1",
+    "store_offers": "Ofertas na loja online",
+    "date": "30 de novembro de 2026",
+    "ingots_blocks": "Pastilhas e blocos de dissilicato de lítio",
+    "discs": "Discos de zircônia"
   }
 }
