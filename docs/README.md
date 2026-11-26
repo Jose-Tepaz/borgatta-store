@@ -5,7 +5,7 @@ Base de conocimiento para ayudar con la operación de la tienda y el mantenimien
 ## Índice
 
 - [Acceso a la Admin API](acceso-admin-api.md): scopes autorizados, cómo reautorizar el CLI y reglas de uso; incluye la verificación de la whitelist de Cyber Monday.
-
+- [Material gráfico Cyber Monday](cyber-monday-ui.md): implementación local de banner y portadas de PRO-2514, archivos de subida y video pendiente.
 - [Themes compartidos y campañas](themes-campanas.md): promoción de código común y aislamiento de la configuración de cada campaña.
 
 - [Promociones finalizadas](promociones-finalizadas.md): páginas ocultas, badges apagados y estado de Joy y el aviso B-Silk.
