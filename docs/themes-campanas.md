@@ -1,8 +1,8 @@
 # Código compartido y configuración de campañas en Shopify
 
 Estado: confirmado.
-Última actualización: 2026-11-18.
-Fuente: decisión de José en este chat del 18 de noviembre de 2026.
+Última actualización: 2026-11-26.
+Fuente: decisiones de José en este chat del 18 y del 26 de noviembre de 2026.
 Responsable: pendiente de confirmar.
 
 ## Objetivo y alcance
@@ -30,6 +30,25 @@ La configuración del editor puede estar en `config/settings_data.json`, templat
 5. Ejecutar Theme Check sin incidencias nuevas y revisar visualmente la implementación en el preview correspondiente. La aceptación formal de QA corresponde al equipo de QA.
 6. Al distribuir código compartido, preparar un diff limitado que preserve la configuración del destino y comprobar el resultado después del envío.
 
+## Código exclusivo de una campaña
+
+Decisión de José, 2026-11-26. No se usa una rama permanente de campaña que nunca se mergee: la configuración vive en el theme de Shopify, no en Git, y una rama así se desviaría de `development` y aumentaría el riesgo de un push completo que pise live.
+
+| Qué es | Dónde va |
+| --- | --- |
+| Código reutilizable y apagado por defecto | PR a `development` y luego al live |
+| Configuración de campaña | Solo en el theme de campaña; copia de referencia en `docs/campanas/` |
+| Código que solo sirve a una campaña | Opción 1 o 2, según el caso |
+
+1. **Hacerlo configurable.** Enlaces, textos y medios son ajustes de la sección, sin valores fijos. Sirve cuando la pieza se repetirá y puede vivir en `development`.
+2. **Rama temporal.** Se crea desde `development` con un PR en borrador que no se mergea, se sube solo al theme de campaña y se borra al terminar. Sirve para una pieza de un solo uso.
+
+Antecedente: en Cyber Monday 2026 el banner se mergeó con enlaces fijos a colecciones de campaña y 2.7 MB de medios, y se subió al live apagado (PR #49). No rompe nada, pero queda código y peso de campaña en producción.
+
+### Limpieza posterior a la campaña
+
+Pendiente de decidir para Cyber Monday 2026: eliminar del live la sección, el snippet, el CSS y los medios de campaña, o conservarlos como plantilla. Hasta decidirlo, siguen en live apagados y sin uso. Cualquier borrado en Shopify requiere autorización explícita.
+
 ## Excepciones y validación
 
 - Producción puede recibir una capacidad nueva con su interruptor apagado; no debe recibir la activación de otra campaña como efecto de un push completo.
@@ -42,6 +61,7 @@ La configuración del editor puede estar en `config/settings_data.json`, templat
 
 ## Decisiones e historial
 
+- 2026-11-26: José confirmó no usar una rama permanente de campaña y adoptar el criterio de la sección «Código exclusivo de una campaña».
 - 2026-11-18: José confirmó separar distribución de código de activación de campaña. Para Cyber Monday, los chips 20%, 5+1 y 1+1 deben activarse en el theme de campaña, conservando el estado del live y Development general.
 
 ## Referencias
