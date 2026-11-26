@@ -540,5 +540,16 @@
     "month_day_year": "%Y年%B%d日",
     "short_month_day_year": "%Y年%B%d日",
     "month_day_year_time": "%Y年%B%d日　%l時%M分"
+  },
+  "cyber_monday": {
+    "enable_cards": "サイバーマンデーカードを表示",
+    "pliers_video": "プライヤーの動画（MP4）",
+    "offer": "20%オフ",
+    "five": "5個購入で1個無料",
+    "one": "1個購入で1個無料",
+    "store_offers": "オンラインストアのセール",
+    "date": "2026年11月30日",
+    "ingots_blocks": "二ケイ酸リチウムのインゴットとブロック",
+    "discs": "ジルコニアディスク"
   }
 }

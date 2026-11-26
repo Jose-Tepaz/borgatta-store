@@ -541,5 +541,16 @@
     "month_day_year": "%d %B %Y",
     "short_month_day_year": "%d/%B/%Y",
     "month_day_year_time": "%d %B %Y à %I:%M"
+  },
+  "cyber_monday": {
+    "enable_cards": "Afficher les cartes Cyber Monday",
+    "pliers_video": "Vidéo des pinces (MP4)",
+    "offer": "Offres -20%",
+    "five": "Achetez 5+1",
+    "one": "Achetez 1+1",
+    "store_offers": "Offres en boutique en ligne",
+    "date": "30 novembre 2026",
+    "ingots_blocks": "Lingotins et blocs de disilicate de lithium",
+    "discs": "Disques de zircone"
   }
 }
