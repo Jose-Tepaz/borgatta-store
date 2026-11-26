@@ -540,5 +540,16 @@
     "month_day_year": "%B %d, %Y",
     "short_month_day_year": "%b %d, %Y",
     "month_day_year_time": "%B %d, %Y at %H:%M%P"
+  },
+  "cyber_monday": {
+    "enable_cards": "Show Cyber Monday cards",
+    "pliers_video": "Pliers video (MP4)",
+    "offer": "Offers -20%",
+    "five": "Buy 5+1",
+    "one": "Buy 1+1",
+    "store_offers": "Online store offers",
+    "date": "November 30, 2026",
+    "ingots_blocks": "Lithium disilicate ingots and blocks",
+    "discs": "Zirconia discs"
   }
 }

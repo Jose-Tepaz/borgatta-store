@@ -242,13 +242,11 @@
 
 /* ── "na": no existe variante. Sin input, no interactivo. ── */
 .odo .tooth--empty .tooth__label{ cursor: default; }
-.odo .tooth--empty .tooth__num{ color: var(--c-ghost); }
-.odo .tooth--empty .tooth__icon{
-  fill: none;
-  stroke: var(--c-ghost);
-  stroke-dasharray: 7 7;
-  stroke-width: 5;
-}
+/* Fondo gris neutro: gana sobre data-tone (plain/molar) por orden en el archivo */
+.odo .tooth--empty[data-state="na"]{ background: #E8E8E8; }
+.odo .tooth--empty .tooth__num{ color: #B5B5B5; }
+/* El diente punteado es un <img> (assets/odontograma-off-*.svg), ya trae su
+   trazo gris: no necesita fill/stroke por CSS. */
 
 /* ── Leyenda y utilidades ── */
 .odo__legend{
@@ -261,7 +259,7 @@
   display: inline-block; vertical-align: -2px;
 }
 .odo__key[data-state="out"]{ background: #eef2f7; border: 1.5px solid var(--c-muted); }
-.odo__key[data-state="na"]{ border: 1.5px dashed var(--c-ghost); }
+.odo__key[data-state="na"]{ background: #E8E8E8; border: 1.5px dashed #C8C8C8; }
 
 .odo__sr{
   position: absolute; width: 1px; height: 1px; overflow: hidden;

@@ -1,0 +1,54 @@
+{{ 'cyber-monday-2026.css' | asset_url | stylesheet_tag }}
+<div class="cyber-banner" id="cyber-banner-{{ section.id }}">
+  {% assign images = 'imgF2Im3,imgF2Im4,imgF2Im5,imgF2Im6,imgF2Im7,imgF2Im8,imgF2Im9,imgF2Im10' | split: ',' %}
+  {% for image in images %}
+    {% liquid
+      assign destination = ''
+      assign label = ''
+      assign arrow = 'cyber-2026-imgHeroiconsSolidArrowUpRight1.svg'
+      case forloop.index
+        when 2
+          assign destination = '/collections/cyber-monday-2026'
+          assign label = 'cyber_monday.offer' | t
+          assign arrow = 'cyber-2026-imgHeroiconsSolidArrowUpRight.svg'
+        when 4
+          assign destination = '/collections/all?view=cyber-5-1'
+          assign label = 'cyber_monday.five' | t
+        when 7
+          assign destination = '/collections/discos-de-circonia-1-1'
+          assign label = 'cyber_monday.one' | t
+      endcase
+      assign poster = 'cyber-2026-' | append: image | append: '.jpg'
+    %}
+    <div class="cyber-banner__cell{% if forloop.index == 2 %} cyber-banner__cell--dark-arrow{% endif %}">
+      {% if forloop.index == 2 %}
+        <video class="cyber-banner__media" autoplay muted loop playsinline preload="metadata" poster="{{ poster | asset_url }}" aria-hidden="true">
+          <source src="{{ 'cyber-2026-ofertas.mp4' | asset_url }}" type="video/mp4">
+        </video>
+      {% elsif forloop.index == 8 %}
+        <video class="cyber-banner__media" autoplay muted loop playsinline preload="metadata" poster="{{ poster | asset_url }}" aria-hidden="true">
+          {% if section.settings.pliers_video_url != blank %}
+            <source src="{{ section.settings.pliers_video_url | escape }}" type="video/mp4">
+          {% else %}
+            <source src="{{ 'cyber-2026-pinzas.mp4' | asset_url }}" type="video/mp4">
+          {% endif %}
+        </video>
+      {% else %}
+        <img class="cyber-banner__media" src="{{ poster | asset_url }}" alt="" width="600" height="704" {% if forloop.index > 4 %}loading="lazy"{% endif %}>
+      {% endif %}
+      {% if destination != blank %}
+        <a class="cyber-banner__link" href="{{ destination }}">
+          <span>{{ label }}</span>
+          <span class="cyber-banner__arrow" aria-hidden="true"><img src="{{ arrow | asset_url }}" width="24" height="24" alt=""></span>
+        </a>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+{% schema %}
+{
+  "name": "Cyber Monday",
+  "settings": [{"type":"url","id":"pliers_video_url","label":"t:cyber_monday.pliers_video"}],
+  "presets": [{"name":"Cyber Monday"}]
+}
+{% endschema %}

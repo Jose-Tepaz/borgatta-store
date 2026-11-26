@@ -66,5 +66,10 @@
     "secondary_message": "補足テキスト",
     "secondary_message_info": "任意。メインメッセージの下に表示します。",
     "secondary_color": "補足テキストの色"
-  }
+  },
+  "cyber_monday": {
+    "enable_cards": "サイバーマンデーカードを表示",
+    "pliers_video": "プライヤーの動画（MP4）"
+  },
+  "collection_promo_title": "カードのタイトル（任意）"
 }

@@ -66,5 +66,10 @@
     "secondary_message": "Texto secundario",
     "secondary_message_info": "Opcional. Se muestra debajo del mensaje principal.",
     "secondary_color": "Color del texto secundario"
-  }
+  },
+  "cyber_monday": {
+    "enable_cards": "Mostrar tarjetas Cyber Monday",
+    "pliers_video": "Video de pinzas (MP4)"
+  },
+  "collection_promo_title": "Título de tarjeta (opcional)"
 }

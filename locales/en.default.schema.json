@@ -66,5 +66,10 @@
     "secondary_message": "Secondary text",
     "secondary_message_info": "Optional. Appears below the main message.",
     "secondary_color": "Secondary text color"
-  }
+  },
+  "cyber_monday": {
+    "enable_cards": "Show Cyber Monday cards",
+    "pliers_video": "Pliers video (MP4)"
+  },
+  "collection_promo_title": "Card title (optional)"
 }

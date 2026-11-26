@@ -520,5 +520,16 @@
         }
       }
     }
+  },
+  "cyber_monday": {
+    "enable_cards": "Mostrar tarjetas Cyber Monday",
+    "pliers_video": "Video de pinzas (MP4)",
+    "offer": "Ofertas -20%",
+    "five": "Compra 5+1",
+    "one": "Compra 1+1",
+    "store_offers": "Ofertas en tienda en línea",
+    "date": "30 de noviembre del 2026",
+    "ingots_blocks": "Pastillas y bloques de disilicato de litio",
+    "discs": "Discos de circonia"
   }
 }

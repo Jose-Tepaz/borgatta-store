@@ -540,5 +540,16 @@
     "month_day_year": "%B %d, %Y",
     "short_month_day_year": "%b %d, %Y",
     "month_day_year_time": "%B %d, %Y at %H:%M%P"
+  },
+  "cyber_monday": {
+    "enable_cards": "Cyber-Monday-Karten anzeigen",
+    "pliers_video": "Zangenvideo (MP4)",
+    "offer": "Angebote -20%",
+    "five": "Kaufe 5+1",
+    "one": "Kaufe 1+1",
+    "store_offers": "Angebote im Onlineshop",
+    "date": "30. November 2026",
+    "ingots_blocks": "Lithiumdisilikat-Pressrohlinge und -Blöcke",
+    "discs": "Zirkonoxid-Scheiben"
   }
 }
