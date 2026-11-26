@@ -1,12 +1,14 @@
 # Gestión del catálogo: Excel, Plytix y Shopify
 
 Estado: flujo general confirmado por el usuario; detalles técnicos pendientes.
-Última actualización: 2026-11-08.
+Última actualización: 2026-11-26.
 Fuentes: explicación del usuario en esta conversación y consulta de lectura del archivo enlazado. La configuración de Plytix se revisó en su interfaz; ver [Revisión de Plytix](plytix.md) para evidencias y límites.
 
 ## Flujo general
 
 Cliente carga y organiza productos en el archivo de catálogo → actualización automática diaria en Plytix → distribución diaria a Shopify → venta en Shopify.
+
+Excepción: los brackets de pieza suelta (productos con odontograma) no pasan por Plytix. Se cargan directo en Shopify desde su propio excel; ver [Brackets pieza suelta](brackets-pieza-suelta.md).
 
 ## Archivo de catálogo
 
