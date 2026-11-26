@@ -13,6 +13,7 @@ Base de conocimiento para ayudar con la operación de la tienda y el mantenimien
 - [Ticket Cyber Monday](ticket-cyber-monday.md): alcance de Acueducto, dependencias de Borgatta y criterios de aceptación; creado en Linear como JTS-1296.
 - [Contexto de la tienda](contexto-tienda.md): información confirmada y temas por documentar.
 - [Gestión del catálogo](gestion-catalogo.md): flujo Excel → Plytix → Shopify, lista global y canal principal.
+- [Brackets pieza suelta](brackets-pieza-suelta.md): alta directa en Shopify (sin Plytix) de los productos del odontograma, mapeo del excel de carga y validación.
 - [Revisión de Plytix](plytix.md): feed diario, lista principal, canal, mapeo y advertencias observadas.
 - [Análisis del catálogo](analisis-catalogo.md): pestañas, campos, fórmulas verificadas y hallazgos de la consulta del archivo.
 - [Plantilla de documento](plantilla.md): formato para registrar procesos, reglas y decisiones.
