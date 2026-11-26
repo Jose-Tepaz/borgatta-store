@@ -9,6 +9,10 @@
  */
 {
   "fixed_discount_badge": {
+    "campaign": "Campanha (opcional)",
+    "campaign_info": "Valor exato do campo Campanhas do produto. Quando preenchido, substitui a condição de coleção.",
+    "label": "Texto do selo (opcional)",
+    "label_info": "Por exemplo: 5+1 ou 1+1. Deixe vazio para mostrar a porcentagem configurada.",
     "heading": "Selo de desconto fixo",
     "enabled": "Mostrar selo",
     "collection": "Coleção",
